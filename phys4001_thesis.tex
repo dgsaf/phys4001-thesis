@@ -2,6 +2,7 @@
 
 % - style template
 \usepackage{base}
+\RequirePackage[color=pink]{todonotes}
 
 % - Title
 \gdef\theassessment{PHYS4001 - Thesis}
@@ -9,9 +10,9 @@
 \gdef\theinstitution{Curtin University}
 \gdef\thestudentid{1834 2884}
 
-\title{Total Ionisation-with-Excitation Cross-Sections for Electron-Impact
-  Helium Collisions within the S-Wave Model}
-\author{Tom Ross}
+\title{Ionisation-with-Excitation Calculations for Electron-Impact Helium
+  Collisions within the S-Wave Model}
+\author{Thomas Ross}
 \date{\today}
 
 % - headers
@@ -24,8 +25,26 @@
 \cfoot{}
 \lfoot{}
 
-%
+% - section labelling
 \setcounter{secnumdepth}{3}
+
+\def\frontmatter{%
+    \pagenumbering{roman}
+    \setcounter{page}{1}
+    \renewcommand{\thesection}{\Roman{section}}
+}%
+
+\def\mainmatter{%
+    \pagenumbering{arabic}
+    \setcounter{page}{1}
+    \setcounter{section}{0}
+    \renewcommand{\thesection}{\arabic{section}}
+}%
+
+\def\backmatter{%
+    \setcounter{section}{0}
+    \renewcommand{\thesection}{\Alph{section}}
+}%
 
 % - document
 \begin{document}
@@ -38,90 +57,143 @@
   \end{flushleft}
   \hrule
   \begin{center}
-    {\huge\thetitle}
-    \\
-    \rule[1.0pt]{8.5cm}{0.4pt}
-    \\
-    {\large \theauthor, supervised by \thesupervisor}
+    {\huge{\thetitle}\par}
+    {\rule[1.0pt]{8.5cm}{0.4pt}\par}
+    {\Large{\theauthor}\par}
+    {\Large{Supervised by \thesupervisor}\par}
   \end{center}
   \hrule
+  \vspace*{\fill}
   \begin{center}
-    ABSTRACT
+    \todo[inline]{Write abstract.}
   \end{center}
 \end{titlepage}
 
 \clearpage
 
-% contents page
+\frontmatter
 
-\tableofcontents
+\section*{Declaration}
 
-\listoffigures
+\todo[inline]{Write declaration.}
 
-% \listoftables
+\section*{Acknowledgements}
 
-% statement
+\todo[inline]{Write acknowledgements.}
 
 \clearpage
 
+\tableofcontents
+
+\clearpage
+
+\listoffigures
+
+\clearpage
+
+\listoftables
+
+\clearpage
+
+\section*{List of Abbreviations}
+
+\begin{itemize}
+\item[TCS:] total cross section
+\item[SDCS:] single-differential cross section
+\item[DDCS:] double-differential cross section
+\item[TDCS:] triple-differential cross section
+\item[TICS:] total ionisation cross section
+\item[CCC:] convergent close-coupling
+\item[CCC($N$):] convergent close-coupling calculation performed with $N$
+  one-electron basis states
+\item[CCC($C, N$):] convergent close-coupling calculation performed with $C$ core
+  states and $N$ one-electron basis states
+\item[CCC($C, N, \lambda$):] convergent close-coupling calculation performed with
+  $C$ core states, and $N$ one-electron basis states with exponential fall-off
+  parameter $\lambda$
+\item[ECS:] exterior complex scaling
+\item[PECS:] propagating exterior complex scaling
+\end{itemize}
+
+\clearpage
+
+\mainmatter
+
 \section{Introduction}
-\label{sec:introduction}
+\label{sec:in}
+
+\subsection{Electron-Impact Helium Scattering Processes}
+\label{sec:in-proc}
+
+\subsection{Experimental Review}
+\label{sec:in-exp}
+
+\subsection{Theoretical Review}
+\label{sec:in-th}
 
 \section{Theory}
-\label{sec:theory}
+\label{sec:th}
 
 \subsection{Convergent Close-Coupling Method for an Atomic Target}
-\label{sec:ccc-method}
+\label{sec:th-ccc}
 
 \subsubsection{Laguerre Basis}
-\label{sec:laguerre-basis}
+\label{sec:th-ccc-lag}
 
 \subsubsection{Target States}
-\label{sec:target-states}
+\label{sec:th-ccc-target}
 
 \subsubsection{Total Wavefunction}
-\label{sec:total-wavefunction}
+\label{sec:th-ccc-total}
 
 \subsubsection{Convergent Close-Coupling Equations}
-\label{sec:ccc-equations}
+\label{sec:th-ccc-eq}
 
 \subsection{Scattering Statistics}
-\label{sec:scat-statistics}
+\label{sec:th-ccc-stat}
 
 \subsubsection{Scattering Amplitudes}
-\label{sec:scat-amplitudes}
+\label{sec:th-ccc-amp}
 
 \subsubsection{Ionisation Cross-Sections}
-\label{sec:ion-cross-sections}
+\label{sec:th-ccc-ion}
 
 \subsection{Considerations for a Helium Target}
-\label{sec:he-target}
+\label{sec:th-he}
 
 \subsubsection{Partially Frozen-Core Model}
-\label{sec:frozen-core-model}
+\label{sec:th-he-frozen}
 
 \subsubsection{Auto-Ionising Target States}
-\label{sec:auto-ion-states}
+\label{sec:th-he-auto}
 
 \section{Results}
-\label{sec:results}
+\label{sec:re}
 
 \subsection{Computational Hindrances}
-\label{sec:computational-hindrances}
+\label{sec:re-comp}
 
 \subsubsection{Attaining Multi-Parameter Convergence}
-\label{sec:attaining-convergence}
+\label{sec:re-comp-multi}
 
 \subsubsection{Target State Fidelity}
-\label{sec:target-state-fidelity}
+\label{sec:re-comp-target}
 
 \subsubsection{Handling Interference from Auto-Ionising Target States}
-\label{sec:handling-auto-ion-states}
+\label{sec:re-comp-auto}
 
-\subsection{Total Ionisation-with-Excitation Cross-Sections}
-\label{sec:tiecs}
+\subsection{Total Ionisation Cross-Sections}
+\label{sec:re-tics}
 
 \section{Conclusion}
-\label{sec:conclusion}
+\label{sec:co}
+
+\clearpage
+
+\bibliography{references}
+
+\clearpage
+
+\listoftodos
 
 \end{document}
