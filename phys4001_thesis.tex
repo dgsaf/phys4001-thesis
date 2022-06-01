@@ -129,7 +129,123 @@
 
 \todo[inline]{Describe elastic, excitation and ionisation scattering processes.}
 
+The impact of an electron projectile on a Helium target can lead to a number of
+different scattering processes:
+\begin{alignat*}{4}
+  &
+  \mathrm{e}^{-}
+  +
+  \mathrm{He}
+  &
+  {}\to{}
+  &
+  \mathrm{e}^{-}
+  +
+  \mathrm{He}
+  &
+  \quad\quad
+  &
+  \text{(elastic)}
+  \\
+  &
+  &
+  {}\to{}
+  &
+  \mathrm{e}^{-}
+  +
+  \mathrm{He}^{'}
+  &
+  &
+  \text{(single-excitation)}
+  \\
+  &
+  &
+  {}\to{}
+  &
+  \mathrm{e}^{-}
+  +
+  \mathrm{He}^{''}
+  &
+  &
+  \text{(double-excitation)}
+  \\
+  &
+  &
+  {}\to{}
+  &
+  2
+  \mathrm{e}^{-}
+  +
+  \mathrm{He}^{+}
+  &
+  &
+  \text{(ionisation-without-excitation)}
+  \\
+  &
+  &
+  {}\to{}
+  &
+  2
+  \mathrm{e}^{-}
+  +
+  \mathrm{He}^{+'}
+  &
+  &
+  \text{(ionisation-with-excitation)}
+  \\
+  &
+  &
+  {}\to{}
+  &
+  3
+  \mathrm{e}^{-}
+  +
+  \mathrm{He}^{++}
+  &
+  &
+  \text{(double-ionisation / breakup)}
+  .
+\end{alignat*}
+
 \todo[inline]{Describe auto-ionisation process for excited Helium.}
+
+Helium also exhibits the phenomena of auto-ionisation, in which a doubly-excited
+Helium state may spontaneously eject one electron:
+\begin{alignat*}{4}
+  &
+  \mathrm{He}^{''}
+  &
+  {}\to{}
+  &
+  \mathrm{e}^{-}
+  +
+  \mathrm{He}^{+}
+  &
+  \quad\quad
+  &
+  \text{(auto-ionisation-without-excitation)}
+  \\
+  &
+  &
+  {}\to{}
+  &
+  \mathrm{e}^{-}
+  +
+  \mathrm{He}^{+'}
+  &
+  \quad\quad
+  &
+  \text{(auto-ionisation-with-excitation)}
+  .
+\end{alignat*}
+The resulting Helium ion may be in the ground state or an excited state,
+subject to the constraint of energy conservation.
+The interference between the discrete, doubly-excited states of Helium and the
+unbounded, continuum states of the auto-ionised system is non-trivial and has
+significant consequences for the double-excitation scattering process.
+
+\todo[inline]{Reference Fano regarding auto-ionisation.}
+
 
 \todo[inline]{Describe atomic term symbols (in context of Helium), and discuss
   Helium states.}
@@ -158,29 +274,1976 @@
 \section{Theory}
 \label{sec:th}
 
+We shall present a brief derivation of the Convergent Close-Coupling (CCC)
+method for generalised electron-projectile atomic/ionic-target scattering,
+similar in form to the derivations presented in \cite{BRAY19951, AJP_BRAY1996}.
+The specific considerations for the application of the CCC method to the case of
+electron-impact helium (e-He) scattering is discussed in \autoref{sec:th-he}.
+We shall focus on the treatment of target ionisation, both with and without
+excitation, by consideration of the ionisation amplitudes within the CCC method.
+
 \subsection{Convergent Close-Coupling Method for an Atomic Target}
 \label{sec:th-ccc}
+
+In brief, the CCC method utilises the method of basis expansion to numerically
+solve the Lippmann-Schwinger equation in a momentum-space representation, for a
+projectile-target system, to yield the transition amplitudes, which are checked
+for convergence as the size of the basis is increased.
+The scattering statistics can then be extracted from the transistion amplitudes.
+
+The rate of convergence, depends on many factors, such as the complexity of the
+target structure, the coupling between transition channels, and the choice of
+basis used in the expansion.
+With the selection of an appropriate basis, the unbounded continuum waves can be
+represented (to a sufficient accuracy) by a finite number of basis states, which
+allows ionisation amplitudes to be treated in a similar manner to discrete
+excitation amplitudes within the CCC method.
+A Laguerre basis is well-suited to this task; the benefits of this basis are
+discussed in further detail in \cite[5-9]{BRAY19951}.
 
 \subsubsection{Laguerre Basis}
 \label{sec:th-ccc-lag}
 
+To describe the target structure, the CCC method utilises a Laguerre basis
+$\lrset{\ket{\varphi_{i}}}_{i = 1}^{\infty}$ for the Hilbert space
+$L^{2}\lr{\real^{3}}$, for which the coordinate-space representation is of the
+form
+\begin{equation}
+  \label{eq:laguerre-basis}
+  \bra{\vb{r}}
+  \ket{\varphi_{i}}
+  =
+  \varphi_{i}\lr{r, \Omega}
+  =
+  \tfrac{1}{r}
+  \xi_{k_{i}, l{i}}\lr{r}
+  Y_{l_{i}}^{m_{i}}\lr{\Omega}
+  ,
+\end{equation}
+where $Y_{l_{i}}^{m_{i}}\lr{\Omega}$ are the spherical harmonics, and where
+$\xi_{k_{i}, l_{i}}\lr{r}$ are the Laguerre radial basis functions, which are of
+the form
+\begin{equation}
+  \label{eq:laguerre-radial-basis}
+  \xi_{k, l}\lr{r}
+  =
+  \sqrt
+  {
+    \dfrac
+    {
+      \lambda_{l}
+      \lr{k - 1}!
+    }
+    {
+      \lr{2l + 1 + k}!
+    }
+  }
+  \lr{\lambda_{l} r}^{l + 1}
+  \exponential\lr[\big]{- \tfrac{1}{2} \lambda_{l} r}
+  L_{k - 1}^{2l + 2}\lr{\lambda_{l} r}
+  ,
+\end{equation}
+where $\lambda_{l}$ is the exponential fall-off, for each $l$, and where
+$L_{k - 1}^{2l + 2}\lr{\lambda_{l} r}$ are the associated Laguerre polynomials.
+Note that we must have that
+$k_{i} \in \lrset{1, 2, \dotsc}$,
+$l_{i} \in \lrset{0, 1, \dotsc}$ and
+$m_{i} \in \lrset{-\ell_{i}, \dotsc, \ell_{i}}$, for each
+$i \in \lrset{1, 2, \dotsc}$.
+
+This Laguerre basis is utilised due to: the Laguerre basis functions
+$\lrset{\varphi_{i}\lr{r, \Omega}}_{i = 1}^{\infty}$ forming a complete basis
+for the Hilbert space $L^{2}\lr{\real^{3}}$, the short-range and long-range
+behaviour of the radial basis functions being well suited to describing bound
+target states and providing a basis for expanding continuum states in, and
+because it allows the matrix representation of numerous operators to be
+calculated analytically.
+
+Practically, we cannot utilise a basis of infinite size.
+Hence, we truncate the Laguerre radial basis
+$\lrset{\xi_{k, l}\lr{r}}_{k = 1}^{N_{l}}$ to a certain number of radial basis
+functions $N_{l}$, for each $l$, and we also truncate
+$l \in \lrset{0, \dotsc, l_{\max}}$,
+limiting the maximum angular momentum we consider in our basis.
+Hence, for a given value of $m$, we have a basis size of
+\begin{equation}
+  \label{eq:basis-size}
+  N
+  =
+  \sum_{l = 0}^{l_{\max}}
+  N_{l}
+  .
+\end{equation}
+In the limit as $N \to \infty$, the truncated basis will tend towards
+completeness, and it is in this limit that we discuss the convergence of the
+Convergent Close-Coupling method.
+We have presented the Laguerre basis with full generality, however we note that
+in the S-wave model we have $l_{\max} = 0$, which allows for the simplification
+of numerous expressions and computations.
+
 \subsubsection{Target States}
 \label{sec:th-ccc-target}
+
+Possessing now a suitable basis to work with, we proceed to represent the
+target in this basis by the method of basis expansion.
+Firstly, we note that electrons are indistinguishable fermionic particles; that
+is, no two electrons can be distinguished from each other, and they must satisfy
+Pauli's exclusion principle - that an electron state cannot be occupied by more
+than one electron.
+Since electrons are indistinguishable, we might naively suppose that the space
+of states consisting of $n$ electrons is simply the $n$-th tensor power of the
+one-electron space, $T^{n}\lr{\mathcal{H}}$, defined by
+\begin{equation}
+  \label{eq:tensor-power}
+  T^{n}\lr{\mathcal{H}}
+  =
+  \lrset
+  {
+    \ket{\psi_{1}}
+    \otimes
+    \dots
+    \otimes
+    \ket{\psi_{n}}
+    :
+    \ket{\psi_{1}},
+    \dotsc,
+    \ket{\psi_{n}}
+    \in \mathcal{H}
+  }
+  ,
+\end{equation}
+where $\mathcal{H}$ is the space of one-electron states.
+However this fails to account for Pauli's exclusion principle, since any
+one-electron state may be occupied up to $n$ times.
+Hence, the space of states consisting of $n$ electrons is instead defined to be
+the quotient space $\Lambda^{n}\lr{\mathcal{H}}$ of $T^{n}\lr{\mathcal{H}}$ by
+$\mathcal{D}^{n}$,
+\begin{equation}
+  \label{eq:exterior-power}
+  \Lambda^{n}\lr{\mathcal{H}}
+  =
+  T^{n}\lr{\mathcal{H}}
+  /
+  \mathcal{D}^{n}
+  ,
+\end{equation}
+where $\mathcal{D}^{n} \subset T^{n}\lr{\mathcal{H}}$ is the subspace of tensor
+products which contain any one-electron state more than once.
+The space $\Lambda^{n}\lr{\mathcal{H}}$ is known as the $n$-th exterior power of
+$\mathcal{H}$, and is identifiable as the subspace of $T^{n}\lr{\mathcal{H}}$
+consisting of anti-symmetric tensors.
+Note that we shall adopt the following notation for tensor products
+\begin{equation}
+  \label{eq:tensor-product-notation}
+  \ket{\psi_{1}, \dotsc, \psi_{n}}
+  =
+  \ket{\psi_{1}}
+  \otimes
+  \dots
+  \otimes
+  \ket{\psi_{n}}
+\end{equation}
+and the following notation for anti-symmetric tensor products
+\begin{equation}
+  \label{eq:anti-symmetric-tensor-product-notation}
+  \ket{\lrsq{\psi_{1}, \dotsc, \psi_{n}}}
+  =
+  \ket{\psi_{\lrsq{1, \dotsc, n}}}
+  =
+  \sqrt{n!}
+  \hat{A}
+  \ket{\psi_{1}, \dotsc, \psi_{n}}
+\end{equation}
+where $\hat{A} : T^{n}\lr{\mathcal{H}} \to \Lambda^{n}\lr{\mathcal{H}}$ is the
+anti-symmetriser operator which we define to be of the form
+\begin{equation}
+  \label{eq:anti-symmetriser}
+  \hat{A}
+  \ket{\psi_{1}, \dotsc, \psi_{n}}
+  =
+  \dfrac{1}{n!}
+  \sum_{\sigma \in S_{n}}
+  \mathrm{sgn}\lr{\sigma}
+  \ket{\psi_{\sigma\lr{1}}, \dotsc, \psi_{\sigma\lr{n}}}
+  ,
+\end{equation}
+where $S_{n}$ is the symmetric group on $n$ elements, the sum is taken over all
+permutations $\sigma \in S_{n}$, and where $\mathrm{sgn}\lr{\sigma}$ is the
+signature of the permutation $\sigma$.
+It follows from this construction that
+\begin{equation}
+  \label{eq:anti-symmetry}
+  \ket{\psi_{\lrsq{a_{1}, \dotsc, a_{n}}}}
+  =
+  0
+  \qq{if any}
+  a_{i} = a_{j}
+  ,
+\end{equation}
+hence satisfying Pauli's exclusion principle.
+Furthermore, we have that
+\begin{equation}
+  \label{eq:pairwise-exchange}
+  \hat{P}_{i, j}
+  \ket{\psi_{\lrsq{1, \dotsc, n}}}
+  =
+  -
+  \ket{\psi_{\lrsq{1, \dotsc, n}}}
+  ,
+\end{equation}
+where $\hat{P}_{i, j}$ is the pairwise exchange operator, permuting the states
+$\ket*{\psi_{i}}$ and $\ket*{\psi_{j}}$.
+We note that in this context, the states $\ket*{\psi_{i}}$ include both coordinate
+and spin states.
+
+It follows that for an atomic/ionic target, consisting of $n_{\mathrm{e}}$
+electrons, the space of target states is of the form
+$\mathcal{H}_{T} = \Lambda^{n_{\mathrm{e}}}\lr{\mathcal{H}}$.
+We shall adopt the convention that operators which act on the $m$-th electron
+space (including the projectile electron), will be indexed by $m$, for
+$m = 0, 1, \dotsc, n_{\mathrm{e}}$, with $m = 0$ indexing the projectile
+electron space.
+
+\paragraph{Target Hamiltonian}
+\label{sec:th-ccc-target-hamil}
+
+The target Hamiltonian, for an atomic/ionic target with $n_{\mathrm{e}}$
+electrons, is of the form
+\begin{equation}
+  \label{eq:target-hamiltonian}
+  \hat{H}_{T}
+  =
+  \sum_{m = 1}^{n_{\mathrm{e}}}
+  \hat{K}_{m}
+  +
+  \sum_{m = 1}^{n_{\mathrm{e}}}
+  \hat{V}_{m}
+  +
+  \sum_{m = 1}^{n_{\mathrm{e}}}
+  \sum_{n = m + 1}^{n_{\mathrm{e}}}
+  \hat{V}_{m, n}
+  ,
+\end{equation}
+where $\hat{K}_{m}$ and $\hat{V}_{m}$ are the target electron kinetic and
+electron-nuclei potential operators, for $m = 1, \dotsc, n_{\mathrm{e}}$, and
+where $\hat{V}_{m, n}$ are the electron-electron potential operators, for
+$m, n = 1, \dotsc, n_{\mathrm{e}}$.
+
+\paragraph{Target Diagonalisation}
+\label{sec:th-ccc-target-diag}
+
+The target Hamiltonian, restricted to just one target electron,
+\begin{equation}
+  \label{eq:target-1e-hamiltonian}
+  \hat{H}_{T, \mathrm{e}}^{}
+  =
+  \hat{K}_{1}
+  +
+  \hat{V}_{1}
+  ,
+\end{equation}
+is expanded in a Laguerre basis $\lrset{\ket{\varphi_{i}}}_{i = 1}^{N}$ and
+diagonalised to yield a set of one-electron atomic orbitals
+$\lrset{\ket*{\phi_{i}^{\lr{N}}}}_{i = 1}^{N}$ which are orthonormal and
+satisfy
+\begin{equation}
+  \label{eq:target-1e-orbitals}
+  \bra*{\phi_{i}^{\lr{N}}}
+  \hat{H}_{T, \mathrm{e}}
+  \ket*{\phi_{j}^{\lr{N}}}
+  =
+  \varepsilon_{i}^{\lr{N}}
+  \delta_{i, j}
+  .
+\end{equation}
+From these one-electron atomic orbitals, we generate a set of one-electron spin
+orbitals $\lrset{\ket*{\chi_{i}^{\lr{N}}}}_{i = 1}^{2N}$ for which
+$\ket*{\chi_{2i - 1}^{\lr{N}}}$ and $\ket*{\chi_{2i}^{\lr{N}}}$ both correspond
+to $\ket*{\phi_{i}^{\lr{N}}}$ but have spin projection $\tfrac{1}{2}$ and
+$-\tfrac{1}{2}$ respectively.
+These one-electron spin orbitals are then combined to construct Slater
+determinants; for any selection of $n_{\mathrm{e}}$ one-electron spin orbitals
+$\ket*{\chi_{a_{1}}^{\lr{N}}}, \dotsc, \ket*{\chi_{a_{n_{\mathrm{e}}}}^{\lr{N}}}
+\in \lrset{\ket*{\chi_{i}^{\lr{N}}}}_{i = 1}^{2N}$, the Slater determinant of
+these spin orbitals is of the form
+\begin{equation}
+  \label{eq:target-slater-determinant}
+  \ket*{\chi_{\lrsq{a_{1}, \dotsc, a_{n_{\mathrm{e}}}}}^{\lr{N}}}
+  =
+  \sqrt{n_{\mathrm{e}}!}
+  \hat{A}
+  \ket*
+  {
+    \chi_{a_{1}}^{\lr{N}},
+    \dotsc,
+    \chi_{a_{n_{\mathrm{e}}}}^{\lr{N}}
+  }
+  =
+  \dfrac{1}{\sqrt{n_{\mathrm{e}}!}}
+  \sum_{\sigma \in S_{n_{\mathrm{e}}}}
+  \mathrm{sgn}\lr{\sigma}
+  \ket*
+  {
+    \chi_{a_{\sigma\lr{1}}}^{\lr{N}}
+    ,
+    \dots
+    ,
+    \chi_{a_{\sigma\lr{n_{\mathrm{e}}}}}^{\lr{N}}
+  }
+  ,
+\end{equation}
+as per \autoref{eq:anti-symmetric-tensor-product-notation} and
+\autoref{eq:anti-symmetriser}.
+We note that Slater determinants are anti-symmetric under pairwise exchange of
+any two orbitals, and are zero if constructed with two spin orbitals in the same
+state.
+Hence they adhere to Pauli's exclusion principle and are indeed elements
+of $\mathcal{H}_{T} = \Lambda^{n_{\mathrm{e}}}\lr{\mathcal{H}}$.
+
+The true target states
+$\lrset{\ket{\Phi_{\alpha}}} \in \mathcal{H}_{T}$ are then
+approximated by expanding the full target Hamiltonian $\hat{H}_{T}$ in a basis
+of Slater determinants,
+\begin{equation}
+  \label{eq:target-slater-determinant-basis}
+  \lrset[\big]
+  {
+    \ket*{\chi_{\lrsq{a_{1}, \dotsc, a_{n_{\mathrm{e}}}}}^{\lr{N}}}
+    :
+    a_{1}, \dotsc, a_{n_{\mathrm{e}}}
+    \in
+    \lrset{1, \dotsc, 2N}
+  }
+  ,
+\end{equation}
+and diagonalising to yield a set of target pseudostates
+$\lrset{\ket*{\Phi_{n}^{\lr{N}}}}_{n = 1}^{N_{T}}$ which are orthonormal and
+satisfy
+\begin{equation}
+  \label{eq:target-states}
+  \bra*{\Phi_{i}^{\lr{N}}}
+  \hat{H}_{T}
+  \ket*{\Phi_{j}^{\lr{N}}}
+  =
+  \epsilon_{i}^{\lr{N}}
+  \delta_{i, j}
+  ,
+\end{equation}
+where $\epsilon_{n}^{\lr{N}}$ is the pseudoenergy corresponding to the
+pseudostate $\ket*{\Phi_{n}^{\lr{N}}}$.
+Note that the number of target pseudostates $N_{T}$ depends on the number of
+Slater determinants utilised in the expansion of $\hat{H}_{T}$.
+Note also that the $\lr{N}$ superscript has been introduced to indicate that
+these are not true eigenstates of the target Hamiltonian, only of its
+representation in the truncated Laguerrre basis, and that these pseudostates and
+their pseudoenergies are dependent on the size of the Laguerre basis utilised.
+
+The process of selecting which Slater determinants to use in the expansion is
+not trivial, as the number of Slater determinants scales as
+$\binom{2N}{n_{\mathrm{e}}}$.
+A common method of mitigating this computationaly complexity, is to partition
+the target orbitals into a core set and valence set of orbitals, with the core
+orbitals being limited to a much smaller set of states, while the valence
+orbitals are not so constrained.
+This provides an effective model for targets with a mostly fixed set of core
+electron states, while allowing the valence electrons to interact fully with the
+projectile.
+
+\paragraph{Completeness of Target Pseudostates}
+\label{sec:th-ccc-target-compl}
+
+As a result of the completeness of the Laguerre basis, the set of target
+pseudostates will be separable into a set of bounded pseudostates which will
+form an approximation of the true target discrete spectrum, and a set of
+unbounded pseudostates which will provide a discretisation of the true continuum
+of unbounded states.
+Without loss of generality, we order the target pseudostates by increasing
+pseudoenergy, $\epsilon_{1}^{\lr{N}} < \dotsc < \epsilon_{N_{T}}^{\lr{N}}$,
+which allows us to express the separability of the spectrum in the form
+\begin{equation}
+  \label{eq:target-spectrum-separable}
+  \lrset{\ket*{\Phi_{n}^{\lr{N}}}}_{n = 1}^{N_{T}}
+  =
+  \lrset{\ket*{\Phi_{n}^{\lr{N}}}}_{n = 1}^{N_{B}}
+  \cup
+  \lrset{\ket*{\Phi_{n}^{\lr{N}}}}_{n = N_{B} + 1}^{N_{T}}
+  ,
+\end{equation}
+where $\epsilon_{n}^{\lr{N}} < 0$ for $n = 1, \dotsc, N_{B}$, and where
+$\epsilon_{n}^{\lr{N}} \geq 0$ for $n = N_{B} + 1, \dotsc, N_{T}$.
+Note that $N_{B}$ is the number of bounded pseudostates, and we write
+$N_{U} = N_{T} - N_{B}$ to represent the number of unbounded pseudostates, both of
+which are dependent on $N$ by consequence of the construction of the target
+pseudostates.
+
+The projection operator for the target pseudostates, $\hat{I}_{T}^{\lr{N}}$, is
+of the form
+\begin{equation}
+  \label{eq:target-projection}
+  \hat{I}_{T}^{\lr{N}}
+  =
+  \sum_{n = 1}^{N_{T}}
+  \ketbra*
+  {\Phi_{n}^{\lr{N}}}
+  {\Phi_{n}^{\lr{N}}}
+  =
+  \sum_{n = 1}^{N_{B}}
+  \ketbra*
+  {\Phi_{n}^{\lr{N}}}
+  {\Phi_{n}^{\lr{N}}}
+  +
+  \sum_{n = N_{B} + 1}^{N_{T}}
+  \ketbra*
+  {\Phi_{n}^{\lr{N}}}
+  {\Phi_{n}^{\lr{N}}}
+  ,
+\end{equation}
+and so in the limit as $N \to \infty$, the sum over the bounded pseudostates
+will converge to the sum over the true target discrete states
+and the sum over the unbounded pseudostates will converge to a discretisation of
+the integral over the true continuum spectrum.
+Whence, it follows that projection operator for the target pseudostates
+converges to the identity operator, for $\mathcal{H}_{T}$,
+in the limit as $N \to \infty$; that is,
+\begin{equation}
+  \label{eq:target-projection-convergence}
+  \lim_{N \to \infty}
+  \hat{I}_{T}^{\lr{N}}
+  =
+  \hat{I}_{T}
+  .
+\end{equation}
+A more rigorous discussion on the suitabiliy of representing unbounded states in
+the Laguerre basis is provided in \cite[5-9]{BRAY19951}.
 
 \subsubsection{Total Wavefunction}
 \label{sec:th-ccc-total}
 
+The total wavefunction
+$\ket*{\Psi^{\lr{+}}} \in \Lambda^{1 + n_{\mathrm{e}}}\lr{\mathcal{H}}$ is
+defined to be an eigenstate of the total Hamiltonian $\hat{H}$ with total
+energy $E$ and specified to have outgoing spherical-wave boundary conditions,
+\begin{equation}
+  \label{eq:total-wavefunction}
+  \hat{H}
+  \ket*{\Psi^{\lr{+}}}
+  =
+  E
+  \ket*{\Psi^{\lr{+}}}
+  ,
+\end{equation}
+where $\hat{H}$ is of the form
+\begin{equation}
+  \label{eq:total-hamiltonian}
+  \hat{H}
+  =
+  \hat{H}_{T}
+  +
+  \hat{K}_{0}
+  +
+  \hat{V}_{0}
+  +
+  \sum_{m = 1}^{n_{\mathrm{e}}}
+  \hat{V}_{0, m}
+  ,
+\end{equation}
+where $\hat{H}_{T}$ is the target Hamiltonian, defined in
+\autoref{eq:target-hamiltonian}, $\hat{K}_{0}$ is the projectile electron
+kinetic operator, $\hat{V}_{0}$ is the projectile electron-nuclei potential
+operator, and $\hat{V}_{0, m}$ are the projectile electron-target electron
+potential operators.
+The following treatment of the total wavefunction is of a similar form to
+\cite[202-204]{AJP_BRAY1996}.
+
+To ensure that the total wavefunction is anti-symmetric we utilise the
+anti-symmetriser, defined in \autoref{eq:anti-symmetriser}, to construct it
+explicitly
+\begin{equation}
+  \label{eq:total-wavefunction-antisymmetrisation}
+  \ket*{\Psi^{\lr{+}}}
+  =
+  \hat{A}
+  \ket*{\psi^{\lr{+}}}
+  =
+  \lrsq[\bigg]
+  {
+    1
+    -
+    \sum_{m = 1}^{n_{\mathrm{e}}}
+    \hat{P}_{0, m}
+  }
+  \ket*{\psi^{\lr{+}}}
+  ,
+\end{equation}
+where $\hat{P}_{0, m}$ are the pairwise electron exchange operators defined in
+\autoref{eq:pairwise-exchange}, and where
+$\ket*{\psi^{\lr{+}}} \in \mathcal{H}_{T} \otimes \mathcal{H}$ is the
+unsymmetrised total wavefunction.
+As the target states are already anti-symmetric by construction, the
+anti-symmetriser has assumed a simpler form - requiring only permutations
+of the unsymmetrised projectile state with the spin-orbital states of the
+target electrons.
+Note that we have omitted the $\lr{1 + n_{\mathrm{e}}}!$ term in $\hat{A}$,
+since it is a scalar term which can be normalised away when required.
+
+To construct the unsymmetrised total wavefunction $\ket*{\psi^{\lr{+}}}$ we
+perform a multichannel expansion, projecting it onto the target psuedostates,
+\begin{equation}
+  \label{eq:total-wavefunction-unsymmetrised-n}
+  \ket*{\psi^{\lr{N, +}}}
+  =
+  \hat{I}_{T}^{\lr{N}}
+  \ket*{\psi^{\lr{+}}}
+  =
+  \sum_{n = 1}^{N_{T}}
+  \ket*{\Phi_{n}^{\lr{N}}}
+  \bra*{\Phi_{n}^{\lr{N}}}
+  \ket*{\psi^{\lr{+}}}
+  =
+  \sum_{n = 1}^{N_{T}}
+  \ket*{\Phi_{n}^{\lr{N}} F_{n}^{\lr{N}}}
+  ,
+\end{equation}
+where $\ket*{F_{n}^{\lr{N}}} = \bra*{\Phi_{n}^{\lr{N}}}\ket*{\psi^{\lr{+}}}$ are
+the multichannel weight functions, and note that as a result of
+\autoref{eq:target-projection-convergence}, that
+\begin{equation}
+  \label{eq:total-wavefunction-unsymmetrised-convergence}
+  \ket*{\psi^{\lr{+}}}
+  =
+  \lim_{N \to \infty}
+  \hat{I}_{T}^{\lr{N}}
+  \ket*{\psi^{\lr{+}}}
+  =
+  \lim_{N \to \infty}
+  \ket*{\psi^{\lr{N, +}}}
+  .
+\end{equation}
+Similarly, the total wavefunction constructed from the projection of the
+unsymmetrised total wavefunction onto the target pseudostates is written in the
+form
+\begin{equation}
+  \label{eq:total-wavefunction-antisymmetrisation-n}
+  \ket*{\Psi^{\lr{N, +}}}
+  =
+  \hat{A}
+  \ket*{\psi^{\lr{N, +}}}
+  =
+  \lrsq[\bigg]
+  {
+    1
+    -
+    \sum_{m = 1}^{n_{\mathrm{e}}}
+    \hat{P}_{0, m}
+  }
+  \ket*{\psi^{\lr{N, +}}}
+  ,
+\end{equation}
+and we note that as a result of \autoref{eq:target-projection-convergence}, that
+\begin{equation}
+  \label{eq:total-wavefunction-antisymmetrisation-convergence}
+  \ket*{\Psi^{\lr{+}}}
+  =
+  \lim_{N \to \infty}
+  \ket*{\Psi^{\lr{N, +}}}
+  .
+\end{equation}
+
+However, after projecting the unsymmetrised total wavefunction with the
+projection operator for the target pseudostates, the multichannel expansion is
+not uniquely defined, since for any state
+$\ket*{\omega^{\lr{N}}} \in \ker\lr{\hat{A}\hat{I}_{T}^{\lr{N}}}$ and scalar
+$\alpha \in \complex$, the multichannel
+expansion of $\ket*{\psi^{\lr{N, +}}} + \alpha \ket*{\omega^{\lr{N}}}$ will be
+identical to that of $\ket*{\psi^{\lr{N, +}}}$.
+To resolve this dilemma, we first note that the multichannel weight functions
+$\ket*{F_{n}^{\lr{N}}}$ are within the span of the one-electron spin orbitals
+$\lrset{\ket*{\chi_{i}^{\lr{N}}}}_{i = 1}^{2N}$, used to construct the Slater
+determinants, \autoref{eq:target-slater-determinant}, with which the target
+states are expanded.
+Hence, we impose the constraint that for any of the one-electron spin orbitals
+$\ket*{\chi_{i}^{\lr{N}}}$, that
+\begin{equation}
+  \label{eq:multichannel-constraint}
+  \hat{P}_{0, m}
+  \ket*{\Phi_{n}^{\lr{N}} \chi_{i}^{\lr{N}}}
+  =
+  -
+  \ket*{\Phi_{n}^{\lr{N}} \chi_{i}^{\lr{N}}}
+  .
+\end{equation}
+which can be seen as an explicit imposition of \autoref{eq:pairwise-exchange}.
+With this constraint in place, it can then be shown that
+$\dim\ker\lr{\hat{A}\hat{I}_{T}^{\lr{N}}} = 0$, whence it follows that the
+multichannel expansion of $\ket*{\psi^{\lr{N, +}}}$ is now unique in determining
+$\ket*{\Psi^{\lr{N, +}}}$.
+% To make these constraints explicit, we note as a consequence we have
+% \begin{equation}
+%   \label{eq:multichannel-constraint-2}
+%   \hat{P}_{0, m}
+%   \ket*{\psi^{\lr{N, +}}}
+%   =
+%   -
+%   \ket*{\psi^{\lr{N, +}}}
+%   ,
+%   \qq{for}
+%   m = 1, \dotsc, n_{\mathrm{e}}
+%   .
+% \end{equation}
+
 \subsubsection{Convergent Close-Coupling Equations}
 \label{sec:th-ccc-eq}
+
+We present a derivation for the Convergent Close-Coupling (CCC) equations,
+beginning with the Schr\"odinger equation for the total wavefunction
+$\ket*{\Psi^{\lr{+}}}$ presented in \autoref{eq:total-wavefunction}.
+This shall be re-arranged to yield the Lippmann-Schwinger equation, which will
+then be solved using the CCC formalism to obtain the matrix elements of the
+$\hat{T}$ operator - with which scattering statistics can be calculated.
+
+\paragraph{Lippmann-Schwinger Equation}
+\label{sec:th-ccc-eq-ls}
+
+We consider an eigenstate $\ket*{\Psi}$ of a Hamiltonian $\hat{H}$, with
+eigenenergy $E$, for which the Schr\"odinger equation is of the form
+\begin{equation}
+  \label{eq:schrodinger}
+  \hat{H}
+  \ket{\Psi}
+  =
+  \hat{H}_{\rm{A}}
+  \ket{\Psi}
+  +
+  \hat{V}
+  \ket{\Psi}
+  =
+  E
+  \ket{\Psi}
+  ,
+\end{equation}
+where $\hat{H}_{\rm{A}}$ is the unbounded asymptotic Hamiltonian and $\hat{V}$
+is a potential.
+This expression can be rearranged to the form
+\begin{equation}
+  \label{eq:schrodinger-2}
+  \lrsq
+  {
+    E
+    -
+    \hat{H}_{\rm{A}}
+  }
+  \ket{\Psi}
+  =
+  \hat{V}
+  \ket{\Psi}
+  .
+\end{equation}
+Suppose that $\lrset{\ket*{\Omega_{\alpha}}}$ are the (countably and
+uncountably infinite) eigenstates of the asymptotic Hamiltonian, with
+corresponding eigenvalues
+$\varepsilon_{\alpha}$,
+\begin{equation}
+  \label{eq:schrodinger-asymptotic}
+  \hat{H}_{\rm{A}}
+  \ket{\Omega_{\alpha}}
+  =
+  \varepsilon_{\alpha}
+  \ket{\Omega_{\alpha}}
+  .
+\end{equation}
+We note that where $\varepsilon_{\alpha} = E$, it follows that
+$\ket*{\Omega_{\alpha}} \in \ker\lr{E - \hat{H}_{\rm{A}}}$; for a given energy
+$E$, we denote these particular asymptotic states by
+$\ket*{\Omega_{\alpha}^{\lr{E}}}$ and say that they are on-shell states, and
+that the energies of these states are on-shell.
+We now define the Green's operator $\hat{G}_{\lr{E}}$, to be such that
+\begin{equation}
+  \label{eq:greens-operator}
+  \hat{G}_{\lr{E}}
+  \lrsq
+  {
+    E
+    -
+    \hat{H}_{\rm{A}}
+  }
+  =
+  \hat{I}
+  =
+  \lrsq
+  {
+    E
+    -
+    \hat{H}_{\rm{A}}
+  }
+  \hat{G}_{\lr{E}}
+  ,
+\end{equation}
+whence we obtain a general form of the Lippmann-Schwinger equation,
+\begin{equation}
+  \label{eq:ls}
+  \ket{\Psi}
+  =
+  \sum_{\alpha : \varepsilon_{\alpha} = E}\int
+  C_{\alpha}
+  \ket*{\Omega_{\alpha}^{\lr{E}}}
+  +
+  \hat{G}_{\lr{E}}
+  \hat{V}
+  \ket{\Psi}
+  ,
+\end{equation}
+where $C_{\alpha}$ are arbitrary scalar coefficients.
+We note that in this context, the sum taken over the indexes of the asymptotic
+eigenstates represents a sum over the countably infinite states, and an
+integration over the uncountably infinite states, for which the eigenenergy
+$\varepsilon_{\alpha}$ is equal to $E$.
+The inclusion of the selected asymptotic eigenstates is required as they are in
+the kernel of $\lrsq{E - \hat{H}_{\rm{A}}}$, thus forming the homogenous
+solutions to the Lippmann-Schwinger equation.
+This can be demonstrated by applying the operator $\lrsq{E - \hat{H}_{\rm{A}}}$
+on the left of \autoref{eq:ls},
+\begin{alignat*}{2}
+  % \label{eq:ls-kernel}
+  &
+  \lrsq
+  {
+    E
+    -
+    \hat{H}_{\rm{A}}
+  }
+  \ket{\Psi}
+  &
+  {}={}
+  &
+  \sum_{\alpha : \varepsilon_{\alpha} = E}\int
+  C_{\alpha}
+  \lrsq
+  {
+    E
+    -
+    \hat{H}_{\rm{A}}
+  }
+  \ket*{\Omega_{\alpha}^{\lr{E}}}
+  +
+  \lrsq
+  {
+    E
+    -
+    \hat{H}_{\rm{A}}
+  }
+  \hat{G}_{\lr{E}}
+  \hat{V}
+  \ket{\Psi}
+  \\
+  &
+  &
+  {}={}
+  &
+  \sum_{\alpha : \varepsilon_{\alpha} = E}\int
+  C_{\alpha}
+  \ket{0}
+  +
+  \hat{I}
+  \hat{V}
+  \ket{\Psi}
+  \\
+  &
+  &
+  {}={}
+  &
+  \hat{V}
+  \ket{\Psi}
+  .
+\end{alignat*}
+At this point, we note that selecting the values of the coefficients
+$C_{\alpha}$ amounts to specifying a boundary condition for the eigenstate
+$\ket{\Psi}$.
+By consequence of the linearity of \autoref{eq:ls}, we may therefore simplify
+the generalised sum/integral, without loss of generality, by considering
+eigenstates of the form
+\begin{equation}
+  \label{eq:ls-boundary}
+  \ket{\Psi_{\alpha}}
+  =
+  \ket*{\Omega_{\alpha}^{\lr{E}}}
+  +
+  \hat{G}_{\lr{E}}
+  \hat{V}
+  \ket{\Psi_{\alpha}}
+  ,
+\end{equation}
+for a particular
+$\ket*{\Omega_{\alpha}^{\lr{E}}} \in \ker\lr{E - \hat{H}_{\rm{A}}}$, and we say
+that $\ket{\Psi_{\alpha}}$ is the eigenstate of $\hat{H}$ corresponding to the
+boundary condition specified by the asymptotic eigenstate
+$\ket*{\Omega_{\alpha}^{\lr{E}}}$.
+We now define the $\hat{T}$ operator to be such that
+\begin{equation}
+  \label{eq:t-operator}
+  \ket{\Psi_{\alpha}}
+  =
+  \lrsq
+  {
+    \hat{I}
+    +
+    \hat{G}_{\lr{E}}
+    \hat{T}
+  }
+  \ket*{\Omega_{\alpha}^{\lr{E}}}
+  ,
+\end{equation}
+which is equivalently defined by writing
+\begin{equation}
+  \label{eq:t-operator-v}
+  \hat{T}
+  \ket*{\Omega_{\alpha}^{\lr{E}}}
+  =
+  \hat{V}
+  \ket{\Psi_{\alpha}}
+  .
+\end{equation}
+Furthermore, we have that
+\begin{alignat*}{4}
+  &
+  \ket{\Psi_{\alpha}}
+  &&
+  {}={}
+  &&
+  \ket*{\Omega_{\alpha}^{\lr{E}}}
+  +
+  \hat{G}_{\lr{E}}
+  \hat{V}
+  \ket{\Psi_{\alpha}}
+  &
+  \\
+  &
+  &&
+  {}={}
+  &&
+  \ket*{\Omega_{\alpha}^{\lr{E}}}
+  +
+  \hat{G}_{\lr{E}}
+  \hat{V}
+  \lrsq[\big]
+  {
+    \hat{I}
+    +
+    \hat{G}_{\lr{E}}
+    \hat{T}
+  }
+  \ket*{\Omega_{\alpha}^{\lr{E}}}
+  &
+  \\
+  &
+  &&
+  {}={}
+  &&
+  \lrsq[\big]
+  {
+    \hat{I}
+    +
+    \hat{G}_{\lr{E}}
+    \hat{V}
+    +
+    \hat{G}_{\lr{E}}
+    \hat{V}
+    \hat{G}_{\lr{E}}
+    \hat{T}
+  }
+  \ket*{\Omega_{\alpha}^{\lr{E}}}
+  &
+  \\
+  &
+  &&
+  {}={}
+  &&
+  \lrsq[\big]
+  {
+    \hat{I}
+    +
+    \hat{G}_{\lr{E}}
+    \lr
+    {
+      \hat{V}
+      +
+      \hat{V}
+      \hat{G}_{\lr{E}}
+      \hat{T}
+    }
+  }
+  \ket*{\Omega_{\alpha}^{\lr{E}}}
+  ,
+  &
+\end{alignat*}
+whence it follows that $\hat{T}$ can be written in the form
+\begin{equation}
+  \label{eq:ls-t-greens}
+  \hat{T}
+  \ket*{\Omega_{\alpha}^{\lr{E}}}
+  =
+  \lrsq
+  {
+    \hat{V}
+    +
+    \hat{V}
+    \hat{G}_{\lr{E}}
+    \hat{T}
+  }
+  \ket*{\Omega_{\alpha}^{\lr{E}}}
+  ,
+\end{equation}
+yielding the formulation of the Lippmann-Schwinger equation in terms of the
+$\hat{T}$ operator.
+At this point we consider the explicit form of the Green's operator
+$\hat{G}_{\lr{E}}$.
+First, we note that the asymptotic eigenstates are complete in the sense that
+they provide a resolution of the identity
+\begin{equation}
+  \label{eq:asymptotic-complete}
+  \hat{I}
+  =
+  \sum_{\gamma}\int
+  \ketbra*{\Omega_{\gamma}}{\Omega_{\gamma}}
+  ,
+\end{equation}
+and a spectral decomposition of the asymptotic Hamiltonian
+\begin{equation*}
+  \hat{H}_{\rm{A}}
+  =
+  \sum_{\gamma}\int
+  \varepsilon_{\gamma}
+  \ketbra*{\Omega_{\gamma}}{\Omega_{\gamma}}
+  .
+\end{equation*}
+It therefore follows from the definition of the Green's operator,
+\autoref{eq:greens-operator}, that we must have
+\begin{alignat*}{2}
+  &
+  &
+  \hat{G}_{\lr{E}}
+  \lrsq
+  {
+    E
+    -
+    \hat{H}_{\rm{A}}
+  }
+  {}={}
+  &
+  \hat{I}
+  \\
+  &
+  &
+  \sum_{\gamma}\int
+  \lr
+  {
+    E
+    -
+    \varepsilon_{\gamma}
+  }
+  \hat{G}_{\lr{E}}
+  \ketbra*{\Omega_{\gamma}}{\Omega_{\gamma}}
+  {}={}
+  &
+  \sum_{\gamma}\int
+  \ketbra*{\Omega_{\gamma}}{\Omega_{\gamma}}
+  ,
+\end{alignat*}
+whence it follows that the spectral decomposition of the Green's operator is of
+the form
+\begin{equation}
+  \label{eq:greens-operator-spectral}
+  \hat{G}_{\lr{E}}
+  =
+  \sum_{\gamma}\int
+  \dfrac
+  {
+    \ketbra*{\Omega_{\gamma}}{\Omega_{\gamma}}
+  }
+  {
+    E
+    -
+    \varepsilon_{\gamma}
+  }
+  .
+\end{equation}
+However, this expression is not well-defined, as it is singular for the
+asymptotic states $\ket*{\Omega_{\gamma}^{\lr{E}}}$ for which
+$\varepsilon_{\gamma} = E$.
+This problem can be overcome by regularising the Green's operator to either the
+incoming $\hat{G}_{\lr{E, -}}$ or outgoing $\hat{G}_{\lr{E, +}}$ forms,
+\begin{equation}
+  \label{eq:greens-operator-regularise}
+  \hat{G}_{\lr{E, \pm}}
+  =
+  \lim_{\eta \to 0}
+  \sum_{\gamma}\int
+  \dfrac
+  {
+    \ketbra*{\Omega_{\gamma}}{\Omega_{\gamma}}
+  }
+  {
+    E - \varepsilon_{\gamma} \pm \imath\eta
+  }
+  =
+  \sum_{\gamma}\int
+  \dfrac
+  {
+    \ketbra*{\Omega_{\gamma}}{\Omega_{\gamma}}
+  }
+  {
+    E - \varepsilon_{\gamma} \pm \imath 0
+  }
+  ,
+\end{equation}
+where the presence of the imaginary limit ensures that the integral is
+well-defined for all $\varepsilon_{\gamma}$.
+We elect to use the outgoing Green's operator $\hat{G}_{\lr{E, +}}$ as we are
+concerned with the outgoing behaviour of the eigenstate
+$\ket*{\Psi_{\alpha}^{\lr{+}}}$.
+We can now re-write the Lippmann-Schwinger equation in the following form
+\begin{equation}
+  \label{eq:ls-t}
+  \mel*
+  {\Omega_{\alpha}}
+  {\hat{T}}
+  {\Omega_{\beta}^{\lr{E}}}
+  =
+  \mel*
+  {\Omega_{\alpha}}
+  {\hat{V} }
+  {\Omega_{\beta}^{\lr{E}}}
+  +
+  \sum_{\gamma}\int
+  \dfrac
+  {
+    \mel*
+    {\Omega_{\alpha}}
+    {\hat{V}}
+    {\Omega_{\gamma}}
+    \mel*
+    {\Omega_{\gamma}}
+    {\hat{T}}
+    {\Omega_{\beta}^{\lr{E}}}
+  }
+  {
+    E - \varepsilon_{\gamma} + \imath 0
+  }
+  ,
+\end{equation}
+which expresses the representation of the operator $\hat{T}$, for a given energy
+$E$, in terms of the asymptotic eigenstates $\lrset{\ket*{\Omega_{\alpha}}}$ and
+the on-shell asymptotic eigenstates $\lrset{\ket*{\Omega_{\beta}^{\lr{E}}}}$.
+
+\paragraph{Convergent Close-Coupling Formalism}
+\label{sec:th-ccc-eq-form}
+
+In the Convergent Close-Coupling formalism, the Lippmann-Schwinger equation in
+terms of the $\hat{T}$ operator, \autoref{eq:ls-t}, is solved in momentum space.
+We preface this discussion with a minor note, that the notation for the
+asymptotic Hamiltonian $\hat{H}_{\rm{A}}$ is to be distinguished from the
+notation for the anti-symmetriser $\hat{A}$, and is unrelated.
+
+We split the Hamiltonian, from \autoref{eq:total-hamiltonian}, into an
+asymptotic Hamiltonian and a potential in the form
+\begin{equation}
+  \label{eq:ccc-hamiltonian}
+  \hat{H}
+  =
+  \hat{H}_{T}
+  +
+  \hat{K}_{0}
+  +
+  \hat{V}_{0}
+  +
+  \sum_{m = 1}^{n_{\mathrm{e}}}
+  \hat{V}_{0, m}
+  =
+  \hat{H}_{\rm{A}}
+  +
+  \hat{W}
+  ,
+\end{equation}
+where the asymptotic Hamiltonian is of the form
+\begin{equation}
+  \label{eq:ccc-asymptotic-hamiltonian}
+  \hat{H}_{\rm{A}}
+  =
+  \hat{H}_{T}
+  +
+  \hat{K}_{0}
+  +
+  \hat{U}_{0}
+  ,
+\end{equation}
+and where the potential, modelling the interaction between the projectile and
+target states, is of the form
+\begin{equation}
+  \label{eq:ccc-potential}
+  \hat{W}
+  =
+  \hat{V}_{0}
+  +
+  \sum_{m = 1}^{n_{\mathrm{e}}}
+  \hat{V}_{0, m}
+  -
+  \hat{U}_{0}
+  ,
+\end{equation}
+where $\hat{U}_{0}$ is an asymptotic potential acting on the projectile, which
+can be chosen arbitrarily.
+A suitable choice for this potential is that of a Coulomb potential with a
+charge corresponding to the asymptotic charge of the target system, whence
+$\braket*{\vb{r}}{\hat{W}} = W\lr{r, \Omega} \to 0$ as $r \to \infty$.
+Such a selection for $\hat{U}_{0}$ adapts the projectile states to the target
+system, without loss of generality, and can lead to improvement in computational
+performance, as discussed in \cite[204]{AJP_BRAY1996}.
+
+The asymptotic eigenstates are therefore taken to be of the form
+\begin{equation}
+  \label{eq:ccc-asymptotic-states}
+  \ket*{\Omega_{\alpha}}
+  =
+  \ket*{\Phi_{\alpha} \vb{k}_{\alpha}}
+  \approx
+  \ket*{\Phi_{n_{\alpha}}^{\lr{N}} \vb{k}_{\alpha}}
+  ,
+\end{equation}
+where $\lrset{\ket*{\Phi_{n}^{\lr{N}}}}_{i = 1}^{N_{T}}$ are the target
+pseudostates, defined in \autoref{eq:target-states}, which satisfy
+\begin{equation}
+  \label{eq:ccc-target}
+  \mel*
+  {\Phi_{i}^{\lr{N}}}
+  {\hat{H}_{T}}
+  {\Phi_{j}^{\lr{N}}}
+  =
+  \epsilon_{i}^{\lr{N}}
+  \delta_{i, j}
+  ,
+\end{equation}
+and where $\ket*{\vb{k}_{\alpha}}$ are the continuum waves (which could be
+plane, distorted, or Coulomb waves depending on the choice of $\hat{U}_{0}$),
+defined to be eigenstates of the projectile component of the asymptotic
+Hamiltonian,
+\begin{equation}
+  \label{eq:ccc-waves}
+  \lrsq
+  {
+    \hat{K}_{0}
+    +
+    \hat{U}_{0}
+  }
+  \ket*{\vb{k}_{\alpha}}
+  =
+  \tfrac{1}{2}
+  k_{\alpha}^{2}
+  \ket*{\vb{k}_{\alpha}}
+  ,
+\end{equation}
+whence it can be seen that the asymptotic eigenenergies are of the form
+\begin{equation}
+  \label{eq:ccc-asymptotic-energy}
+  \varepsilon_{\alpha}
+  =
+  \epsilon_{n_{\alpha}}
+  +
+  \tfrac{1}{2}
+  k_{\alpha}^{2}
+  \approx
+  \epsilon_{n_{\alpha}}^{\lr{N}}
+  +
+  \tfrac{1}{2}
+  k_{\alpha}^{2}
+  .
+\end{equation}
+Furthermore, the total wavefunction is taken to be of the form
+\begin{equation}
+  \label{eq:ccc-total-wavefunction}
+  \ket*{\Psi_{\alpha}^{\lr{+}}}
+  =
+  \hat{A}
+  \ket*{\psi_{\alpha}^{\lr{+}}}
+  \approx
+  \hat{A}
+  \hat{I}_{T}^{\lr{N}}
+  \ket*{\psi_{\alpha}^{\lr{+}}}
+  =
+  \hat{A}
+  \ket*{\psi_{\alpha}^{\lr{N, +}}}
+  =
+  \ket*{\Psi_{\alpha}^{\lr{N, +}}}
+  ,
+\end{equation}
+as in \autoref{eq:total-wavefunction-antisymmetrisation}, where $\hat{A}$ is the
+anti-symmetriser operator, defined in \autoref{eq:anti-symmetriser}, and is
+subject to the constraints imposed in \autoref{eq:multichannel-constraint} to
+ensure uniqueness.
+We note that with these expressions for the asymptotic eigenstates and the total
+wavefunction, that the $\hat{T}$ operator is related to the potential $\hat{W}$
+by the expression
+\begin{equation}
+  \label{eq:ccc-t-w}
+  \hat{T}
+  \ket*{\Phi_{n_{\alpha}}^{\lr{N}} \vb{k}_{\alpha}}
+  =
+  \hat{W}
+  \ket*{\Psi_{\alpha}^{\lr{N, +}}}
+  =
+  \hat{W}
+  \hat{A}
+  \hat{I}_{T}^{\lr{N}}
+  \ket*{\psi_{\alpha}^{\lr{+}}}
+  =
+  \hat{W}
+  \hat{A}
+  \ket*{\psi_{\alpha}^{\lr{N, +}}}
+  .
+\end{equation}
+However, it is possible to recast the potential $\hat{W}$ in a form $\hat{V}$
+which accounts for the explicit anti-symmetrisation of the total wavefunction;
+that is, which allows us to write the CCC equations without direct reference to
+the anti-symmetriser $\hat{A}$.
+To do this, we first note that
+\begin{equation*}
+  0
+  =
+  \lrsq
+  {
+    E
+    -
+    \hat{H}
+  }
+  \ket*{\Psi_{\alpha}^{\lr{+}}}
+  =
+  \lrsq
+  {
+    E
+    -
+    \hat{H}
+  }
+  \hat{A}
+  \ket*{\psi_{\alpha}^{\lr{+}}}
+  ,
+\end{equation*}
+with the operator on the right hand side expanding to the form
+\begin{equation*}
+  \lrsq
+  {
+    E
+    -
+    \hat{H}
+  }
+  \hat{A}
+  =
+  \lrsq[\bigg]
+  {
+    E
+    -
+    \hat{H}
+    -
+    \lrsq
+    {
+      E
+      -
+      \hat{H}
+    }
+    \sum_{m = 1}^{n_{\mathrm{e}}}
+    \hat{P}_{0, m}
+  }
+  =
+  \lrsq[\bigg]
+  {
+    E
+    -
+    \hat{H}_{\rm{A}}
+    -
+    \hat{W}
+    -
+    \lrsq
+    {
+      E
+      -
+      \hat{H}
+    }
+    \sum_{m = 1}^{n_{\mathrm{e}}}
+    \hat{P}_{0, m}
+  }
+  ,
+\end{equation*}
+where again we make sure to distinguish the notation for the asymptotic
+Hamiltonian $\hat{H}_{\rm{A}}$ and the anti-symmetriser $\hat{A}$.
+We therefore define the explicitly anti-symmetrised potential $\hat{V}$ to be of
+the form
+\begin{equation}
+  \label{eq:ccc-v}
+  \hat{V}
+  =
+  \hat{W}
+  +
+  \lrsq
+  {
+    E
+    -
+    \hat{H}
+  }
+  \sum_{m = 1}^{n_{\mathrm{e}}}
+  \hat{P}_{0, m}
+  =
+  \hat{V}_{0}
+  +
+  \sum_{m = 1}^{n_{\mathrm{e}}}
+  \hat{V}_{0, m}
+  -
+  \hat{U}_{0}
+  +
+  \lrsq
+  {
+    E
+    -
+    \hat{H}
+  }
+  \sum_{m = 1}^{n_{\mathrm{e}}}
+  \hat{P}_{0, m}
+  ,
+\end{equation}
+for which we can see that
+\begin{equation*}
+  \label{eq:ccc-v-2}
+  0
+  =
+  \lrsq
+  {
+    E
+    -
+    \hat{H}
+  }
+  \hat{A}
+  \ket*{\psi_{\alpha}^{\lr{+}}}
+  =
+  \lrsq
+  {
+    E
+    -
+    \lrsq
+    {
+      \hat{H}_{\rm{A}}
+      +
+      \hat{V}
+    }
+  }
+  \ket*{\psi_{\alpha}^{\lr{+}}}
+  ,
+\end{equation*}
+which is to say that the Lippmann-Schwinger equation \autoref{eq:ls-t} can be
+written in terms of the unsymmetrised total wavefunction
+$\ket*{\psi_{\alpha}^{\lr{+}}}$, rather than the anti-symmetric total
+wavefunction $\ket*{\Psi_{\alpha}^{\lr{+}}}$.
+Specifically, this allows us to write the $\hat{T}$ operator in the form
+\begin{equation}
+  \label{eq:ccc-t-v}
+  \hat{T}
+  \ket*{\Phi_{n_{\alpha}}^{\lr{N}} \vb{k}_{\alpha}}
+  =
+  \hat{V}
+  \hat{I}_{T}^{\lr{N}}
+  \ket*{\psi_{\alpha}^{\lr{+}}}
+  =
+  \hat{V}
+  \ket*{\psi_{\alpha}^{\lr{N, +}}}
+  .
+\end{equation}
+We then have the Convergent Close-Coupling equations in terms of the $\hat{T}$
+operator
+\begin{alignat}{2}
+  \label{eq:ccc-ls-t}
+  &
+  \mel*
+  {\vb{k}_{f} \Phi_{n_{f}}^{\lr{N}}}
+  {\hat{T}}
+  {\Phi_{n_{i}}^{\lr{N}} \vb{k}_{i}}
+  &
+  {}={}
+  &
+  \mel*
+  {\vb{k}_{f} \Phi_{n_{f}}^{\lr{N}}}
+  {\hat{V}}
+  {\Phi_{n_{i}}^{\lr{N}} \vb{k}_{i}}
+  \\
+  &
+  &
+  {}+{}
+  &
+  \sum_{n = 1}^{N_{T}}
+  \int
+  \dd{\vb{k}}
+  \dfrac
+  {
+    \mel*
+    {\vb{k}_{f} \Phi_{n_{f}}^{\lr{N}}}
+    {\hat{V}}
+    {\Phi_{n}^{\lr{N}} \vb{k}}
+    \mel*
+    {\vb{k} \Phi_{n}^{\lr{N}}}
+    {\hat{T}}
+    {\Phi_{n_{i}}^{\lr{N}} \vb{k}_{i}}
+  }
+  {
+    E
+    -
+    \epsilon_{n}^{\lr{N}}
+    -
+    \tfrac{1}{2}
+    k^{2}
+    \pm \imath 0
+  }
+  \nonumber
+  ,
+\end{alignat}
+forming a set of $\complex$-valued matrix equations  which are numerically
+solved to yield the $T$ matrix, from which information about the total
+wavefunction $\ket*{\Psi_{i}^{\lr{N, +}}}$ can be derived.
+However, it is possible to re-write the Convergent Close-Coupling equations in
+terms of an operator $\hat{K}$,
+\begin{alignat}{2}
+  \label{eq:ccc-ls-k}
+  &
+  \mel*
+  {\vb{k}_{f} \Phi_{n_{f}}^{\lr{N}}}
+  {\hat{K}}
+  {\Phi_{n_{i}}^{\lr{N}} \vb{k}_{i}}
+  &
+  {}={}
+  &
+  \mel*
+  {\vb{k}_{f} \Phi_{n_{f}}^{\lr{N}}}
+  {\hat{V}}
+  {\Phi_{n_{i}}^{\lr{N}} \vb{k}_{i}}
+  \\
+  &
+  &
+  {}+{}
+  &
+  \sum_{n = 1}^{N_{T}}
+  \mathcal{P}
+  \int
+  \dd{\vb{k}}
+  \dfrac
+  {
+    \mel*
+    {\vb{k}_{f} \Phi_{n_{f}}^{\lr{N}}}
+    {\hat{V}}
+    {\Phi_{n}^{\lr{N}} \vb{k}}
+    \mel*
+    {\vb{k} \Phi_{n}^{\lr{N}}}
+    {\hat{K}}
+    {\Phi_{n_{i}}^{\lr{N}} \vb{k}_{i}}
+  }
+  {
+    E
+    -
+    \epsilon_{n}^{\lr{N}}
+    -
+    \tfrac{1}{2}
+    k^{2}
+  }
+  \nonumber
+  ,
+\end{alignat}
+where $\mathcal{P}$ indicates that the principal value of the integral is taken,
+which forms a set of $\real$-valued matrix equations which can be solved more
+efficiently, to yield the $K$ matrix.
+The $T$ matrix can then be reconstructed from the $K$ matrix by the identity
+\cite[9]{BRAY19951}
+\begin{equation}
+  \label{eq:ccc-t-k}
+  \mel*
+  {\vb{k}_{f} \Phi_{n_{f}}^{\lr{N}}}
+  {\hat{K}}
+  {\Phi_{n_{i}}^{\lr{N}} \vb{k}_{i}}
+  =
+  \sum_{n = 1}^{N_{T}}
+  \mel*
+  {\vb{k}_{f} \Phi_{n_{f}}^{\lr{N}}}
+  {\hat{T}}
+  {\Phi_{n}^{\lr{N}} \vb{k}_{n}}
+  \lr[\big]
+  {
+    \delta_{n, i}
+    +
+    \imath
+    \pi
+    k_{n}
+    \mel*
+    {\vb{k}_{n} \Phi_{n}^{\lr{N}}}
+    {\hat{K}}
+    {\Phi_{n_{i}}^{\lr{N}} \vb{k}_{i}}
+  }
+  ,
+\end{equation}
+where $k_{n}$ are the on-shell projectile momenta which satisfy
+\begin{equation}
+  \label{eq:ccc-on-shell-momentum}
+  E
+  =
+  \epsilon_{n}^{\lr{N}}
+  +
+  \tfrac{1}{2}
+  k_{n}^{2}
+  \qq{for}
+  n = 1, \dotsc, N_{T}.
+\end{equation}
+
+We note that the matrix equations \autoref{eq:ccc-ls-t}, as well as
+\autoref{eq:ccc-ls-k} and \autoref{eq:ccc-t-k}, are computationally
+parameterised by the set of target pseudostates
+$\lrset{\ket*{\Phi_{n}^{\lr{N}}}}_{n = 1}^{N_{T}}$ and the discretisation of
+the projectile spectrum.
+In turn, the target pseudostates are parameterised by the number of Slater
+determinants $N_{T}$ used in their construction, and the number of basis
+functions $N$ used to construct the one-electron orbitals from which the Slater
+determinants are built.
+Furthermore, we note that matrix equations in this form do not explicitly
+include the constraints, detailed in \autoref{eq:multichannel-constraint}, which
+guarantee the uniqueness of the explicitly anti-symmetrised multichannel
+expansion.
 
 \subsection{Scattering Statistics}
 \label{sec:th-ccc-stat}
 
+At this point, we shall make explicit use of the S-wave model, wherein all
+partial wave expansions are limited to the $l = 0$ terms;
+this has the effect of restricting our attention to asymptotic eigenstates
+$\ket*{\Phi_{n}^{\lr{N}} \vb{k}}$ for which the target pseudostate has $l = 0$.
+This allows for a simpler presentation of the theory, and a significant
+reduction in computational complexity.
+Furthermore, calculations performed in the S-wave model are sufficient for the
+emergence of scattering phenomena with which we are interested.
+Much of the following treatment is generalisable to the inclusion of arbitrary
+angular momentum.
+
+Lastly, we note that many of the following statistics can be constructed for a
+particular symmetry of the system which is conserved by the scattering process;
+examples include total spin and angular momentum.
+We shall refrain from specifying the forms of these statistics for specific
+symmetries, in lieu of providing a clearer, more general treatment.
+
 \subsubsection{Scattering Amplitudes}
 \label{sec:th-ccc-amp}
 
-\subsubsection{Ionisation Cross-Sections}
-\label{sec:th-ccc-ion}
+Once calculated, the matrix elements of the $\hat{T}$ operator yield the
+transition amplitudes between asymptotic states, which can then be used to
+calculate the scattering amplitudes.
+In general terms, the scattering amplitudes can be written in the form
+\begin{equation}
+  \label{eq:scattering-amplitude}
+  f_{\alpha, \beta}
+  =
+  f_{\alpha, \beta}\lr{\vb{k}_{\alpha}, \vb{k}_{\beta}}
+  =
+  \mel*
+  {\vb{k}_{\alpha} \Phi_{\alpha}}
+  {\hat{V}}
+  {\Psi_{\beta}}
+  =
+  \mel*
+  {\vb{k}_{\alpha} \Phi_{\alpha}}
+  {\hat{T}}
+  {\Phi_{\beta} \vb{k}_{\beta}}
+  ,
+\end{equation}
+where the target state $\ket*{\Phi_{\alpha}}$ can be a bounded discrete
+state or an unbounded continuum state, corresponding to either an elastic
+scattering / a discrete excition transition, or an ionisation transition.
+For discrete excitations, the numerically calculated scattering amplitude is
+simply of the form
+\begin{equation}
+  \label{eq:scattering-amplitude-discrete}
+  f_{f, i}^{\lr{N}}
+  =
+  f_{n_{f}, n_{i}}^{\lr{N}}\lr{\vb{k}_{f}, \vb{k}_{i}}
+  =
+  \mel*
+  {\vb{k}_{f} \Phi_{n_{f}}^{\lr{N}}}
+  {\hat{T}}
+  {\Phi_{n_{i}}^{\lr{N}} \vb{k}_{i}}
+  ,
+\end{equation}
+for on-shell transitions,
+\begin{equation}
+  \label{eq:on-shell-energy-discrete}
+  \epsilon_{n_{f}}^{\lr{N}}
+  +
+  \tfrac{1}{2}
+  k_{f}^{2}
+  =
+  E
+  =
+  \epsilon_{n_{i}}^{\lr{N}}
+  +
+  \tfrac{1}{2}
+  k_{i}^{2}
+  ,
+\end{equation}
+with elastic scattering occuring in the case where $n_{f} = n_{i}$,
+\begin{equation}
+  \label{eq:scattering-amplitude-elastic}
+  f_{i}^{\lr{N}}\lr{\vb{k}_{f}, \vb{k}_{i}}
+  =
+  f_{n_{i}, n_{i}}^{\lr{N}}\lr{\vb{k}_{f}, \vb{k}_{i}}
+  =
+  \mel*
+  {\vb{k}_{f} \Phi_{n_{i}}^{\lr{N}}}
+  {\hat{T}}
+  {\Phi_{n_{i}}^{\lr{N}} \vb{k}_{i}}
+  .
+\end{equation}
+However, the numerically calculated scattering amplitudes for ionisations,
+hereby referred to as ionisation amplitudes,
+require a more carefully considered treatment - which we present in a form
+similar to that described in \cite{PhysRevLett.89.273201, PhysRevA.90.022710}.
+We shall restrict our attention to the case of single ionisation, but leave open
+the consideration of ionisation with excitation.
+The ionised asymptotic state $\ket*{\Phi_{\alpha} \vb{k}_{\alpha}}$ corresponds
+to the breakup of the target state $\ket*{\Phi_{\alpha}}$ into a singly-ionised
+target state $\ket*{\Phi_{n_{\alpha}}^{+}}$ (which may be excited) and an ionised
+electron in the form of a Coulomb wave $\ket*{\vb{q}_{\alpha}}$; that is,
+\begin{equation}
+  \label{eq:asymptotic-ionised}
+  \ket*{\Phi_{\alpha} \vb{k}_{\alpha}}
+  =
+  \ket*{\Phi_{n_{\alpha}}^{+} \vb{q}_{\alpha} \vb{k}_{\alpha}}
+  ,
+\end{equation}
+where the energy of the ionised asymptotic state is of the form
+\begin{equation}
+  \label{eq:asymptotic-ionised-energy}
+  E
+  =
+  \epsilon_{\alpha}
+  +
+  \tfrac{1}{2}
+  k_{\alpha}^{2}
+  =
+  \epsilon_{n_{\alpha}}^{+}
+  +
+  \tfrac{1}{2}
+  q_{\alpha}^{2}
+  +
+  \tfrac{1}{2}
+  k_{\alpha}^{2}
+\end{equation}
+where $\epsilon_{n_{\alpha}}^{+}$ is the energy of the singly-ionised target
+state, and where $\tfrac{1}{2} q_{\alpha}^{2}$ is the energy of the Coulomb
+wave.
+It is important to note that in this formulation, the asymptotic state
+$\ket*{\Phi_{\alpha} \vb{k}_{\alpha}}$ separates into the asymptotic projectile
+state $\ket*{\vb{k}_{\alpha}}$ and the asymptotic target state
+$\ket*{\Phi_{\alpha}} = \ket*{\Phi_{n_{\alpha}}^{+} \vb{q}_{\alpha}}$, within
+which the Coulomb wave $\ket{\vb{q}_{\alpha}}$ is modelled - thus excluding from
+consideration a three-body boundary condition.
+This presents an issue however as Coulomb waves are not bounded states, and
+thus their coordinate-space representations are not elements of
+$L^{2}\lr{\real^{3}}$.
+This is the space wherein the coordinate-space representations of the
+one-electron states, comprising the target pseudostates, are spanned in terms of
+the Laguerre basis, \autoref{eq:laguerre-basis}.
+However it can be shown, as discussed in \cite{BRAY19951}, that while the
+projection of a continuum wave onto a $N$-dimensional Laguerre basis is only
+conditionally convergent as $N$ increases, it is numerically stable.
+Hence, the numerically calculated ionisation amplitudes can be written in the
+form
+\begin{alignat}{2}
+  \label{eq:scattering-amplitude-ionisation}
+  &
+  f_{\alpha, i}^{\lr{N}}
+  =
+  f_{n_{\alpha}, n_{i}}^{\lr{N}}\lr
+  {
+    \vb{k}_{\alpha}, \vb{q}_{\alpha}, \vb{k}_{i}
+  }
+  &
+  {}={}
+  &
+  \mel*
+  {\vb{k}_{\alpha} \vb{q}_{\alpha} \Phi_{n_{\alpha}}^{+}}
+  {\hat{I}_{T}^{\lr{N}} \hat{T}}
+  {\Phi_{n_{i}}^{\lr{N}} \vb{k}_{i}}
+  \nonumber
+  \\
+  &
+  &
+  {}={}
+  &
+  \sum_{n = 1}^{N_{T}}
+  \braket*
+  {\vb{k}_{\alpha} \vb{q}_{\alpha} \Phi_{n_{\alpha}}^{+}}
+  {\Phi_{n}^{\lr{N}}}
+  \mel*
+  {\Phi_{n}^{\lr{N}}}
+  {\hat{T}}
+  {\Phi_{n_{i}}^{\lr{N}} \vb{k}_{i}}
+  \nonumber
+  \\
+  &
+  &
+  {}={}
+  &
+  \sum_{n = 1}^{N_{T}}
+  \braket*
+  {\vb{q}_{\alpha} \Phi_{n_{\alpha}}^{+}}
+  {\Phi_{n}^{\lr{N}}}
+  \mel*
+  {\vb{k}_{\alpha} \Phi_{n}^{\lr{N}}}
+  {\hat{T}}
+  {\Phi_{n_{i}}^{\lr{N}} \vb{k}_{i}}
+  .
+\end{alignat}
+However, this expression is problematic as it involves a summation over
+not necessarily on-shell terms $\bra*{\vb{k}_{\alpha}\Phi_{n}^{\lr{N}}}$.
+If we restrict our attention to only evaluating the ionisation amplitudes
+$f_{\alpha, i}^{\lr{N}}$ for ionised asymptotic states
+$\ket*{\Phi_{n_{\alpha}}^{+} \vb{q}_{\alpha} \vb{k}_{\alpha}}$ for which the
+ionised target energy satisfies
+\begin{equation}
+  \label{eq:asymptotic-ionisation-energy-constraint}
+  \epsilon_{\alpha}
+  =
+  \epsilon_{n_{\alpha}}^{+}
+  +
+  \tfrac{1}{2}
+  q_{\alpha}^{2}
+  =
+  \epsilon_{n_{\alpha}}^{\lr{N}}
+  ,
+\end{equation}
+for one of the target pseudoenergies $\epsilon_{n_{\alpha}}^{\lr{N}}$,
+corresponding to the target pseudostate $\ket*{\Phi_{n_{\alpha}}^{\lr{N}}}$, then
+we must have that
+\begin{equation}
+  \label{eq:asymptotic-ionisation-overlap}
+  \braket*
+  {\vb{q}_{\alpha} \Phi_{n_{\alpha}}^{+}}
+  {\Phi_{n}^{\lr{N}}}
+  =
+  \delta_{n_{\alpha}, n}
+  \braket*
+  {\vb{q}_{\alpha} \Phi_{n_{\alpha}}^{+}}
+  {\Phi_{n}^{\lr{N}}}
+  ,
+\end{equation}
+whence the ionisation amplitudes can be evaluated as
+\begin{equation}
+  \label{eq:scattering-amplitude-ionisation-evaluated}
+  f_{n_{\alpha}, n_{i}}^{\lr{N}}\lr
+  {
+    \vb{k}_{\alpha}, \vb{q}_{\alpha}, \vb{k}_{i}
+  }
+  =
+  \braket*
+  {\vb{q}_{\alpha} \Phi_{n_{\alpha}}^{+}}
+  {\Phi_{n_{\alpha}}^{\lr{N}}}
+  \mel*
+  {\vb{k}_{\alpha} \Phi_{n_{\alpha}}^{\lr{N}}}
+  {\hat{T}}
+  {\Phi_{n_{i}}^{\lr{N}} \vb{k}_{i}}
+  ,
+\end{equation}
+at these $q_{\alpha}$ which satisfy
+\autoref{eq:asymptotic-ionisation-energy-constraint}.
+
+However, we note that a consequence of the assumed separability of the
+asymptotic state in \autoref{eq:ccc-asymptotic-states} is that the
+anti-symmetrisation of the asymptotic state is neglected.
+Clearly this cannot be entirely neglected in the case of ionisation resulting in
+two unbounded electron states, even if one is screened by the other.
+Inclusion of the anti-symmetrisation of the ionised asymptotic state, with
+respect to the two unbounded electron states, results in the transformation
+\begin{equation}
+  \label{eq:asymptotic-ionised-anti-symmetrised}
+  \ket*{\Phi_{n_{\alpha}}^{+} \vb{q}_{\alpha} \vb{k}_{\alpha}}
+  \mapsto
+  \lrsq{1 - \hat{P}_{0, n_{\mathrm{e}}}}
+  \ket*{\Phi_{n_{\alpha}}^{+} \vb{q}_{\alpha} \vb{k}_{\alpha}}
+  =
+  \ket*{\Phi_{n_{\alpha}}^{+} \vb{q}_{\alpha} \vb{k}_{\alpha}}
+  -
+  \exp{\imath \theta_{\alpha}}
+  \ket*{\Phi_{n_{\alpha}}^{+} \vb{k}_{\alpha} \vb{q}_{\alpha}}
+  ,
+\end{equation}
+where $\theta_{\alpha} \in \lrset{0, \pi}$ is the exchange phase, corresponding
+to the exchange of the projectile and ionised electron states.
+Whence, as described in \cite{PhysRevLett.78.4721, PhysRevLett.83.1570,
+  PhysRevLett.89.273201}, we perform an ad-hoc anti-symmetrisation of the
+ionisation amplitude to account for this, resulting in a corrected ionisation
+amplitude $F_{n_{\alpha}, n_{i}}^{\lr{N}}$ of the form
+\begin{equation}
+  \label{eq:scattering-amplitude-ionisation-anti-symmetrised}
+  F_{n_{\alpha}, n_{i}}^{\lr{N}}\lr
+  {
+    \vb{k}_{\alpha}, \vb{q}_{\alpha}, \vb{k}_{i}
+  }
+  =
+  f_{n_{\alpha}, n_{i}}^{\lr{N}}\lr
+  {
+    \vb{k}_{\alpha}, \vb{q}_{\alpha}, \vb{k}_{i}
+  }
+  -
+  \exp{- \imath \theta_{\alpha}}
+  f_{n_{\alpha}, n_{i}}^{\lr{N}}\lr
+  {
+    \vb{q}_{\alpha}, \vb{k}_{\alpha}, \vb{k}_{i}
+  }
+  ,
+\end{equation}
+which satisfies
+\begin{equation}
+  \label{eq:scattering-amplitude-ionisation-anti-symmetrised-constraint}
+  F_{n_{\alpha}, n_{i}}^{\lr{N}}\lr
+  {
+    \vb{k}_{\alpha}, \vb{q}_{\alpha}, \vb{k}_{i}
+  }
+  =
+  -
+  \exp{- \imath \theta_{\alpha}}
+  F_{n_{\alpha}, n_{i}}^{\lr{N}}\lr
+  {
+    \vb{q}_{\alpha}, \vb{k}_{\alpha}, \vb{k}_{i}
+  }
+  .
+\end{equation}
+We note that in the CCC method, we refer to $f_{\alpha, i}^{\lr{N}}$ simply as
+the ionisation amplitudes (or as the unsymmetrised ionisation amplitudes when
+specificity is required), and we refer to $F_{\alpha, i}^{\lr{N}}$ as the
+anti-symmetrised ionisation amplitudes.
+We note that while the anti-symmetrised ionisation amplitudes are used for
+comparison with experimental results, we make reference to the unsymmetrised
+ionisation amplitudes in the discussion of ionisation in the CCC method.
+Lastly, we note that we are constrained to evaluating these amplitudes only for
+a countable number of outgoing projectile energies, bound by the constraint
+defined in \autoref{eq:asymptotic-ionisation-energy-constraint}.
+Evaluating the ionisation scattering amplitudes at any other energy requires
+an interpolation between these energies.
+
+\subsubsection{Cross-Sections}
+\label{sec:th-ccc-cs}
+
+We present expressions for the partial and total cross sections, in a manner
+similar to \cite[10]{BRAY19951}.
+In general terms, the partial cross sections are of the form
+\begin{equation}
+  \label{eq:partial-cross-sections}
+  \sigma_{\alpha, \beta}
+  =
+  \sigma_{\alpha, \beta}\lr{\vb{k}_{\alpha}, \vb{k}_{\beta}}
+  =
+  \dfrac{k_{\alpha}}{k_{\beta}}
+  \lrabs{f_{\alpha, \beta}}^{2}
+  =
+  \dfrac{k_{\alpha}}{k_{\beta}}
+  \lrabs
+  {
+    \mel*
+    {\vb{k}_{\alpha} \Phi_{\alpha}}
+    {\hat{T}}
+    {\Phi_{\beta} \vb{k}_{\beta}}
+  }^{2}
+  ,
+\end{equation}
+with the specific notation for elastic, discrete excitation, and ionisation
+cross sections paralleling the notation used in
+\autoref{eq:scattering-amplitude-discrete},
+\autoref{eq:scattering-amplitude-elastic}, and
+\autoref{eq:scattering-amplitude-ionisation} respectively.
+
+The total cross section (TCS), for a given initial asymptotic state, is obtained
+as a sum of all partial cross sections for which the outgoing asymptotic
+projectile energy is positive,
+\begin{equation}
+  \label{eq:total-cross-section}
+  \sigma_{\mathrm{T}; i}^{\lr{N}}
+  =
+  \sum_{f : k_{f} > 0}
+  \sigma_{f, i}^{\lr{N}}
+  ,
+\end{equation}
+while the total ionisation cross section (TICS), for a given initial asymptotic
+state, is obtained as a sum of all partial cross sections for which the outgoing
+asymptotic projectile and target energies are positive (and thus unbounded),
+\begin{equation}
+  \label{eq:total-ionisation-cross-section}
+  \sigma_{\mathrm{I}; i}^{\lr{N}}
+  =
+  \sum_{\alpha : k_{\alpha} > 0, \epsilon_{\alpha}^{\lr{N}} > 0}
+  \sigma_{\alpha, i}^{\lr{N}}
+  .
+\end{equation}
+An ionisation cross section can also be constructed for a particular outgoing
+asymptotic ionised target state by an appropriate
+restriction of the sum in \autoref{eq:total-ionisation-cross-section}.
+
+We also consider the various differential cross sections in the context of
+ionisation transitions, following in the form of \cite{PhysRevA.54.2991}.
+Evaluating the partial cross sections, for an ionisation transition, yields the
+triple-differential cross section (TDCS),
+\begin{equation}
+  \label{eq:triple-differential-cross-section}
+  \dfrac
+  {
+    \dd{\sigma_{\alpha, i}^{\lr{N}}}
+  }
+  {
+    \dd{\Omega_{k_{\alpha}}}
+    \dd{\Omega_{q_{\alpha}}}
+    \dd{e_{q_{\alpha}}}
+  }
+  \lr
+  {
+    \vb{k}_{\alpha}, \vb{q}_{\alpha}, \vb{k}_{i}
+  }
+  =
+  \dfrac{k_{\alpha} q_{\alpha}}{k_{i}}
+  \lrabs
+  {
+    F_{n_{\alpha}, n_{i}}^{\lr{N}}\lr
+    {
+      \vb{k}_{\alpha}, \vb{q}_{\alpha}, \vb{k}_{i}
+    }
+  }^{2}
+  ,
+\end{equation}
+where $e_{q_{\alpha}} = \tfrac{1}{2} q_{\alpha}^{2} \in [0, E - \epsilon_{n_{\alpha}}^{+}]$ is the energy of the outgoing
+projectile electron, and where $\Omega = \lr{\theta, \phi}$ refers to the
+spherical coordinates of momentum-space.
+Integrating the TDCS over the spherical coordinates of either the outgoing
+asymptotic projectile electron, or the outgoing ionised target electron, yields
+the double-differential cross section (DDCS).
+Furthermore, integrating the DDCS over the spherical coordinates of the
+remaining electron, whichever one that may be, yields the single-differential
+cross section (SDCS), which is of the form
+\begin{equation}
+  \label{eq:single-differential-cross-section}
+  \dv{\sigma_{\alpha, i}^{\lr{N}}}{e_{q_{\alpha}}}\lr{e_{q_{\alpha}}}
+  =
+  \dfrac{k_{\alpha} q_{\alpha}}{k_{i}}
+  \int_{S^{2}}
+  \dd{\Omega_{k_{\alpha}}}
+  \int_{S^{2}}
+  \dd{\Omega_{q_{\alpha}}}
+  \lrabs
+  {
+    F_{n_{\alpha}, n_{i}}^{\lr{N}}\lr
+    {
+      \vb{k}_{\alpha}, \vb{q}_{\alpha}, \vb{k}_{i}
+    }
+  }^{2}
+  ,
+\end{equation}
+where we recall that the energies of the incoming and outgoing projectile
+states, as well as the ionised electron state, are constrained to be on-shell as
+specified in \autoref{eq:asymptotic-ionised-energy}.
+Integration of the SDCS over the projectile (or target) electron energy yields
+the total ionisation cross section.
 
 \subsection{Considerations for a Helium Target}
 \label{sec:th-he}
@@ -197,10 +2260,10 @@
 \subsection{Helium Target States}
 \label{sec:re-he}
 
-\todo[inline]{Discuss major-configuration purity of states as function of
+\todo[inline]{Discuss major-configuration coefficient of states as function of
   exponential fall-off.}
 
-\todo[inline]{Figure of major-configuration purity for doubly-excited states.}
+\todo[inline]{Figure of major-configuration coefficient for doubly-excited states.}
 
 \todo[inline]{Discuss interference of doubly-excited and continuum states
   (auto-ionisation).}
