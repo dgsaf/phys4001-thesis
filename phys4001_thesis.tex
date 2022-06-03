@@ -592,8 +592,8 @@ these spin orbitals is of the form
   }
   ,
 \end{equation}
-as per \autoref{eq:anti-symmetric-tensor-product-notation} and
-\autoref{eq:anti-symmetriser}.
+as per \eqref{eq:anti-symmetric-tensor-product-notation} and
+\eqref{eq:anti-symmetriser}.
 We note that Slater determinants are anti-symmetric under pairwise exchange of
 any two orbitals, and are zero if constructed with two spin orbitals in the same
 state.
@@ -748,7 +748,7 @@ where $\hat{H}$ is of the form
   ,
 \end{equation}
 where $\hat{H}_{T}$ is the target Hamiltonian, defined in
-\autoref{eq:target-hamiltonian}, $\hat{K}_{0}$ is the projectile electron
+\eqref{eq:target-hamiltonian}, $\hat{K}_{0}$ is the projectile electron
 kinetic operator, $\hat{V}_{0}$ is the projectile electron-nuclei potential
 operator, and $\hat{V}_{0, m}$ are the projectile electron-target electron
 potential operators.
@@ -756,7 +756,7 @@ The following treatment of the total wavefunction is of a similar form to
 \cite[202-204]{AJP_BRAY1996}.
 
 To ensure that the total wavefunction is anti-symmetric we utilise the
-anti-symmetriser, defined in \autoref{eq:anti-symmetriser}, to construct it
+anti-symmetriser, defined in \eqref{eq:anti-symmetriser}, to construct it
 explicitly
 \begin{equation}
   \label{eq:total-wavefunction-antisymmetrisation}
@@ -776,7 +776,7 @@ explicitly
   ,
 \end{equation}
 where $\hat{P}_{0, m}$ are the pairwise electron exchange operators defined in
-\autoref{eq:pairwise-exchange}, and where
+\eqref{eq:pairwise-exchange}, and where
 $\ket*{\psi^{\lr{+}}} \in \mathcal{H}_{T} \otimes \mathcal{H}$ is the
 unsymmetrised total wavefunction.
 As the target states are already anti-symmetric by construction, the
@@ -806,7 +806,7 @@ perform a multichannel expansion, projecting it onto the target psuedostates,
 \end{equation}
 where $\ket*{F_{n}^{\lr{N}}} = \bra*{\Phi_{n}^{\lr{N}}}\ket*{\psi^{\lr{+}}}$ are
 the multichannel weight functions, and note that as a result of
-\autoref{eq:target-projection-convergence}, that
+\eqref{eq:target-projection-convergence}, that
 \begin{equation}
   \label{eq:total-wavefunction-unsymmetrised-convergence}
   \ket*{\psi^{\lr{+}}}
@@ -839,7 +839,7 @@ form
   \ket*{\psi^{\lr{N, +}}}
   ,
 \end{equation}
-and we note that as a result of \autoref{eq:target-projection-convergence}, that
+and we note that as a result of \eqref{eq:target-projection-convergence}, that
 \begin{equation}
   \label{eq:total-wavefunction-antisymmetrisation-convergence}
   \ket*{\Psi^{\lr{+}}}
@@ -859,7 +859,7 @@ identical to that of $\ket*{\psi^{\lr{N, +}}}$.
 To resolve this dilemma, we first note that the multichannel weight functions
 $\ket*{F_{n}^{\lr{N}}}$ are within the span of the one-electron spin orbitals
 $\lrset{\ket*{\chi_{i}^{\lr{N}}}}_{i = 1}^{2N}$, used to construct the Slater
-determinants, \autoref{eq:target-slater-determinant}, with which the target
+determinants, \eqref{eq:target-slater-determinant}, with which the target
 states are expanded.
 Hence, we impose the constraint that for any of the one-electron spin orbitals
 $\ket*{\chi_{i}^{\lr{N}}}$, that
@@ -872,7 +872,7 @@ $\ket*{\chi_{i}^{\lr{N}}}$, that
   \ket*{\Phi_{n}^{\lr{N}} \chi_{i}^{\lr{N}}}
   .
 \end{equation}
-which can be seen as an explicit imposition of \autoref{eq:pairwise-exchange}.
+which can be seen as an explicit imposition of \eqref{eq:pairwise-exchange}.
 With this constraint in place, it can then be shown that
 $\dim\ker\lr{\hat{A}\hat{I}_{T}^{\lr{N}}} = 0$, whence it follows that the
 multichannel expansion of $\ket*{\psi^{\lr{N, +}}}$ is now unique in determining
@@ -896,7 +896,7 @@ $\ket*{\Psi^{\lr{N, +}}}$.
 
 We present a derivation for the Convergent Close-Coupling (CCC) equations,
 beginning with the Schr\"odinger equation for the total wavefunction
-$\ket*{\Psi^{\lr{+}}}$ presented in \autoref{eq:total-wavefunction}.
+$\ket*{\Psi^{\lr{+}}}$ presented in \eqref{eq:total-wavefunction}.
 This shall be re-arranged to yield the Lippmann-Schwinger equation, which will
 then be solved using the CCC formalism to obtain the matrix elements of the
 $\hat{T}$ operator - with which scattering statistics can be calculated.
@@ -1001,7 +1001,7 @@ The inclusion of the selected asymptotic eigenstates is required as they are in
 the kernel of $\lrsq{E - \hat{H}_{\rm{A}}}$, thus forming the homogenous
 solutions to the Lippmann-Schwinger equation.
 This can be demonstrated by applying the operator $\lrsq{E - \hat{H}_{\rm{A}}}$
-on the left of \autoref{eq:ls},
+on the left of \eqref{eq:ls},
 \begin{alignat*}{2}
   % \label{eq:ls-kernel}
   &
@@ -1058,7 +1058,7 @@ on the left of \autoref{eq:ls},
 At this point, we note that selecting the values of the coefficients
 $C_{\alpha}$ amounts to specifying a boundary condition for the eigenstate
 $\ket{\Psi}$.
-By consequence of the linearity of \autoref{eq:ls}, we may therefore simplify
+By consequence of the linearity of \eqref{eq:ls}, we may therefore simplify
 the generalised sum/integral, without loss of generality, by considering
 eigenstates of the form
 \begin{equation}
@@ -1216,7 +1216,7 @@ and a spectral decomposition of the asymptotic Hamiltonian
   .
 \end{equation*}
 It therefore follows from the definition of the Green's operator,
-\autoref{eq:greens-operator}, that we must have
+\eqref{eq:greens-operator}, that we must have
 \begin{alignat*}{2}
   &
   &
@@ -1338,12 +1338,12 @@ the on-shell asymptotic eigenstates $\lrset{\ket*{\Omega_{\beta}^{\lr{E}}}}$.
 \label{sec:th-ccc-eq-form}
 
 In the Convergent Close-Coupling formalism, the Lippmann-Schwinger equation in
-terms of the $\hat{T}$ operator, \autoref{eq:ls-t}, is solved in momentum space.
+terms of the $\hat{T}$ operator, \eqref{eq:ls-t}, is solved in momentum space.
 We preface this discussion with a minor note, that the notation for the
 asymptotic Hamiltonian $\hat{H}_{\rm{A}}$ is to be distinguished from the
 notation for the anti-symmetriser $\hat{A}$, and is unrelated.
 
-We split the Hamiltonian, from \autoref{eq:total-hamiltonian}, into an
+We split the Hamiltonian, from \eqref{eq:total-hamiltonian}, into an
 asymptotic Hamiltonian and a potential in the form
 \begin{equation}
   \label{eq:ccc-hamiltonian}
@@ -1409,7 +1409,7 @@ The asymptotic eigenstates are therefore taken to be of the form
   ,
 \end{equation}
 where $\lrset{\ket*{\Phi_{n}^{\lr{N}}}}_{i = 1}^{N_{T}}$ are the target
-pseudostates, defined in \autoref{eq:target-states}, which satisfy
+pseudostates, defined in \eqref{eq:target-states}, which satisfy
 \begin{equation}
   \label{eq:ccc-target}
   \mel*
@@ -1474,9 +1474,9 @@ Furthermore, the total wavefunction is taken to be of the form
   \ket*{\Psi_{\alpha}^{\lr{N, +}}}
   ,
 \end{equation}
-as in \autoref{eq:total-wavefunction-antisymmetrisation}, where $\hat{A}$ is the
-anti-symmetriser operator, defined in \autoref{eq:anti-symmetriser}, and is
-subject to the constraints imposed in \autoref{eq:multichannel-constraint} to
+as in \eqref{eq:total-wavefunction-antisymmetrisation}, where $\hat{A}$ is the
+anti-symmetriser operator, defined in \eqref{eq:anti-symmetriser}, and is
+subject to the constraints imposed in \eqref{eq:multichannel-constraint} to
 ensure uniqueness.
 We note that with these expressions for the asymptotic eigenstates and the total
 wavefunction, that the $\hat{T}$ operator is related to the potential $\hat{W}$
@@ -1634,7 +1634,7 @@ for which we can see that
   \ket*{\psi_{\alpha}^{\lr{+}}}
   ,
 \end{equation*}
-which is to say that the Lippmann-Schwinger equation \autoref{eq:ls-t} can be
+which is to say that the Lippmann-Schwinger equation \eqref{eq:ls-t} can be
 written in terms of the unsymmetrised total wavefunction
 $\ket*{\psi_{\alpha}^{\lr{+}}}$, rather than the anti-symmetric total
 wavefunction $\ket*{\Psi_{\alpha}^{\lr{+}}}$.
@@ -1793,8 +1793,8 @@ where $k_{n}$ are the on-shell projectile momenta which satisfy
   n = 1, \dotsc, N_{T}.
 \end{equation}
 
-We note that the matrix equations \autoref{eq:ccc-ls-t}, as well as
-\autoref{eq:ccc-ls-k} and \autoref{eq:ccc-t-k}, are computationally
+We note that the matrix equations \eqref{eq:ccc-ls-t}, as well as
+\eqref{eq:ccc-ls-k} and \eqref{eq:ccc-t-k}, are computationally
 parameterised by the set of target pseudostates
 $\lrset{\ket*{\Phi_{n}^{\lr{N}}}}_{n = 1}^{N_{T}}$ and the discretisation of
 the projectile spectrum.
@@ -1803,7 +1803,7 @@ determinants $N_{T}$ used in their construction, and the number of basis
 functions $N$ used to construct the one-electron orbitals from which the Slater
 determinants are built.
 Furthermore, we note that matrix equations in this form do not explicitly
-include the constraints, detailed in \autoref{eq:multichannel-constraint}, which
+include the constraints, detailed in \eqref{eq:multichannel-constraint}, which
 guarantee the uniqueness of the explicitly anti-symmetrised multichannel
 expansion.
 
@@ -1946,7 +1946,7 @@ thus their coordinate-space representations are not elements of
 $L^{2}\lr{\real^{3}}$.
 This is the space wherein the coordinate-space representations of the
 one-electron states, comprising the target pseudostates, are spanned in terms of
-the Laguerre basis, \autoref{eq:laguerre-basis}.
+the Laguerre basis, \eqref{eq:laguerre-basis}.
 However it can be shown, as discussed in \cite{BRAY19951}, that while the
 projection of a continuum wave onto a $N$-dimensional Laguerre basis is only
 conditionally convergent as $N$ increases, it is numerically stable.
@@ -2049,10 +2049,10 @@ whence the ionisation amplitudes can be evaluated as
   ,
 \end{equation}
 at these $q_{\alpha}$ which satisfy
-\autoref{eq:asymptotic-ionisation-energy-constraint}.
+\eqref{eq:asymptotic-ionisation-energy-constraint}.
 
 However, we note that a consequence of the assumed separability of the
-asymptotic state in \autoref{eq:ccc-asymptotic-states} is that the
+asymptotic state in \eqref{eq:ccc-asymptotic-states} is that the
 anti-symmetrisation of the asymptotic state is neglected.
 Clearly this cannot be entirely neglected in the case of ionisation resulting in
 two unbounded electron states, even if one is screened by the other.
@@ -2121,7 +2121,7 @@ comparison with experimental results, we make reference to the unsymmetrised
 ionisation amplitudes in the discussion of ionisation in the CCC method.
 Lastly, we note that we are constrained to evaluating these amplitudes only for
 a countable number of outgoing projectile energies, bound by the constraint
-defined in \autoref{eq:asymptotic-ionisation-energy-constraint}.
+defined in \eqref{eq:asymptotic-ionisation-energy-constraint}.
 Evaluating the ionisation scattering amplitudes at any other energy requires
 an interpolation between these energies.
 
@@ -2152,9 +2152,9 @@ In general terms, the partial cross sections are of the form
 \end{equation}
 with the specific notation for elastic, discrete excitation, and ionisation
 cross sections paralleling the notation used in
-\autoref{eq:scattering-amplitude-discrete},
-\autoref{eq:scattering-amplitude-elastic}, and
-\autoref{eq:scattering-amplitude-ionisation} respectively.
+\eqref{eq:scattering-amplitude-discrete},
+\eqref{eq:scattering-amplitude-elastic}, and
+\eqref{eq:scattering-amplitude-ionisation} respectively.
 
 The total cross section (TCS), for a given initial asymptotic state, is obtained
 as a sum of all partial cross sections for which the outgoing asymptotic
@@ -2180,7 +2180,21 @@ asymptotic projectile and target energies are positive (and thus unbounded),
 \end{equation}
 An ionisation cross section can also be constructed for a particular outgoing
 asymptotic ionised target state by an appropriate
-restriction of the sum in \autoref{eq:total-ionisation-cross-section}.
+restriction of the sum in \eqref{eq:total-ionisation-cross-section},
+\begin{equation}
+  \label{eq:partial-ionisation-cross-section}
+  \sigma_{\mathrm{I}; n_{f}, i}^{\lr{N}}
+  =
+  \sum_{\alpha :
+    k_{\alpha} > 0
+    ,
+    \epsilon_{\alpha}^{\lr{N}} > 0
+    ,
+    n_{\alpha} = n_{f}
+  }
+  \sigma_{\alpha, i}^{\lr{N}}
+  .
+\end{equation}
 
 We also consider the various differential cross sections in the context of
 ionisation transitions, following in the form of \cite{PhysRevA.54.2991}.
@@ -2241,7 +2255,7 @@ cross section (SDCS), which is of the form
 \end{equation}
 where we recall that the energies of the incoming and outgoing projectile
 states, as well as the ionised electron state, are constrained to be on-shell as
-specified in \autoref{eq:asymptotic-ionised-energy}.
+specified in \eqref{eq:asymptotic-ionised-energy}.
 Integration of the SDCS over the projectile (or target) electron energy yields
 the total ionisation cross section.
 
