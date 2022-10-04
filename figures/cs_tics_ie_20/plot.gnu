@@ -44,11 +44,13 @@ set xrange [0:500]
 set yrange [0:*]
 set xlabel "Incident Energy [eV]"
 set ylabel "Cross Section [a.u.]"
-# set grid xtics ytics
+set grid xtics ytics
 
 set palette defined (0 "blue" , 1 "red")
 unset colorbox
-set key top right box opaque
+set key top right box opaque \
+  samplen 1 spacing 1.0 width 1.0
+
 
 if (n_calcs > 1) {
   do for [i = 1:n_calcs] {
