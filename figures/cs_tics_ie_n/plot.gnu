@@ -8,11 +8,9 @@ set terminal epslatex input color solid
 # `n` :
 # `ic` : he+ state
 c_min = 2
-c_max = 6
-n = 20
+c_max = 4
+n = 50
 ic = 2
-
-figure_id = sprintf("cs_tics_ie_%i", n)
 
 
 # utility functions -----------------------------------------------------------
@@ -23,16 +21,17 @@ file_exists(file) = int(system("[ -f '".file."' ] && echo '1' || echo '0'"))
 # derived parameters ----------------------------------------------------------
 
 # associated pecs file (may or may not exist)
-pecs_file = sprintf("pecs_%isks.dat", ic)
+pecs_file = sprintf("pecs/pecs_%isks.dat", ic)
 
 # calculation data files
-data(c, n) = sprintf("%i_%i/tiecs_%isks.dat", c, n, ic)
+data(c, n) = sprintf("%i/%i_%i/tiecs_%isks.dat", n, c, n, ic)
 
 # number of calculations
 n_calcs = c_max - c_min + 1
 
 # output file
-set output "figure.tex"
+str_fig = sprintf("%i/figure.tex", n)
+set output str_fig
 
 
 # plot style ------------------------------------------------------------------
@@ -90,6 +89,6 @@ if (file_exists(pecs_file)) {
 # tex file ---------------------------------------------------------------------
 set output
 
-str_find = '\includegraphics{figure}'
-str_repl = '\includegraphics{figures/'.figure_id.'/figure}'
-system "sed -i 's|".str_find."|".str_repl."|' figure.tex"
+str_find = sprintf('\includegraphics{%i/figure}', n)
+str_repl = sprintf('\includegraphics{figures/cs_tics_ie_n/%i/figure}', n)
+system "sed -i 's|".str_find."|".str_repl."|' ".str_fig
