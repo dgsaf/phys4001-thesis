@@ -3,9 +3,6 @@ set terminal epslatex input color solid
 
 # parameters ------------------------------------------------------------------
 
-
-# arguments -------------------------------------------------------------------
-
 # `c_min` :
 # `c_max` :
 # `n` :
@@ -14,6 +11,9 @@ c_min = 2
 c_max = 6
 n = 20
 ic = 2
+
+figure_id = sprintf("cs_tics_ie_%i", n)
+
 
 # utility functions -----------------------------------------------------------
 dir_exists(dir) = int(system("[ -d '".dir."' ] && echo '1' || echo '0'"))
@@ -28,11 +28,12 @@ pecs_file = sprintf("pecs_%isks.dat", ic)
 # calculation data files
 data(c, n) = sprintf("%i_%i/tiecs_%isks.dat", c, n, ic)
 
+# number of calculations
+n_calcs = c_max - c_min + 1
+
 # output file
 set output "figure.tex"
 
-# number of calculations
-n_calcs = c_max - c_min + 1
 
 # plot style ------------------------------------------------------------------
 
@@ -85,8 +86,10 @@ if (file_exists(pecs_file)) {
 }
 # pause -1
 
+
 # tex file ---------------------------------------------------------------------
 set output
-!sed -i \
-  's|\includegraphics{figure}|\includegraphics{figures/cs_tics_ie_20/figure}|' \
-  figure.tex
+
+str_find = '\includegraphics{figure}'
+str_repl = '\includegraphics{figures/'.figure_id.'/figure}'
+system "sed -i 's|".str_find."|".str_repl."|' figure.tex"
