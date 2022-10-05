@@ -8,8 +8,8 @@ set terminal epslatex input color solid size 6, 4
 # `n` :
 # `ic` : he+ state
 c_min = 2
-c_max = 4
-n = 50
+c_max = 6
+n = 25
 ic = 2
 
 
