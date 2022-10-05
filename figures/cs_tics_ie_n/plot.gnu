@@ -40,7 +40,7 @@ set xrange [0:500]
 set yrange [0:0.0018]
 set xlabel "\\footnotesize Incident Energy [eV]"
 set ylabel "\\footnotesize Cross Section [a.u.]" \
-  offset 4,0
+  offset 4, 0
 set grid xtics ytics
 
 set format x "\\scriptsize %.0f"
@@ -63,9 +63,9 @@ if (n_calcs > 1) {
 set linetype cycle n_calcs
 set style data linespoints
 
-# format calc title
-title_PECS = "\\tiny PECS"
-title_CN(c, n) = sprintf("\\tiny CCC(%i, %i)", c, n)
+# format key
+key_PECS = "\\tiny PECS"
+key_CN(c, n) = sprintf("\\tiny CCC(%i, %i)", c, n)
 
 
 # plot ------------------------------------------------------------------------
@@ -75,17 +75,16 @@ set title sprintf("$1^{1}$S $\\to$ %isks", ic) \
 
 if (file_exists(pecs_file)) {
   plot \
-    pecs_file u 1:2 ls 1 lc rgb "black" t title_PECS, \
+    pecs_file u 1:2 ls 1 lc rgb "black" t key_PECS, \
     for [i=1:n_calcs] \
       c = c_min + i - 1 \
-      data(c, n) u 1:2 ls i t title_CN(c, n)
+      data(c, n) u 1:2 ls i t key_CN(c, n)
 } else {
   plot \
     for [i=1:n_calcs] \
       c = c_min + i - 1 \
-      data(c, n) u 1:2 ls i t title_CN(c, n)
+      data(c, n) u 1:2 ls i t key_CN(c, n)
 }
-# pause -1
 
 
 # tex file ---------------------------------------------------------------------
