@@ -1,4 +1,4 @@
-set terminal epslatex input color solid
+set terminal epslatex input color solid size 6, 4
 
 
 # parameters ------------------------------------------------------------------
@@ -37,9 +37,10 @@ set output str_fig
 # plot style ------------------------------------------------------------------
 
 set xrange [0:500]
-set yrange [0:*]
-set xlabel "Incident Energy [eV]"
-set ylabel "Cross Section [a.u.]"
+set yrange [0:0.0018]
+set xlabel "\\footnotesize Incident Energy [eV]"
+set ylabel "\\footnotesize Cross Section [a.u.]" \
+  offset 4,0
 set grid xtics ytics
 
 set format x "\\scriptsize %.0f"
@@ -48,7 +49,7 @@ set format y "\\scriptsize %.4f"
 set palette defined (0 "blue" , 1 "red")
 unset colorbox
 set key top right box opaque \
-  samplen 1 spacing 0.8 width -5.5
+  samplen 1 spacing 0.6 width -6.5 height 0.5
 
 if (n_calcs > 1) {
   do for [i = 1:n_calcs] {
@@ -63,13 +64,14 @@ set linetype cycle n_calcs
 set style data linespoints
 
 # format calc title
-title_PECS = "\\scriptsize PECS"
-title_CN(c, n) = sprintf("\\scriptsize CCC(%i, %i)", c, n)
+title_PECS = "\\tiny PECS"
+title_CN(c, n) = sprintf("\\tiny CCC(%i, %i)", c, n)
 
 
 # plot ------------------------------------------------------------------------
 
-set title sprintf("$1^{1}$S $\\to$ %isks", ic)
+set title sprintf("$1^{1}$S $\\to$ %isks", ic) \
+  offset 0, -0.5
 
 if (file_exists(pecs_file)) {
   plot \
