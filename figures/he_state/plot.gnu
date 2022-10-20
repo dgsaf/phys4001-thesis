@@ -145,6 +145,24 @@ str_base = sprintf("%i_%i/singlet_mixing/figure", c, n)
 str_tex = sprintf("%s.tex", str_base)
 set output str_tex
 
+set label "\\scriptsize 1s31s" at 0.405,-0.85 left
+set label "\\scriptsize 1s30s" at 0.485,-0.85 left
+set label "\\scriptsize 1s29s" at 0.555,-0.85 left
+
+set label "\\scriptsize 1s31s" at 0.435,-0.65 left
+set label "\\scriptsize 1s30s" at 0.515,-0.65 left
+set label "\\scriptsize 1s29s" at 0.595,-0.65 left
+
+set label "\\scriptsize 2s2s" at 0.402,-0.750 left
+set label "\\scriptsize 2s2s" at 0.455,-0.750 left
+set label "\\scriptsize 2s2s" at 0.535,-0.750 left
+set label "\\scriptsize 2s2s" at 0.615,-0.750 left
+
+set label "\\scriptsize 2s3s" at 0.405,-0.600 left
+set label "\\scriptsize 2s3s" at 0.470,-0.600 left
+set label "\\scriptsize 2s3s" at 0.550,-0.600 left
+set label "\\scriptsize 2s3s" at 0.625,-0.600 left
+
 plot \
   for [k = 1:ns] \
     data(ks[k]) u 1:3 ls k t key_state(k)
@@ -154,3 +172,33 @@ set output
 str_find = sprintf('\includegraphics{%s}', str_base)
 str_repl = sprintf('\includegraphics{%s/%s}', str_dir, str_base)
 system "sed -i 's|".str_find."|".str_repl."|' ".str_tex
+
+# major configuration ----------------------------------------------------------
+array mc[70]
+do for [is = 1:35] {
+  mc[is] = sprintf("1s%is", is)
+}
+do for [is = 2:36] {
+  mc[34 + is] = sprintf("2s%is", is)
+}
+mc_core(is) = (is <= 35) ? 1 : 2
+mc_filter(a, b, x) = (a eq b) ? x : NaN
+
+set yrange [0.5:1]
+# # view 1
+# do for [is = 1:70] {
+#   set title sprintf("%s MCC", mc[is])
+#   plot for [ik = 1:ns] \
+#     data(ks[ik]) u 1:(mc_filter(mc[is], stringcolumn(4), $2)) \
+#     ls ik dashtype mc_core(is) t sprintf("%i", ik)
+#   pause -1
+# }
+#
+# # view 2
+# do for [ik = 1:ns] {
+#   set title sprintf("Singlet State %i", ik)
+#   plot for [is = 1:70] \
+#     data(ks[ik]) u 1:(mc_filter(mc[is], stringcolumn(4), $2)) \
+#     ls (is) dashtype mc_core(is) t sprintf("%s", mc[is])
+#   pause -1
+# }
