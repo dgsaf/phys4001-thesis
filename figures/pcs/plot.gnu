@@ -59,33 +59,51 @@ set style data linespoints
 
 # style: key
 # set key samplen 1 spacing 0.6 width -2.8 height 0.5
+unset key
 
 # style: axes, grid
-# set xrange [0.40:0.65]
-# set yrange [-3:1]
-# set xlabel "\\footnotesize Exponential Falloff Parameter"
-# set ylabel "\\footnotesize Energy [a.u.]"
-# set format x "\\scriptsize %.2f"
-# set format y "\\scriptsize %.1f"
-# set grid xtics ytics
+set xrange [0.40:0.65]
+set yrange [0:*]
+set zrange [0:*]
+set ticslevel 0
+set xlabel "\\footnotesize Exponential Falloff Parameter"
+set ylabel ""
+set zlabel "\\footnotesize Cross Section [a.u.]"
+set format x "\\scriptsize %.2f"
+set format y ""
+set format z "\\scriptsize %.1tx10^{%T}"
+set grid xtics ytics ztics
+set view 90, 0
 
 # style: title, key
-# set title sprintf("${}^{1}S_{0}$ He Energy Spectrum")
 key_state(k) = sprintf("\\tiny %i", k)
+title_state(k) = sprintf("${}^{1}S_{0} \\to %i$ He Partial Cross Sections", k)
 
 # output file
 # str_base = sprintf("%i_%i/singlet/figure", c, n)
 # str_tex = sprintf("%s.tex", str_base)
 # set output str_tex
 
-set view 100, 10
-set xrange [0.40:0.65]
-set yrange [0:*]
-set zrange [0:0.002]
-set ticslevel 0
-do for [k = 1:ns] {
+# do for [k = 1:ns] {
+#   set title title_state(k)
+#   splot data_pcs(ks[k]) u 1:2:3 w lines t key_state(k)
+#   pause -1
+# }
+
+set xlabel ""
+set ylabel ""
+set zlabel ""
+set format x "%.2f"
+set format y ""
+set format z "%.1tx10^{%T}"
+do for [k = 2:ns-1] {
+  print k, ks[k]
+  set multiplot layout 3,1 rowsfirst
+  splot data_pcs(ks[k-1]) u 1:2:3 w lines t key_state(k)
   splot data_pcs(ks[k]) u 1:2:3 w lines t key_state(k)
+  splot data_pcs(ks[k+1]) u 1:2:3 w lines t key_state(k)
   pause -1
+  unset multiplot
 }
 
 # tex file
