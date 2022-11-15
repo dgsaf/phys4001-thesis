@@ -1,7 +1,7 @@
 set terminal epslatex input color solid size 6, 4.25
 
 # output: directory
-str_dir = "figures/pcs"
+str_dir = "figures/mcc"
 
 # utility
 get(file, r, c) = system('awk ''{if (NR == '.r.') print $'.c.'}'' '.file.'')
@@ -13,7 +13,6 @@ n = 35
 
 # derived parameters
 data_he(k) = sprintf("%i_%i/he_state_%i.dat", c, n, k)
-data_pcs(k) = sprintf("%i_%i/pcs_sorted_%i.dat", c, n, k)
 
 # singlet, triplet states
 array ks[136]
@@ -66,28 +65,26 @@ set style data linespoints
 # plot: partial cross sections -------------------------------------------------
 
 # style: key
+# set key outside right top \
+#   samplen 1 spacing 0.6 width -2.8 height 0.5
 unset key
 set datafile missing NaN
 
 # style: axes, grid
 set xrange [0.40:0.65]
-set yrange [0:*]
-set zrange [0:*]
-set grid xtics ytics ztics
-set xyplane at 0
+set yrange [0.5:1.05]
+set xtics 0.05
+set mxtics 0.01
+set grid xtics ytics
 
 set xlabel ""
 set ylabel ""
-set zlabel ""
 set format x "\\scriptsize %.2f"
-set format y ""
-set format z "\\scriptsize {$%.1t \\times 10^{%T}$}"
-
-set view 90, 0
+set format y "\\scriptsize %.1f"
 
 # style: title, key
 key_state(k) = sprintf("\\tiny %i", k)
-title_state(k) = sprintf("${}^{1}S_{0} \\to \\ket{\\Phi_{%i}}$", k)
+title_state(k) = sprintf("$\\ket{\\Phi_{%i}}$", k)
 
 do for [k = 2:ns-1] {
   print k, ks[k]
@@ -95,36 +92,35 @@ do for [k = 2:ns-1] {
   # output file
   str_base = sprintf("%i_%i/singlet/%i/figure", c, n, k)
   str_tex = sprintf("%s.tex", str_base)
-
   system sprintf("mkdir -p %s", str_base)
   set output str_tex
 
   set multiplot \
-    title "Partial Cross Sections (Orthographic View)" \
+    title "Major Configuration Coefficients" \
     layout 3,1 rowsfirst \
     margins 0.2, 0.8, 0.1, 0.9 \
     spacing 0, 0.05
 
   do for [ik=k-1:k+1] {
-    # partial cross section
-    set label title_state(ik) left at graph 1.05, graph 0, graph 0.5
+    set label title_state(ik) left at graph 1.05, graph 0.5
 
     if (ik-k == 0) {
-      set zlabel "\\footnotesize Cross Section [a.u.]" \
-        rotate by 90 \
-        offset -2, 0
+      set ylabel "\\footnotesize Major Configuration Coefficient" \
+        rotate by 90
     } else {
-      set zlabel ""
+      set ylabel ""
     }
 
     if (ik-k == 1) {
-      set xlabel "\\footnotesize Exponential Falloff Parameter" \
-        offset 0, -1
+      set xlabel "\\footnotesize Exponential Falloff Parameter"
     } else {
       set xlabel ""
     }
 
-    splot data_pcs(ks[ik]) u 1:2:3 w lines
+    plot for [is=1:70] \
+      data_he(ks[ik]) u 1:(mc_filter(mc[is], stringcolumn(4), $2)) \
+      ls is dashtype mc_core(is) t sprintf("%s", mc[is])
+
     unset label
   }
 
