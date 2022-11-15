@@ -62,7 +62,7 @@ set linetype cycle m
 set style data linespoints
 
 
-# plot: partial cross sections -------------------------------------------------
+# plot: major configuration coefficients ---------------------------------------
 
 # style: key
 # set key outside right top \
