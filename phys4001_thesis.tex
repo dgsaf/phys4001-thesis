@@ -2330,11 +2330,12 @@ Hence, the Helium target pseudostates will be expressed in the form
 \end{equation}
 for $n = 1, \dotsc, N_{T}$, where $D_{n}^{a_{1}, a_{2}}$ are the coefficients of
 the expansion.
-As mentioned earlier in \autoref{sec:th-ccc-target-diag}, we restrict the first
-orbital to range over a smaller set of spin orbitals,
-$\lrset{\ket*{\chi_{i}^{\lr{N}}}}_{i = 1}^{2C}$ defined by the parameter $C \leq
-N$, while placing no such restriction on the second orbital, yielding target
-pseudostates of the form
+As mentioned earlier in \autoref{sec:th-ccc-target-diag}, we restrict our
+selection of Slater determinants to those for which the first (core) orbital
+ranges over a smaller set of spin orbitals,
+$\lrset{\ket*{\chi_{i}^{\lr{N}}}}_{i = 1}^{2C}$ defined by the parameter
+$C \leq N$, while placing no such restriction on the second (valence) orbital,
+yielding target pseudostates of the form
 \begin{equation}
   \label{eq:he-target-states-expansion-restricted}
   \ket*{\Phi_{n}^{\lr{C, N}}}
@@ -2345,9 +2346,16 @@ pseudostates of the form
   \ket*{\chi_{\lrsq{a_{1}, a_{2}}}^{\lr{N}}}
   .
 \end{equation}
-Limiting the first orbital in such a manner significantly improves computational
-efficiency by reducing the number of target pseudostates substantially, with
-only a comparatively small reduction in accuracy.
+Limiting the selection of Slater determinants in such a manner significantly
+improves computational efficiency by reducing the number of target pseudostates
+substantially, at the cost of comparatively minor reductions in the accuracy of
+the target pseudostates.
+
+We also note that the target pseudostates, when expanded in the basis of Slater
+determinants, are often dominated by a single term.
+With this in mind, we say that the dominating Slater determinant is the major
+configuration of a particular target pseudostate, and we say that the associated
+expansion coefficient is the major configuration coefficient.
 
 \clearpage
 
