@@ -73,8 +73,11 @@ set datafile missing NaN
 set xrange [0.40:0.65]
 set yrange [0:*]
 set zrange [0:*]
-set grid xtics ytics ztics
+set xtics 0.05
+set mxtics 5
+set grid xtics ytics ztics mxtics vertical
 set xyplane at 0
+set border 4095
 
 set xlabel ""
 set ylabel ""
@@ -87,7 +90,8 @@ set view 90, 0
 
 # style: title, key
 key_state(k) = sprintf("\\tiny %i", k)
-title_state(k) = sprintf("${}^{1}S_{0} \\to \\ket{\\Phi_{%i}}$", k)
+title_state(k) = \
+  sprintf("${}^{1}S_{0} \\to \\ket*{\\Phi_{%i}^{\\lr{%i, %i}}}$", k, c, n)
 
 do for [k = 2:ns-1] {
   print k, ks[k]
@@ -95,7 +99,6 @@ do for [k = 2:ns-1] {
   # output file
   str_base = sprintf("%i_%i/singlet/%i/figure", c, n, k)
   str_tex = sprintf("%s.tex", str_base)
-
   system sprintf("mkdir -p %s", str_base)
   set output str_tex
 
@@ -103,7 +106,7 @@ do for [k = 2:ns-1] {
     title "Partial Cross Sections (Orthographic View)" \
     layout 3,1 rowsfirst \
     margins 0.2, 0.8, 0.1, 0.9 \
-    spacing 0, 0.05
+    spacing 0, 0.075
 
   do for [ik=k-1:k+1] {
     # partial cross section

@@ -68,14 +68,14 @@ set style data linespoints
 # set key outside right top \
 #   samplen 1 spacing 0.6 width -2.8 height 0.5
 unset key
-set datafile missing NaN
+# set datafile missing NaN
 
 # style: axes, grid
 set xrange [0.40:0.65]
 set yrange [0.5:1.05]
 set xtics 0.05
-set mxtics 0.01
-set grid xtics ytics
+set mxtics 5
+set grid xtics ytics mxtics
 
 set xlabel ""
 set ylabel ""
@@ -84,7 +84,7 @@ set format y "\\scriptsize %.1f"
 
 # style: title, key
 key_state(k) = sprintf("\\tiny %i", k)
-title_state(k) = sprintf("$\\ket{\\Phi_{%i}}$", k)
+title_state(k) = sprintf("$\\ket*{\\Phi_{%i}^{\\lr{%i, %i}}}$", k, c, n)
 
 do for [k = 2:ns-1] {
   print k, ks[k]
@@ -99,7 +99,7 @@ do for [k = 2:ns-1] {
     title "Major Configuration Coefficients" \
     layout 3,1 rowsfirst \
     margins 0.2, 0.8, 0.1, 0.9 \
-    spacing 0, 0.05
+    spacing 0, 0.075
 
   do for [ik=k-1:k+1] {
     set label title_state(ik) left at graph 1.05, graph 0.5
