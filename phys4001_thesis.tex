@@ -280,8 +280,6 @@
 \item[$\sigma_{\mathrm{I}; n_{f}, i}^{\lr{N}}$]
   ionisation cross section for given final and initial asymptotic states,
   calculated with $N$ one-electron basis states
-
-
 \end{itemize}
 
 \clearpage
@@ -2549,6 +2547,9 @@ coefficient.
 \section{Results}
 \label{sec:re}
 
+\subsection{Convergence Strategy}
+\label{sec:re-conv}
+
 \todo[inline]{
   Discuss which parameters are significant with the aim of attaining
   an accurate, convergent TICS.
@@ -2563,6 +2564,33 @@ coefficient.
   Discuss increase in computational cost with increasing number of core states.
 }
 
+\clearpage
+
+\subsection{TICS-without-Excitation}
+\label{sec:re-tics-iw}
+
+\todo[inline]{
+  Establish agreement between CCC and PECS calculations for
+  TICS-without-excitation.
+}
+
+\todo[inline]{
+  Figure of TICS-without-excitation, demonstrating agreement with PECS data.
+}
+
+\begin{figure}[h]
+  \begin{center}
+    % \input{figures/cs_tics_iw/2_35/figure.tex}
+  \end{center}
+  \caption[...]{...}
+  % \label{fig:}
+\end{figure}
+
+\clearpage
+
+\subsection{TICS-with-Excitation}
+\label{sec:re-tics-ie}
+
 \todo[inline]{
   Discuss how convergence was demonstrated with an increasing number of core
   states, for a fixed number of one-electron basis states.
@@ -2572,168 +2600,6 @@ coefficient.
   Figure(s) of TICS-with-excitation for increasing number of core states,
   demonstrating convergence.
 }
-
-\todo[inline]{
-  Discuss how this series of convergent calculations failed to demonstrate
-  convergence with regard to the increasing number of one-electron basis states.
-}
-
-\todo[inline]{
-  Discuss the susceptibility of TICS-with-excitation to small variations in the
-  exponential fall-off parameter used when constructing the one-electron basis
-  states.
-}
-
-\todo[inline]{
-  Figure(s) of TICS-with-excitation for varying exponential fall-off parameter
-  values demonstrating significant variation.
-}
-
-\todo[inline]{
-  Raise the possibility of strongly-mixed target states causing inaccurate
-  TICS-with-excitation calculations.
-}
-
-\todo[inline]{
-  Discuss the difference in magnitude between elastic, TICS-without-excitation,
-  and TICS-with-excitation calculations.
-}
-
-\todo[inline]{
-  Discuss the overlapping nature of the continuous and discrete parts of
-  the Helium's energy spectrum, and the implications this has with regard to
-  the mixing of target states.
-}
-
-\todo[inline]{
-  Figure(s) of Helium energy spectrum for varying exponential fall-off parameter
-  values, examining the separation of target state energies.
-}
-
-\todo[inline]{
-  Discuss the correspondence between the purity of a target state and how
-  well-separated it's energy is within the spectrum.
-}
-
-\todo[inline]{
-  Figure(s) of major-configuration coefficient of various target states, for
-  varying exponetial fall-off parameter values, demonstrating the correspondence
-  between energy-separability and mixing.
-}
-
-\todo[inline]{
-  Discuss how the mixing of target states permits the TICS-with-excitation to
-  contain contributions from target states which have significant
-  ionised-without-excitation components, and that these contributions are of a
-  generally larger magnitude.
-}
-
-\todo[inline]{
-  Figure(s) of partial cross sections of various target states, for varying
-  exponential fall-off parameter values, demonstrating how the level of mixing
-  influences the magnitude of the cross sections.
-}
-
-\todo[inline]{
-  .
-}
-
-% ------------------------------------------------------------------------------
-
-\subsection{Helium Target States}
-\label{sec:re-he}
-
-% \todo[inline]{Discuss major-configuration coefficient of states as function of
-%   exponential fall-off.}
-
-% \todo[inline]{Figure of major-configuration coefficient for doubly-excited states.}
-
-% \begin{figure}[h]
-%   \begin{center}
-%     \input{figures/he_mcc/2_35/1s/figure.tex}
-%   \end{center}
-%   \caption[...]{...}
-%   % \label{fig:}
-% \end{figure}
-
-% \begin{figure}[h]
-%   \begin{center}
-%     \input{figures/he_mcc/2_35/2s/figure.tex}
-%   \end{center}
-%   \caption[...]{...}
-%   % \label{fig:}
-% \end{figure}
-
-% \todo[inline]{Discuss interference of doubly-excited and continuum states
-%   (auto-ionisation).}
-
-% \todo[inline]{Figure of Helium energy spectrum(s) and auto-ionisation threshold.}
-
-% \begin{figure}[h]
-%   \begin{center}
-%     \input{figures/he_energy/2_35/1s/figure.tex}
-%   \end{center}
-%   \caption[...]{...}
-%   % \label{fig:}
-% \end{figure}
-
-% \begin{figure}[h]
-%   \begin{center}
-%     \input{figures/he_energy/2_35/2s/figure.tex}
-%   \end{center}
-%   \caption[...]{...}
-%   % \label{fig:}
-% \end{figure}
-
-\begin{figure}[h]
-  \begin{center}
-    \input{figures/he_state/2_35/singlet/figure.tex}
-  \end{center}
-  \caption[...]{...}
-  % \label{fig:}
-\end{figure}
-
-\begin{figure}[h]
-  \begin{center}
-    \input{figures/he_state/2_35/singlet_mixing/figure.tex}
-  \end{center}
-  \caption[...]{...}
-  % \label{fig:}
-\end{figure}
-
-\begin{figure}[h]
-  \begin{center}
-    \input{figures/he_state/2_35/triplet/figure.tex}
-  \end{center}
-  \caption[...]{...}
-  % \label{fig:}
-\end{figure}
-
-% \todo[inline]{Discuss improvements in fidelity of target states and increase in
-%   computational cost with increasing number of core states.}
-
-\subsection{Total Ionisation-without-Excitation Cross-Sections}
-\label{sec:re-ticswout}
-
-% \todo[inline]{Discuss agreement of CCC and PECS data for TICS-without-excitation.}
-
-% \todo[inline]{Figure of CCC and PECS data for TICS-without-excitation.}
-
-\subsection{Total Ionisation-with-Excitation Cross-Sections}
-\label{sec:re-ticsw}
-
-% \todo[inline]{Discuss difficulty associated with the small magnitude of
-%   TICS-with-excitation.}
-
-% \todo[inline]{Figure of elastic, TICS-with-excitation and
-%   TICS-without-excitation, demonstrating magnitude difference.}
-
-% \todo[inline]{Discuss how convergence is attained in multi-parameter setting
-%   (increasing the number of core states for a fixed number of one-electron basis
-%   states).}
-
-% \todo[inline]{Figure of TICS-with-excitation for increasing number of core
-%   states, demonstrating convergence.}
 
 \begin{figure}[h]
   \begin{center}
@@ -2783,13 +2649,109 @@ coefficient.
   % \label{fig:}
 \end{figure}
 
+\clearpage
+
+\todo[inline]{
+  Discuss how this series of convergent calculations failed to demonstrate
+  convergence with regard to the increasing number of one-electron basis states.
+}
+
+\todo[inline]{
+  Discuss the susceptibility of TICS-with-excitation to small variations in the
+  exponential fall-off parameter used when constructing the one-electron basis
+  states.
+}
+
+\todo[inline]{
+  Figure(s) of TICS-with-excitation for varying exponential fall-off parameter
+  values demonstrating significant variation.
+}
+
 \begin{figure}[h]
   \begin{center}
-    \input{figures/pcs/2_35/singlet/29/figure.tex}
+    % \input{figures/cs_tics_ie_alpha/2_35/figure.tex}
   \end{center}
   \caption[...]{...}
   % \label{fig:}
 \end{figure}
+
+\clearpage
+
+\subsection{Mixed Target States}
+\label{sec:re-mixed}
+
+\todo[inline]{
+  Raise the possibility of strongly-mixed target states causing inaccurate
+  TICS-with-excitation calculations.
+}
+
+\todo[inline]{
+  Discuss the difference in magnitude between elastic, TICS-without-excitation,
+  and TICS-with-excitation calculations.
+}
+
+\todo[inline]{
+  Figure of elastic, TICS-without-excitation, and TICS-with-excitation
+  calculations, demonstrating differences in magnitude.
+}
+
+\begin{figure}[h]
+  \begin{center}
+    % \input{figures/cs/2_35/figure.tex}
+  \end{center}
+  \caption[...]{...}
+  % \label{fig:}
+\end{figure}
+
+\clearpage
+
+\todo[inline]{
+  Discuss the overlapping nature of the continuous and discrete parts of
+  the Helium's energy spectrum, and the implications this has with regard to
+  the mixing of target states.
+}
+
+\todo[inline]{
+  Figure(s) of Helium energy spectrum for varying exponential fall-off parameter
+  values, examining the separation of target state energies.
+}
+
+\begin{figure}[h]
+  \begin{center}
+    \input{figures/he_state/2_35/singlet/figure.tex}
+  \end{center}
+  \caption[...]{...}
+  % \label{fig:}
+\end{figure}
+
+\begin{figure}[h]
+  \begin{center}
+    \input{figures/he_state/2_35/triplet/figure.tex}
+  \end{center}
+  \caption[...]{...}
+  % \label{fig:}
+\end{figure}
+
+\begin{figure}[h]
+  \begin{center}
+    \input{figures/he_state/2_35/singlet_mixing/figure.tex}
+  \end{center}
+  \caption[...]{...}
+  % \label{fig:}
+\end{figure}
+
+\clearpage
+
+\todo[inline]{
+  Discuss the correspondence between the purity of a target state and how
+  well-separated it's energy is within the spectrum.
+}
+
+\todo[inline]{
+  Figure(s) of major-configuration coefficient of various target states, for
+  varying exponetial fall-off parameter values, demonstrating the correspondence
+  between energy-separability and mixing.
+}
 
 \begin{figure}[h]
   \begin{center}
@@ -2798,6 +2760,36 @@ coefficient.
   \caption[...]{...}
   % \label{fig:}
 \end{figure}
+
+\clearpage
+
+\todo[inline]{
+  Discuss how the mixing of target states permits the TICS-with-excitation to
+  contain contributions from target states which have significant
+  ionised-without-excitation components, and that these contributions are of a
+  generally larger magnitude.
+}
+
+\todo[inline]{
+  Figure(s) of partial cross sections of various target states, for varying
+  exponential fall-off parameter values, demonstrating how the level of mixing
+  influences the magnitude of the cross sections.
+}
+
+\begin{figure}[h]
+  \begin{center}
+    \input{figures/pcs/2_35/singlet/29/figure.tex}
+  \end{center}
+  \caption[...]{...}
+  % \label{fig:}
+\end{figure}
+
+\clearpage
+
+\section{Discussion}
+\label{sec:dis}
+
+\clearpage
 
 \section{Conclusions}
 \label{sec:co}
