@@ -663,13 +663,35 @@ these are not true eigenstates of the target Hamiltonian, only of its
 representation in the truncated Laguerrre basis, and that these pseudostates and
 their pseudoenergies are dependent on the size of the Laguerre basis utilised.
 
-The process of selecting which Slater determinants to use in the expansion is
-not trivial, as the number of Slater determinants scales as
+We remark that the target pseudostates will be expressed as a linear combination
+of Slater determinants of the form
+\begin{equation}
+  \label{eq:target-states-expansion}
+  \ket*{\Phi_{n}^{\lr{N}}}
+  =
+  \sum_{1 \leq a_{1} < \dotsc < a_{n_{\mathrm{e}}} \leq 2N}
+  D_{n}^{a_{1}, \dotsc, a_{n_{\mathrm{e}}}}
+  \ket*{\chi_{\lrsq{a_{1}, \dotsc, a_{n_{\mathrm{e}}}}}^{\lr{N}}}
+\end{equation}
+where $D_{n}^{a_{1}, \dotsc, a_{n_{\mathrm{e}}}}$ are the expansion
+coefficients.
+The summation indices are taken over only linearly independent Slater
+determinants; a consequence of the anti-symmetry of the Slater determinants
+under pairwise exchange of any two orbitals.
+In this context, the Slater determinants are often referred to as
+(electron) configurations, being the assembly of $n_{\mathrm{e}}$ one-electron
+configurations.
+
+Using all possible Slater determinants in the expansion is often computationally
+infeasible, as the number of determinants scales as
 $\binom{2N}{n_{\mathrm{e}}}$.
-A common method of mitigating this computationaly complexity, is to partition
-the target orbitals into a core set and valence set of orbitals, with the core
-orbitals being limited to a much smaller set of states, while the valence
-orbitals are not so constrained.
+A common method of mitigating this computational hindrance, which we shall
+utilise, is to use only a subset of the full set of Slater determinants, for
+which the span of this subset remains sufficiently able to describe the target
+pseudostates to a required degree of accuracy.
+Specifically, the target orbitals are partitioned into a core set and valence
+set of orbitals, with the core orbitals being limited to a much smaller set of
+states, while the valence orbitals are not so constrained.
 This provides an effective model for targets with a mostly fixed set of core
 electron states, while allowing the valence electrons to interact fully with the
 projectile.
