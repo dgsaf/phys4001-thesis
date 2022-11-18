@@ -213,12 +213,11 @@
 % \item[$\hat{K}$]
 %   the $\hat{K}$ operator
 
-% --
 \item[$\hat{H}_{A}$]
   asymptotic Hamiltonian operator, which is unbounded
 \item[$\hat{V}$]
   anti-symmetrised potential operator, which is bounded
-\item[$\ket*{\Phi_{n_{\alpha}} \vb{k}_{\alpha}}$ / $\varepsilon_{\alpha}$]
+\item[$\ket*{\Phi_{\alpha} \vb{k}_{\alpha}}$ / $\varepsilon_{\alpha}$]
   asymptotic (states / energies)
 \item[$\ket*{\Phi_{n_{\alpha}}^{\lr{N}} \vb{k}_{\alpha}}$
   / $\varepsilon_{\alpha}^{\lr{N}}$]
@@ -230,6 +229,49 @@
   the $\hat{K}$ operator
 \item[$k_{n}$]
   on-shell projectile momenta
+
+\item[$f_{\alpha, \beta}$]
+  scattering amplitudes, equivalently:
+  \begin{itemize}
+  \item[$=$]
+    $f_{\alpha, \beta}\lr{\vb{k}_{\alpha}, \vb{k}_{\beta}}$
+  \item[$=$]
+    $\mel*{\vb{k}_{\alpha}\Phi_{\alpha}}{\hat{V}}{\Psi_{\beta}}$
+  \item[$=$]
+    $\mel*{\vb{k}_{\alpha}\Phi_{\alpha}}{\hat{T}}{\Phi_{\beta}\vb{k}_{\beta}}$
+  \end{itemize}
+\item[$f_{i}^{\lr{N}}$]
+  elastic scattering amplitudes, calculated with $N$ one-electron basis states
+\item[$f_{f, i}^{\lr{N}}$]
+  discrete excitation scattering amplitudes, calculated with $N$ one-electron
+  basis states
+\item[$f_{\alpha, i}^{\lr{N}}$]
+  (unsymmetrised) ionisation scattering amplitudes, calculated with $N$
+  one-electron basis states
+\item[$F_{\alpha, i}^{\lr{N}}$]
+  anti-symmetrised ionisation scattering amplitudes, calculated with $N$
+  one-electron basis states
+\item[$\sigma_{\alpha, \beta}$]
+  partial cross sections, equivalently:
+  \begin{itemize}
+  \item[$=$]
+    $\sigma_{\alpha, \beta}\lr{\vb{k}_{\alpha}, \vb{k}_{\beta}}$
+  \item[$=$]
+    $\dfrac{k_{\alpha}}{k_{\beta}}\lrabs{f_{\alpha, \beta}}^{2}$
+  \item[$=$]
+    $
+    \dfrac{k_{\alpha}}{k_{\beta}}
+    \lrabs
+    {
+      \mel*
+      {\vb{k}_{\alpha} \Phi_{\alpha}}
+      {\hat{T}}
+      {\Phi_{\beta} \vb{k}_{\beta}}
+    }^{2}
+    $
+  \end{itemize}
+\item[$\sigma_{\mathrm{T}; i}^{\lr{N}}$]
+  total cross section, calculated with $N$ one-electron basis states
 
 
 \end{itemize}
