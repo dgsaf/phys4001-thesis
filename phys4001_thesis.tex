@@ -2592,18 +2592,33 @@ Qualitively, the parameters $N$ and $\lambda$ define the overall scope of the
 space of target states, while the parameter $C$ tends to fill in the finer
 details.
 
-Hence, the most natural way of obtaining convergence overall is to first obtain
-convergence in $C$ for fixed values of $N$ and $\lambda$.
-However, the suggestion that overall convergence might then be obtained by
-simply increasing $N$ seems natural, but proved to be ineffectual.
-While a larger basis of one-electron atomic orbitals might be expected to
-facilitate increasingly accurate target pseudostates, and indeed it might, it
-also provides more opportunities for the complicated auto-ionising states of
-Helium to interfere.
+Hence, we sought to first obtain, for fixed values of the parameters $N$ and
+$\lambda$, calculations which had converged with regard to the parameter $C$, in
+the sense of
+\begin{equation*}
+  \mathrm{CCC}\lr{N, \lambda}
+  =
+  \lim_{C \to N}
+  \mathrm{CCC}\lr{C, N, \lambda}
+  .
+\end{equation*}
+We then sought to obtain convergence with regard to parameter $N$, with the role
+of the parameter $\lambda$ initially assumed to be supplemental.
+However, as discussed further in \autoref{sec:re-mixed}, the effect of these
+parameters on the TIECS calculations proved to be more nuanced.
 
 \todo[inline]{
   Discuss increase in computational cost with increasing number of core states.
 }
+
+We also recall now that the number of target pseudostates used in the
+calculation $\mathrm{CCC}\lr{C, N, \lambda}$ scales as
+$\mathcal{O}\lr{N_{T}} = C N$, with the parameter $C \in \lrset{1, \dotsc, N}$.
+As a consequence, it is often computationally impractical to perform more than a
+few calculations of the form
+$\lrset{\mathrm{CCC}\lr{C, N, \lambda} : C = 1, 2, \dotsc}$.
+This is balanced by the fact that the TIECS for these calculations tended to
+converge sufficiently by $C \approx 6$.
 
 \clearpage
 
@@ -2697,6 +2712,15 @@ Helium to interfere.
   convergence with regard to the increasing number of one-electron basis states.
 }
 
+Hence, the most natural way of obtaining convergence overall is to first obtain
+convergence in $C$ for fixed values of $N$ and $\lambda$.
+However, the suggestion that overall convergence might then be obtained by
+simply increasing $N$ seems natural, but proved to be ineffectual.
+While a larger basis of one-electron atomic orbitals might be expected to
+facilitate increasingly accurate target pseudostates, and indeed it might, it
+also provides more opportunities for the complicated auto-ionising states of
+Helium to interfere.
+
 \todo[inline]{
   Discuss the susceptibility of TICS-with-excitation to small variations in the
   exponential fall-off parameter used when constructing the one-electron basis
@@ -2713,7 +2737,7 @@ Helium to interfere.
     % \input{figures/cs_tics_ie_alpha/2_35/figure.tex}
   \end{center}
   \caption[...]{...}
-  % \label{fig:}
+  \label{fig:cs_tics_ie_alpha}
 \end{figure}
 
 \clearpage
