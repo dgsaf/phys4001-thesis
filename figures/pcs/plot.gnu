@@ -103,7 +103,7 @@ do for [k = 2:ns-1] {
   set output str_tex
 
   set multiplot \
-    title "Partial Cross Sections (Orthographic View)" \
+    title "${}^{1}S_{0}$ Partial Cross Sections (Orthographic View)" \
     layout 3,1 rowsfirst \
     margins 0.2, 0.8, 0.1, 0.9 \
     spacing 0, 0.075

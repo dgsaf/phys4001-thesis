@@ -8,8 +8,8 @@ set terminal epslatex input color solid size 6, 4
 # `n` :
 # `ic` : he+ state
 c_min = 2
-c_max = 6
-n = 25
+c_max = 4
+n = 50
 ic = 2
 
 
@@ -38,7 +38,7 @@ set output str_fig
 
 set xrange [0:500]
 set yrange [0:0.0018]
-set xlabel "\\footnotesize Incident Energy [eV]"
+set xlabel "\\footnotesize Projectile Electron Energy [eV]"
 set ylabel "\\footnotesize Cross Section [a.u.]" \
   offset 4, 0
 set grid xtics ytics
@@ -48,29 +48,29 @@ set format y "\\scriptsize %.4f"
 
 set palette defined (0 "blue" , 1 "red")
 unset colorbox
-set key top right box opaque \
-  samplen 1 spacing 0.6 width -6.5 height 0.5
 
 if (n_calcs > 1) {
   do for [i = 1:n_calcs] {
     set linetype i \
     lc palette frac ((i - 1.0) / (n_calcs - 1.0)) \
-    ps 0.75
+    ps 0.5
   }
 } else {
-  set linetype 1 lc palette frac 0.0 ps 0.75
+  set linetype 1 lc palette frac 0.0 ps 0.5
 }
 set linetype cycle n_calcs
 set style data linespoints
 
 # format key
+set key top right box opaque \
+  samplen 1 spacing 0.6 width -10.0 height 0.5
 key_PECS = "\\tiny PECS"
-key_CN(c, n) = sprintf("\\tiny CCC(%i, %i)", c, n)
+key_CN(c, n) = sprintf("\\tiny $\\mathrm{CCC}\\lr{%i, %i, 0.50}$", c, n)
 
 
 # plot ------------------------------------------------------------------------
 
-set title sprintf("$1^{1}$S $\\to$ %isks", ic) \
+set title sprintf("$1^{1}\\mathrm{S}_{0} \\to \\mathrm{%isks}$", ic) \
   offset 0, -0.5
 
 if (file_exists(pecs_file)) {
