@@ -66,10 +66,14 @@ set xlabel "\\footnotesize Exponential Falloff Parameter"
 set ylabel "\\footnotesize Energy [a.u.]"
 set format x "\\scriptsize %.2f"
 set format y "\\scriptsize %.1f"
-set grid xtics ytics
+set xtics 0.05
+set mxtics 5
+set mytics 2
+set grid xtics ytics mxtics mytics
 
 # style: title, key
-set title sprintf("${}^{1}S_{0}$ He Energy Spectrum")
+set title sprintf("${}^{1}\\mathrm{S}_{0}$ Helium Pseudoenergies \
+$\\lrset{\\epsilon_{n}^{\\lr{2, 35}}}$")
 key_state(k) = sprintf("\\tiny %i", k)
 
 # output file
@@ -103,7 +107,8 @@ set format y "\\scriptsize %.1f"
 set grid xtics ytics
 
 # style: title, key
-set title sprintf("${}^{3}S_{1}$ He Energy Spectrum")
+set title sprintf("${}^{3}\\mathrm{S}_{1}$ Helium Pseudoenergies \
+$\\lrset{\\epsilon_{n}^{\\lr{2, 35}}}$")
 key_state(k) = sprintf("\\tiny %i", k)
 
 # output file
@@ -137,7 +142,8 @@ set format y "\\scriptsize %.1f"
 set grid xtics ytics
 
 # style: title, key
-set title sprintf("${}^{1}S_{0}$ He Energy Spectrum - Mixing Region")
+set title sprintf("${}^{1}\\mathrm{S}_{0}$ Helium Pseudoenergies \
+$\\lrset{\\epsilon_{n}^{\\lr{2, 35}}}$ - Auto-Ionising Region")
 key_state(k) = sprintf("\\tiny %i", k)
 
 # output file
