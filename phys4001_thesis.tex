@@ -108,6 +108,8 @@
   triple-differential cross section
 \item[TICS:]
   total ionisation cross section
+\item[TIECS:]
+  total ionisation-with-excitation cross section
 \item[CCC:]
   convergent close-coupling
 \item[CCC($N$):]
@@ -2555,10 +2557,49 @@ coefficient.
   an accurate, convergent TICS.
 }
 
+With the aim of calculating convergent TIECS for Helium using the CCC method,
+we first establish how convergence is to be obtained.
+The parameters which most uniquely define our CCC calculations are:
+\begin{itemize}
+\item[$N$]
+  the number of one-electron basis states used in the construction of the
+  target pseudostates; equivalently, the number of Laguerre basis states
+\item[$C$]
+  the number of core states; that is, the number of one-electron atomic orbitals
+  that may be used for the core orbitals in the Slater determinants used to
+  construct the target pseudostates,
+\item[$\lambda$]
+  the exponential fall-off parameter of the Laguerre basis.
+\end{itemize}
+Hence, we denote a CCC calculation performed with a particular selection of
+values for these parameters by $\mathrm{CCC}\lr{C, N, \lambda}$.
+
 \todo[inline]{
   Discuss how convergence is attained in multi-parameter setting (increasing the
   number of core states for a fixed number of one-electron basis states).
 }
+
+With regard to the issue of finding convergence in a multi-parameter setting, we
+observed that, for fixed values of $N$ and $\lambda$, the calculations
+$\mathrm{CCC}\lr{C, N, \lambda}$ converged with regard to $C = 1, 2, \dotsc, N$.
+We see justification for this with the fact that the parameters $N$ and
+$\lambda$ define the one-electron atomic orbitals, with the nature of these
+orbitals being independent of the parameter $C$.
+These one-electron atomic orbitals are then used in anti-symmetrised
+combinations to construct the Slater determinants and thus the target
+pseudostates, with the number of pseudostates depending on $C$.
+Qualitively, the parameters $N$ and $\lambda$ define the overall scope of the
+space of target states, while the parameter $C$ tends to fill in the finer
+details.
+
+Hence, the most natural way of obtaining convergence overall is to first obtain
+convergence in $C$ for fixed values of $N$ and $\lambda$.
+However, the suggestion that overall convergence might then be obtained by
+simply increasing $N$ seems natural, but proved to be ineffectual.
+While a larger basis of one-electron atomic orbitals might be expected to
+facilitate increasingly accurate target pseudostates, and indeed it might, it
+also provides more opportunities for the complicated auto-ionising states of
+Helium to interfere.
 
 \todo[inline]{
   Discuss increase in computational cost with increasing number of core states.
