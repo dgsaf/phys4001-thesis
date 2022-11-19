@@ -2813,6 +2813,12 @@ Helium to interfere.
   the mixing of target states.
 }
 
+Where the pseudoenergies tend to a constant value over a range of $\lambda$
+values, they are approximating the energy levels of discrete helium states.
+On the other hand, where the pseudoenergies tend to vary over a range of
+$\lambda$ values, they correspond to pseudostates which are discretisations of
+the continuum helium states.
+
 \todo[inline]{
   Figure(s) of Helium energy spectrum for varying exponential fall-off parameter
   values, examining the separation of target state energies.
@@ -2822,24 +2828,40 @@ Helium to interfere.
   \begin{center}
     \input{figures/he_state/2_35/singlet/figure.tex}
   \end{center}
-  \caption[...]{...}
-  % \label{fig:}
+  \caption[Singlet Helium Pseudoenergies]{
+    The spectrums of pseudoenergies corresponding to singlet helium
+    pseudostates, calculated with $C = 2$ and $N = 35$, are presented for
+    $\lambda = 0.40, 0.41, \dotsc, 0.65$.
+  }
+  \label{fig:he_state_singlet}
 \end{figure}
 
 \begin{figure}[h]
   \begin{center}
     \input{figures/he_state/2_35/triplet/figure.tex}
   \end{center}
-  \caption[...]{...}
-  % \label{fig:}
+  \caption[Triplet Helium Pseudoenergies]{
+    The spectrums of pseudoenergies corresponding to triplet Helium
+    pseudostates, calculated with $C = 2$ and $N = 35$, are presented for
+    $\lambda = 0.40, 0.41, \dotsc, 0.65$.
+  }
+  \label{fig:he_state_triplet}
 \end{figure}
 
 \begin{figure}[h]
   \begin{center}
     \input{figures/he_state/2_35/singlet_mixing/figure.tex}
   \end{center}
-  \caption[...]{...}
-  % \label{fig:}
+  \caption[Singlet Helium Pseudoenergies - Auto-Ionising Region]{
+    The same data is shown as in \autoref{fig:he_state_singlet}, with the y-axis
+    restricted to focus on the auto-ionising region, wherein discrete
+    doubly-excited states overlap with continuum states.
+    A number of pseudoenergies are annotated by their corresponding major
+    configuration across ranges of $\lambda$ values, including discrete
+    doubly-excited states (2s2s, 2s3s) and continuum states (1s29s, 1s30s,
+    1s31s).
+  }
+  \label{fig:he_state_singlet_auto_ionising}
 \end{figure}
 
 \clearpage
