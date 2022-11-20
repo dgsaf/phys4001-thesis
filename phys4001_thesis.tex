@@ -2817,11 +2817,6 @@ discussed with more evidence further on.
 \subsection{TICS-with-Excitation}
 \label{sec:re-tics-ie}
 
-\todo[inline]{
-  Discuss how convergence was demonstrated with an increasing number of core
-  states, for a fixed number of one-electron basis states.
-}
-
 With the aim of rectifying the CCC calculations by seeking agreement with the
 PECS calculations \cite{PhysRevA.81.022716} for the total cross section for
 electron-impact ionisation-with-excitation of helium, we have restricted our
@@ -2926,11 +2921,6 @@ $N = 50$ in \autoref{fig:cs_tics_ie_n_50}.
 
 \clearpage
 
-\todo[inline]{
-  Discuss how this series of convergent calculations failed to demonstrate
-  convergence with regard to the increasing number of one-electron basis states.
-}
-
 It can be seen that the cross sections do indeed demonstrate convergence, for
 each value of the parameter $N$, with increasing values of the parameter $C$,
 typically by $C = 6$; that is, that they converge in the sense of
@@ -2962,11 +2952,6 @@ sections are within one order-of-magnitude of the PECS calculations, and so
 should not be rejected as entirely flawed.
 We do note, however, the tendency for the CCC cross sections to be larger than
 the PECS cross section, especially in the intermediate energy range.
-
-\todo[inline]{
-  Discuss the difference in magnitude between TICS-without-excitation, and
-  TICS-with-excitation calculations.
-}
 
 A comparison of the $\mathrm{CCC}\lr{5, 35, 0.5}$ calculations, alongside the
 PECS calculations, for the total ionisation-without-excitation and
@@ -3113,14 +3098,6 @@ $\lambda = 0.40, \dotsc, 0.65$.
   \label{fig:cs_tics_ie_alpha}
 \end{figure}
 
-\clearpage
-
-\todo[inline]{
-  Discuss the overlapping nature of the continuous and discrete parts of
-  the Helium's energy spectrum, and the implications this has with regard to
-  the mixing of target states.
-}
-
 We present the spectrums of helium pseudoenergies, constructed with the
 $\mathrm{CCC}\lr{2, 35, \lambda}$ calculations across the range of
 $\lambda = 0.40, \dotsc, 0.65$, for singlet helium pseudostates
@@ -3196,11 +3173,6 @@ behaviour.
 \end{figure}
 
 \clearpage
-
-\todo[inline]{
-  Discuss the correspondence between the purity of a target state and how
-  well-separated it's energy is within the spectrum.
-}
 
 To further exemplify the mixing of helium pseudostates and the effect it has on
 the ionisation cross sections, we present, for selected singlet pseudostates
@@ -3364,21 +3336,41 @@ ionised-with-excitation configuration with a significantly smaller magnitude.
 
 \clearpage
 
-\section{Discussion}
-\label{sec:dis}
-
-\todo[inline]{
-  Discuss how the issues of mixed target states might be resolved.
-}
-
-\clearpage
-
 \section{Conclusions}
 \label{sec:co}
 
 \todo[inline]{
   Write conclusion.
 }
+
+We have sought to calculate total cross sections for electron-impact
+ionisation-with-excitation of helium, using the CCC method, which are in
+agreement with those calculated using the PECS method \cite{PhysRevA.81.022716}.
+In this effort, we have had mixed success, being able to produce calculations
+which are in agreement but are not yet presentable as being issue-free
+calculations.
+However, we believe we have identified the primary cause of these issues: the
+calculated helium pseudostates being substantially mixed states, specifically
+with high-flux ionised-without-excitation continuum states mixing with low-flux
+doubly-excited discrete \& ionised-with-excitation continuum states.
+The mixing of these states causes the CCC calculations to transfer a small
+fraction of flux from the higher magnitude ionised-without-excitation cross
+section, to the signficantly smaller magnitude ionised-with-excitation cross
+sections - causing at-times significant inaccuracies.
+
+This is to say, that the CCC calculations for the ionisation-with-excitation
+cross sections are not inherently inaccurate, but can be easily corrupted by a
+poorly behaved basis of one-electron atomic orbitals.
+We are able to suggest two alternative methods of resolving these issues.
+The first is to develop a method by which a value for the exponential fall-off
+of the Laguerre basis, $\lambda$, may be determined which optimises the purity
+of the target configurations, yielding un-mixed target pseudostates and thus
+delivering ionisation-with-excitation cross sections free of interference from
+the ionisation-without-excitation cross section.
+The second would be to proceed with the CCC method as usual, but to additionally
+create a set of pure target pseudostates by other means, and then to perform a
+basis transformation between the mixed and pure sets of target pseudostates, yielding
+
 
 \clearpage
 
