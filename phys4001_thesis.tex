@@ -3014,10 +3014,20 @@ Specifically, that as the discrete doubly-excited (auto-ionising) helium states
 and the continuum of ionised-without-excitation helium states have overlapping
 energy spectrums, the helium target pseudostates often are constructed as mixed
 combinations of two configurations - one from each spectrum.
+This will then cause a helium pseudostate, which is predominantly a
+doubly-excited state but with a non-negligble ionised-without-excitation
+component, to contribute the flux of the ionised-without-excitation term to the
+ionised-with-excitation cross section, while concurrently removing that flux
+from the ionised-without-excitation cross section.
+Thus, mixed helium pseudostates would explain the reduced flux of the CCC
+ionisation-without-excitation cross sections - and the increased flux of the
+ionisation-with-excitation cross sections - in comparison with the PECS
+calculations.
 
 Ideally, the target pseudostates would be purely one configuration, if
 sufficiently appropriate one-electron atomic orbitals are selected to construct
-the configurations; that is, they would have a major configuration coefficient
+the configurations; that is, where $\ket*{\Phi_{n}^{\lr{C, N}}}$ is any such
+pure pseudostate, it would have a major configuration coefficient
 of $D_{n}^{a_{1}, a_{2}} \approx 1$ for some particular $a_{1}, a_{2}$, and
 would be of the form
 \begin{equation*}
@@ -3060,6 +3070,14 @@ combinations of each configuration, in the form
   \end{pmatrix}
   .
 \end{equation*}
+The doubly-excited states of helium do infact have energies which are contained
+within the continuum of energies associated with ionised-without-excitation
+states of helium, and hence it is possible to have distinct target pseudostates
+with near equal pseudoenergies.
+Furthermore, the configurations are constructed using the one-electron atomic
+orbitals, which are parameterised by the exponential fall-off factor $\lambda$.
+A well-observed effect of this parameter is to continuously adjust the energies
+of the discretised continuum one-electron atomic-orbitals.
 
 \todo[inline]{
   Discuss the susceptibility of TICS-with-excitation to small variations in the
