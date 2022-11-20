@@ -48,16 +48,21 @@ set palette defined (0 "blue" , 1 "red")
 unset colorbox
 
 # style: line
-m = ns
-if (m > 1) {
-  do for [i = 1:m] {
-    set linetype i \
-    lc palette frac ((i - 1.0) / (m - 1.0)) \
-    ps 1.0
-  }
-} else {
-  set linetype 1 lc palette frac 0.0 ps 0.5
-}
+# m = ns
+# if (m > 1) {
+#   do for [i = 1:m] {
+#     set linetype i \
+#     lc palette frac ((i - 1.0) / (m - 1.0)) \
+#     ps 1.0
+#   }
+# } else {
+#   set linetype 1 lc palette frac 0.0 ps 0.5
+# }
+
+m = 2
+set linetype 1 lc palette frac 0 ps 1 pt 5
+set linetype 2 lc palette frac 1 ps 1 pt 7
+
 set linetype cycle m
 set style data linespoints
 
@@ -123,7 +128,7 @@ do for [k = 2:ns-1] {
 
     plot for [is=1:70] \
       data_he(ks[ik]) u 1:(mc_filter(mc[is], stringcolumn(4), $2)) \
-      ls is dashtype mc_core(is) t sprintf("%s", mc[is])
+      ls mc_core(is) t sprintf("%s", mc[is])
 
     unset label
   }
