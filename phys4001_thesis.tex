@@ -297,9 +297,6 @@
 \subsection{Helium Atom}
 \label{sec:in-he}
 
-\todo[inline]{Describe atomic term symbols (in context of Helium), and discuss
-  Helium states.}
-
 The helium atom consists of two electrons bound electromagnetically to a nucleus
 containing two protons and, restricting our attention to stable isotopes, either
 one (helium-3) or two (helium-4) neutrons.
@@ -323,8 +320,6 @@ triplet state ${}^{3}\mathrm{S}_{1}$.
 
 \subsection{Electron-Impact Helium Scattering Processes}
 \label{sec:in-proc}
-
-\todo[inline]{Describe elastic, excitation and ionisation scattering processes.}
 
 The impact of an electron projectile on a helium target can lead to a number of
 different scattering processes:
@@ -2553,11 +2548,6 @@ coefficient.
 \subsection{Convergence Strategy}
 \label{sec:re-conv}
 
-\todo[inline]{
-  Discuss which parameters are significant with the aim of attaining
-  an accurate, convergent TICS.
-}
-
 With the aim of calculating convergent TICS for helium using the CCC method,
 we first establish how convergence is to be achieved.
 The parameters which most uniquely define our CCC calculations are:
@@ -2574,11 +2564,6 @@ The parameters which most uniquely define our CCC calculations are:
 \end{itemize}
 Hence, we denote a CCC calculation performed with a particular selection of
 values for these parameters by $\mathrm{CCC}\lr{C, N, \lambda}$.
-
-\todo[inline]{
-  Discuss how convergence is attained in multi-parameter setting (increasing the
-  number of core states for a fixed number of one-electron basis states).
-}
 
 We recall that the parameter $C \in \lrset{1, \dotsc, N}$ essentially acts to
 restrict the number of configurations available for the representation of target
@@ -2607,10 +2592,6 @@ of the parameter $\lambda$ initially assumed to be supplemental.
 However, as discussed further in \autoref{sec:re-mixed}, the effect of these
 parameters on the TICS calculations proved to be more nuanced.
 
-\todo[inline]{
-  Discuss increase in computational cost with increasing number of core states.
-}
-
 We also recall now that the number of target pseudostates used in the
 calculation $\mathrm{CCC}\lr{C, N, \lambda}$ scales as
 $\mathcal{O}\lr{N_{T}} = C N$, with the parameter $C \in \lrset{1, \dotsc, N}$.
@@ -2628,10 +2609,6 @@ converge sufficiently by $C \approx 6$.
 \todo[inline]{
   Establish agreement between CCC and PECS calculations for
   TICS-without-excitation.
-}
-
-\todo[inline]{
-  Figure of TICS-without-excitation, demonstrating agreement with PECS data.
 }
 
 % \begin{figure}[h]
@@ -2676,33 +2653,33 @@ converge sufficiently by $C \approx 6$.
 %   \label{fig:cs_tics_iw_30}
 % \end{figure}
 
-% \begin{figure}[h]
-%   \begin{center}
-%     \input{figures/cs_tics_iw/35/figure.tex}
-%   \end{center}
-%   \caption[TICS-without-excitation: $\mathrm{CCC}\lr{C, 35, 0.50}$]{
-%     Total cross sections for electron-impact ionisation-without-excitation of
-%     helium, leaving the helium ion in a 1s state.
-%     $\mathrm{CCC}\lr{C, N, \lambda}$ calculations, with $N = 35$ and
-%     $\lambda = 0.50$, are presented for $C = 2, \dotsc, 5$, and are compared
-%     with PECS \cite{PhysRevA.81.022716} calculations.
-%   }
-%   \label{fig:cs_tics_iw_35}
-% \end{figure}
-
 \begin{figure}[h]
   \begin{center}
-    \input{figures/cs_tics_iw/40/figure.tex}
+    \input{figures/cs_tics_iw/35/figure.tex}
   \end{center}
-  \caption[TICS-without-excitation: $\mathrm{CCC}\lr{C, 40, 0.50}$]{
+  \caption[TICS-without-excitation: $\mathrm{CCC}\lr{C, 35, 0.50}$]{
     Total cross sections for electron-impact ionisation-without-excitation of
     helium, leaving the helium ion in a 1s state.
-    $\mathrm{CCC}\lr{C, N, \lambda}$ calculations, with $N = 40$ and
+    $\mathrm{CCC}\lr{C, N, \lambda}$ calculations, with $N = 35$ and
     $\lambda = 0.50$, are presented for $C = 2, \dotsc, 5$, and are compared
     with PECS \cite{PhysRevA.81.022716} calculations.
   }
-  \label{fig:cs_tics_iw_40}
+  \label{fig:cs_tics_iw_35}
 \end{figure}
+
+% \begin{figure}[h]
+%   \begin{center}
+%     \input{figures/cs_tics_iw/40/figure.tex}
+%   \end{center}
+%   \caption[TICS-without-excitation: $\mathrm{CCC}\lr{C, 40, 0.50}$]{
+%     Total cross sections for electron-impact ionisation-without-excitation of
+%     helium, leaving the helium ion in a 1s state.
+%     $\mathrm{CCC}\lr{C, N, \lambda}$ calculations, with $N = 40$ and
+%     $\lambda = 0.50$, are presented for $C = 2, \dotsc, 5$, and are compared
+%     with PECS \cite{PhysRevA.81.022716} calculations.
+%   }
+%   \label{fig:cs_tics_iw_40}
+% \end{figure}
 
 % \begin{figure}[h]
 %   \begin{center}
@@ -2726,11 +2703,6 @@ converge sufficiently by $C \approx 6$.
 \todo[inline]{
   Discuss how convergence was demonstrated with an increasing number of core
   states, for a fixed number of one-electron basis states.
-}
-
-\todo[inline]{
-  Figure(s) of TICS-with-excitation for increasing number of core states,
-  demonstrating convergence.
 }
 
 \begin{figure}[h]
@@ -2839,11 +2811,6 @@ helium to interfere.
   states.
 }
 
-\todo[inline]{
-  Figure(s) of TICS-with-excitation for varying exponential fall-off parameter
-  values demonstrating significant variation.
-}
-
 \begin{figure}[h]
   \begin{center}
     \input{figures/cs_tics_ie_alpha/2_35/figure.tex}
@@ -2869,13 +2836,8 @@ helium to interfere.
 }
 
 \todo[inline]{
-  Discuss the difference in magnitude between elastic, TICS-without-excitation,
-  and TICS-with-excitation calculations.
-}
-
-\todo[inline]{
-  Figure of elastic, TICS-without-excitation, and TICS-with-excitation
-  calculations, demonstrating differences in magnitude.
+  Discuss the difference in magnitude between TICS-without-excitation, and
+  TICS-with-excitation calculations.
 }
 
 \begin{figure}[h]
@@ -2907,11 +2869,6 @@ values, they are approximating the energy levels of discrete helium states.
 On the other hand, where the pseudoenergies tend to vary over a range of
 $\lambda$ values, they correspond to pseudostates which are discretisations of
 the continuum helium states.
-
-\todo[inline]{
-  Figure(s) of Helium energy spectrum for varying exponential fall-off parameter
-  values, examining the separation of target state energies.
-}
 
 \begin{figure}[h]
   \begin{center}
@@ -2958,12 +2915,6 @@ the continuum helium states.
 \todo[inline]{
   Discuss the correspondence between the purity of a target state and how
   well-separated it's energy is within the spectrum.
-}
-
-\todo[inline]{
-  Figure(s) of major-configuration coefficient of various target states, for
-  varying exponetial fall-off parameter values, demonstrating the correspondence
-  between energy-separability and mixing.
 }
 
 \begin{figure}[h]
@@ -3019,7 +2970,7 @@ the continuum helium states.
   \begin{center}
     \input{figures/mcc/2_35/singlet/53/figure.tex}
   \end{center}
-  \caption[Major Configuration Coefficients: Excited-plus-Ionised]{
+  \caption[Major Configuration Coefficients: Auto-Ionising III]{
     The major configuration coefficients of the singlet helium pseudostates,
     $\ket*{\Phi_{n}^{\lr{C, N}}}$ calculated with $C = 2$ and $N = 35$, are
     presented across a range of $\lambda = 0.40, 0.41, \dotsc, 0.65$, for the
@@ -3040,12 +2991,6 @@ the continuum helium states.
   contain contributions from target states which have significant
   ionised-without-excitation components, and that these contributions are of a
   generally larger magnitude.
-}
-
-\todo[inline]{
-  Figure(s) of partial cross sections of various target states, for varying
-  exponential fall-off parameter values, demonstrating how the level of mixing
-  influences the magnitude of the cross sections.
 }
 
 \begin{figure}[h]
@@ -3103,7 +3048,7 @@ the continuum helium states.
   \begin{center}
     \input{figures/pcs/2_35/singlet/53/figure.tex}
   \end{center}
-  \caption[Partial Cross Sections: Excited-plus-Ionised]{
+  \caption[Partial Cross Sections: Auto-Ionising III]{
     The partial cross sections of ground state singlet helium to the singlet
     pseudostates, $\ket*{\Phi_{n}^{\lr{C, N}}}$ calculated with $C = 2$ and
     $N = 35$, are presented across a range of
@@ -3121,10 +3066,18 @@ the continuum helium states.
 \section{Discussion}
 \label{sec:dis}
 
+\todo[inline]{
+  Discuss how the issues of mixed target states might be resolved.
+}
+
 \clearpage
 
 \section{Conclusions}
 \label{sec:co}
+
+\todo[inline]{
+  Write conclusion.
+}
 
 \clearpage
 
