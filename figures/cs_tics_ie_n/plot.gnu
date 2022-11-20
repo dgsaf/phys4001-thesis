@@ -70,7 +70,9 @@ key_CN(c, n) = sprintf("\\tiny $\\mathrm{CCC}\\lr{%i, %i, 0.50}$", c, n)
 
 # plot ------------------------------------------------------------------------
 
-set title sprintf("$1^{1}\\mathrm{S}_{0} \\to \\mathrm{%isks}$", ic) \
+set title sprintf("\
+${}^{1}\\mathrm{S}_{0} \\to \\mathrm{%isks}$ \
+TIECS ($N = %i$)", ic, n) \
   offset 0, -0.5
 
 if (file_exists(pecs_file)) {
