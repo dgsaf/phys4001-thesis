@@ -8,8 +8,8 @@ set terminal epslatex input color solid size 6, 4
 # `n` :
 # `ic` : he+ state
 c_min = 2
-c_max = 6
-n = 20
+c_max = 4
+n = 50
 ic = 1
 
 
@@ -74,7 +74,7 @@ key_CN(c, n) = sprintf("\\tiny $\\mathrm{CCC}\\lr{%i, %i, 0.50}$", c, n)
 
 set title sprintf("\
 ${}^{1}\\mathrm{S}_{0} \\to \\mathrm{%isks}$ \
-TIECS ($N = %i$)", ic, n) \
+TICS ($N = %i$)", ic, n) \
   offset 0, -0.5
 
 if (file_exists(pecs_file)) {

@@ -41,7 +41,9 @@ set yrange [0:0.0018]
 set xlabel "\\footnotesize Projectile Electron Energy [eV]"
 set ylabel "\\footnotesize Cross Section [a.u.]" \
   offset 4, 0
-set grid xtics ytics
+set mxtics 4
+set mytics 2
+set grid xtics ytics mxtics mytics
 
 set format x "\\scriptsize %.0f"
 set format y "\\scriptsize %.4f"
@@ -72,7 +74,7 @@ key_CN(c, n) = sprintf("\\tiny $\\mathrm{CCC}\\lr{%i, %i, 0.50}$", c, n)
 
 set title sprintf("\
 ${}^{1}\\mathrm{S}_{0} \\to \\mathrm{%isks}$ \
-TIECS ($N = %i$)", ic, n) \
+TICS ($N = %i$)", ic, n) \
   offset 0, -0.5
 
 if (file_exists(pecs_file)) {
