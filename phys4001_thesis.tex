@@ -2840,35 +2840,6 @@ $N = 35$ in \autoref{fig:cs_tics_ie_n_35},
 $N = 40$ in \autoref{fig:cs_tics_ie_n_40},
 $N = 50$ in \autoref{fig:cs_tics_ie_n_50}.
 
-It can be seen that the cross sections do indeed demonstrate convergence, for
-each value of the parameter $N$, with increasing values of the parameter $C$,
-typically by $C = 6$; that is, that they converge in the sense of
-\begin{equation*}
-  \mathrm{CCC}\lr{N, \lambda}
-  =
-  \lim_{C \to N}
-  \mathrm{CCC}\lr{C, N, \lambda}
-  .
-\end{equation*}
-However, it can also be seen that the successive cross sections do not
-demonstrate convergence with regard to the parameter $N$; that is, in the sense
-of
-\begin{equation*}
-  \mathrm{CCC}\lr{\lambda}
-  =
-  \lim_{N \to \infty}
-  \mathrm{CCC}\lr{N, \lambda}
-  .
-\end{equation*}
-Both the magnitude, and to an extent - the form, of the cross sections vary
-quite substantially between different values of $N$, dismissing the possibility
-of bringing these cross sections to converge with brute force.
-
-While a few of these cross sections do infact demonstrate a level of agreement
-with the PECS calculations, they do not do so in a consistent manner.
-On the other hand, it is somewhat reassuring that the majority of the cross
-sections are within one order-of-magnitude of the PECS calculations.
-
 \begin{figure}[h]
   \begin{center}
     \input{figures/cs_tics_ie_n/20/figure.tex}
@@ -2960,14 +2931,79 @@ sections are within one order-of-magnitude of the PECS calculations.
   convergence with regard to the increasing number of one-electron basis states.
 }
 
-Hence, the most natural way of obtaining convergence overall is to first obtain
-convergence in $C$ for fixed values of $N$ and $\lambda$.
-However, the suggestion that overall convergence might then be obtained by
-simply increasing $N$ seems natural, but proved to be ineffectual.
-While a larger basis of one-electron atomic orbitals might be expected to
-facilitate increasingly accurate target pseudostates, and indeed it might, it
-also provides more opportunities for the complicated auto-ionising states of
-helium to interfere.
+It can be seen that the cross sections do indeed demonstrate convergence, for
+each value of the parameter $N$, with increasing values of the parameter $C$,
+typically by $C = 6$; that is, that they converge in the sense of
+\begin{equation*}
+  \mathrm{CCC}\lr{N, \lambda}
+  =
+  \lim_{C \to N}
+  \mathrm{CCC}\lr{C, N, \lambda}
+  .
+\end{equation*}
+However, it can also be seen that the successive cross sections do not
+demonstrate convergence with regard to the parameter $N$; that is, in the sense
+of
+\begin{equation*}
+  \mathrm{CCC}\lr{\lambda}
+  =
+  \lim_{N \to \infty}
+  \mathrm{CCC}\lr{N, \lambda}
+  .
+\end{equation*}
+Both the magnitude, and to an extent - the form, of the cross sections vary
+quite substantially between different values of $N$, dismissing the possibility
+of bringing these cross sections to converge with brute force.
+
+While a few of these cross sections do infact demonstrate a level of agreement
+with the PECS calculations, they do not do so in a consistent manner.
+On the other hand, it is somewhat reassuring that the majority of the cross
+sections are within one order-of-magnitude of the PECS calculations, and so
+should not be rejected as entirely flawed.
+We do note, however, the tendency for the CCC cross sections to be larger than
+the PECS cross section, especially in the intermediate energy range.
+
+\todo[inline]{
+  Discuss the difference in magnitude between TICS-without-excitation, and
+  TICS-with-excitation calculations.
+}
+
+A comparison of the $\mathrm{CCC}\lr{5, 35, 0.5}$ calculations, alongside the
+PECS calculations, for the total ionisation-without-excitation and
+ionisation-with-excitation cross sections is presented in \autoref{fig:cs_35},
+with the ionisation-with-excitation cross section scaled up by a factor of 10.
+This indicates with clarity the substantial difference in magnitude between
+these cross sections.
+Furthermore, it demonstrates that where the CCC ionisation-without-excitation
+cross sections tend to have less flux than the PECS calculation, the CCC
+ionisation-with-excitation cross sections tend to have more flux than the PECS
+calculations.
+
+\begin{figure}[h]
+  \begin{center}
+    \input{figures/cs/35/figure.tex}
+  \end{center}
+  \caption[TICS-with-excitation: $\mathrm{CCC}\lr{C, 35, 0.50}$]{
+    Total cross sections for electron-impact ionisation-without-excitation
+    (1sks) and ionisation-with-excitation (2sks) of helium.
+    $\mathrm{CCC}\lr{C, N, \lambda}$ calculations, with $C = 5$, $N = 35$ and
+    $\lambda = 0.50$, are presented and compared with PECS
+    \cite{PhysRevA.81.022716} calculations.
+    Note that for clarity, the ionisation-with-excitation (2sks) cross sections
+    are presented scaled up by a factor of 10.
+  }
+  \label{fig:cs_35}
+\end{figure}
+
+\clearpage
+
+\subsection{Mixed Target States}
+\label{sec:re-mixed}
+
+\todo[inline]{
+  Raise the possibility of strongly-mixed target states causing inaccurate
+  TICS-with-excitation calculations.
+}
 
 \todo[inline]{
   Discuss the susceptibility of TICS-with-excitation to small variations in the
@@ -2987,37 +3023,6 @@ helium to interfere.
     with PECS \cite{PhysRevA.81.022716} calculations.
   }
   \label{fig:cs_tics_ie_alpha}
-\end{figure}
-
-\clearpage
-
-\subsection{Mixed Target States}
-\label{sec:re-mixed}
-
-\todo[inline]{
-  Raise the possibility of strongly-mixed target states causing inaccurate
-  TICS-with-excitation calculations.
-}
-
-\todo[inline]{
-  Discuss the difference in magnitude between TICS-without-excitation, and
-  TICS-with-excitation calculations.
-}
-
-\begin{figure}[h]
-  \begin{center}
-    \input{figures/cs/35/figure.tex}
-  \end{center}
-  \caption[TICS-with-excitation: $\mathrm{CCC}\lr{C, 35, 0.50}$]{
-    Total cross sections for electron-impact ionisation-without-excitation
-    (1sks) and ionisation-with-excitation (2sks) of helium.
-    $\mathrm{CCC}\lr{C, N, \lambda}$ calculations, with $C = 5$, $N = 35$ and
-    $\lambda = 0.50$, are presented and compared with PECS
-    \cite{PhysRevA.81.022716} calculations.
-    Note that for clarity, the ionisation-with-excitation (2sks) cross sections
-    are presented scaled up by a factor of 10.
-  }
-  \label{fig:cs_35}
 \end{figure}
 
 \clearpage
