@@ -307,6 +307,7 @@ and his ceaseless efforts to help me along.
 
 \todo[inline]{Describe utility of Electron-Impact Helium scattering processes.}
 
+
 \subsection{Helium Atom}
 \label{sec:in-he}
 
@@ -451,19 +452,102 @@ significant consequences for the double-excitation scattering process.
 
 \todo[inline]{Reference Fano regarding auto-ionisation.}
 
-\subsection{Experimental Review}
-\label{sec:in-exp}
-
 \subsection{Theoretical Review}
 \label{sec:in-th}
 
-\todo[inline]{Discuss early development of CCC method for Electron-impact
-  Hydrogen scattering (elastic, excitation, ionisation).}
+The field of computational atomic collision theory has been subject to rapid
+progress during the past few decades, with the increasing capability of
+computational hardware and software, and the development of new and extant
+techniques and methods.
+Notably, the Convergent Close-Coupling (CCC) method, which was intially
+developed to model the scattering processes of an electron projectile on a
+hydrogen target \cite{PhysRevA.46.6995}, has been established as both
+numerically tractable and accurate while retaining the property of being a
+unitary formulation.
+Proven capable of modelling elastic scattering and discrete excitations
+\cite{PhysRevA.46.6995} as well as ionisation processes
+\cite{PhysRevLett.70.746, PhysRevLett.78.4721, PhysRevLett.83.1570} for the
+two-electron system of hydrogen, the CCC method was extended to hydrogenic
+targets \cite{PhysRevA.49.1066}, and further to three-electron systems
+\cite{PhysRevLett.69.53, BRAY19951, PhysRevLett.89.273201}, such as for helium
+targets \cite{PhysRevA.52.1279, PhysRevLett.76.2674, Fursa_1997}.
+The CCC method was also extended to include double-photonionisation of
+helium-like targets \cite{PhysRevA.54.R995, PhysRevA.58.4501, Bray_2002}.
 
-\todo[inline]{Discuss extension of CCC method to three-electon systems.}
+While the CCC method yielded accurate total ionisation cross sections (TICS) for
+electron-impact ionisation on targets such as hydrogen and helium, the
+calculation of differential cross sections - namely the single-, double-, and
+triple-differential cross sections (SDCS, DDCS, TDCS) - were seen to fail to
+demonstrate convergence, discussed in detail by Bray \cite{PhysRevLett.78.4721}.
+That the scattering amplitudes calculated using the CCC method would lead to a
+good level of agreement with experimental values for the total ionisation cross
+sections, despite the non-convergence of the differential cross sections, proved
+quite puzzling.
+It was demonstrated by Bray \cite{PhysRevLett.78.4721}, in the context of the
+Temkin-Poet model (also known as the S-wave model) \cite{PhysRev.126.130,
+  Poet_1978} of electron-impact hydrogen ionisation, that the SDCS is expected
+to be zero past the point of equal-energy-sharing between the projectile and
+ionised electrons.
+However, issues arise for the singlet case as the SDCS assumes a non-zero value
+at the point of equal-energy-sharing, leading to a discontinuity.
+These issues are compounded by the CCC method being restricted to evaluating
+ionisation amplitudes only for a countable number of outgoing projectile
+energies.
 
-\todo[inline]{Discuss challenges encountered and overcome in obtaining accurate
-  DCS's for ionisation processes.}
+It was later shown by Stelbovics \cite{PhysRevLett.83.1570}, that the behaviour
+of the singlet SDCS about the equal-energy-sharing point was indeed analogous to
+that of a Fourier series of a step function about the point of discontinuity.
+Specifically: that the singlet SDCS would not necessarily be zero past the point
+of equal-energy-sharing but would tend to zero, that the ionisation amplitudes
+would converge to half the step height at the equal-energy-sharing point, and
+thus that the SDCS would converge to one quarter the step height at this point.
+Accounting for this behaviour, Bray \cite{PhysRevLett.89.273201}, was then able
+to demonstrate the validity of the CCC method by reproducing differential cross
+sections for electron-impact hydrogen ionisation which were in agreement with
+experimental results, as well as with the results of another computational
+approach: exterior complex scaling (ECS) \cite{PhysRevA.64.022709}.
+
+The CCC method, having been proven capable of modelling elastic scattering and
+discrete excitations \cite{PhysRevA.46.6995} as well as ionisation processes
+\cite{PhysRevLett.70.746, PhysRevLett.78.4721, PhysRevLett.83.1570} for
+electron scattering on hydrogen, was extended to helium by Fursa and Bray
+\cite{PhysRevA.52.1279, PhysRevLett.76.2674, Fursa_1997}.
+
+It was demonstrated by Fursa and Bray \cite{Fursa_1997} that the CCC method
+yielded accurate cross sections for elastic scattering and discrete excitations
+of the ground state of helium, $2{}^{1}\mathrm{S}_{0}$, with a frozen core model.
+However, it was observed that the cross sections for the metastable state
+$2{}^{3}\mathrm{S}_{1}$ did not produce acceptable agreement with experimental
+values and other computational values found in the literature.
+A later investigation by Bray and Fursa \cite{PhysRevA.63.040702}, incorporating
+the insights gained from the analysis of electron-impact ionisation of hydrogen,
+suggested that the CCC method yielded accurate ionisation amplitudes and
+differential cross sections for electron-impact ionisation of helium without
+excitation.
+Further investigation by Plottke \textit{et al.} \cite{Plottke_2004} into
+electron-impact excitation of helium indicated that the convergence of the
+auto-ionising doubly-excited discrete states was more involved than for the
+singly-excited states.
+However, convergence was demonstrated for these autoionising states.
+
+Notably, the Propagating Exterior Complex Scaling (PECS) method was applied by
+Bartlett and Stelbovics \cite{PhysRevA.81.022715, PhysRevA.81.022716}, in the
+context of the S-wave model, to yield comprehensive total and differential cross
+sections for double ionisation, ionisation with excitation, and double
+excitation for helium.
+Agreement between the PECS and CCC methods was found for the total ionisation
+cross section without excitation, but not with excitation.
+Furthermore, an acceptable level of agreement between the methods was not found
+for the double excitation cross sections.
+
+In summary, the CCC method is demonstrated to suitably model electron-impact
+collisions with helium in the ground state $2{}^{1}\mathrm{S}_{0}$, including
+elastic scattering, single-excitation and single-ionisation scattering
+processes.
+However, further development is required to calculate ionisation-with-excitation
+and double excitation cross sections which are in agreement with PECS
+calculations, and to calculate cross sections which are in agreement with
+experimental values for the metastable state $2{}^{3}\mathrm{S}_{1}$ of helium.
 
 \todo[inline]{Discuss decision to use S-wave model.}
 
