@@ -1,4 +1,4 @@
-# set terminal epslatex input color solid size 6, 4
+set terminal epslatex input color solid size 6, 4
 
 # parameters
 n_plots = 6
@@ -56,7 +56,7 @@ set mxtics 4
 set mytics 2
 set grid xtics ytics mxtics mytics
 
-set key top right box opaque samplen 1 spacing 0.6 width -10.0 height 0.5
+set key top right box opaque samplen 1 spacing 0.6 width -16.0 height 0.5
 key_pecs(ic) = sprintf("\\tiny PECS %isks", ic)
 key_ccc(ic, c, n) = sprintf(\
 "\\tiny $\\mathrm{CCC}\\lr{%i, %i, 0.50}$ %isks", c, n, ic)
@@ -73,8 +73,8 @@ do for [i=1:n_plots] {
   n = arr_n[i]
 
   # # output file
-  # str_fig = sprintf("%i/figure.tex", n)
-  # set output str_fig
+  str_fig = sprintf("%i/figure.tex", n)
+  set output str_fig
 
   # plot
   set title title_plot(n) \
@@ -91,9 +91,8 @@ do for [i=1:n_plots] {
       u 1:(scale*$2) ls 2 t key_scaled(key_ccc(2, c, n), scale)
 
   # # tex file
-  # set output
-  # str_find = sprintf('\includegraphics{%i/figure}', n)
-  # str_repl = sprintf('\includegraphics{figures/cs/%i/figure}', n)
-  # system "sed -i 's|".str_find."|".str_repl."|' ".str_fig
-  pause -1
+  set output
+  str_find = sprintf('\includegraphics{%i/figure}', n)
+  str_repl = sprintf('\includegraphics{figures/cs/%i/figure}', n)
+  system "sed -i 's|".str_find."|".str_repl."|' ".str_fig
 }
