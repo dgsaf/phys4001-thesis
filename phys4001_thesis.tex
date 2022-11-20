@@ -3005,6 +3005,62 @@ calculations.
   TICS-with-excitation calculations.
 }
 
+At this point, we put forward our suspicion regarding the discrepancies observed
+between the CCC and PECS calculations of the total cross section for
+electron-impact ionisation-with-excitation of helium: that they are the result
+of the helium target pseudostates being heavily mixed states, in the CCC
+calculations.
+Specifically, that as the discrete doubly-excited (auto-ionising) helium states
+and the continuum of ionised-without-excitation helium states have overlapping
+energy spectrums, the helium target pseudostates often are constructed as mixed
+combinations of two configurations - one from each spectrum.
+
+Ideally, the target pseudostates would be purely one configuration, if
+sufficiently appropriate one-electron atomic orbitals are selected to construct
+the configurations; that is, they would have a major configuration coefficient
+of $D_{n}^{a_{1}, a_{2}} \approx 1$ for some particular $a_{1}, a_{2}$, and
+would be of the form
+\begin{equation*}
+  \ket*{\Phi_{n}^{\lr{C, N}}}
+  =
+  \sum_{a_{1} = 1}^{2C}
+  \sum_{a_{2} > a_{1}}^{2N}
+  D_{n}^{a_{1}, a_{2}}
+  \ket*{\chi_{\lrsq{a_{1}, a_{2}}}^{\lr{N}}}
+  \approx
+  \ket*{\chi_{\lrsq{a_{1}, a_{2}}}^{\lr{N}}}
+  .
+\end{equation*}
+However, in the case where two pseudostates,
+$\ket*{\Phi_{n}^{\lr{C, N}}}$ and $\ket*{\Phi_{n'}^{\lr{C, N}}}$, each with a
+major configuration, $\ket*{\chi_{\lrsq{a_{1}, a_{2}}}^{\lr{N}}}$ and
+$\ket*{\chi_{\lrsq{a_{1}', a_{2}'}}^{\lr{N}}}$, have converging
+pseudoenergies, they will increasingly tend to being constructed as mixed
+combinations of each configuration, in the form
+\begin{equation*}
+  \begin{pmatrix}
+    \ket*{\Phi_{n}^{\lr{C, N}}}
+    \\
+    \ket*{\Phi_{n'}^{\lr{C, N}}}
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+    D_{n}^{a_{1}, a_{2}}
+    &
+    D_{n}^{a_{1}', a_{2}'}
+    \\
+    D_{n'}^{a_{1}, a_{2}}
+    &
+    D_{n'}^{a_{1}', a_{2}'}
+  \end{pmatrix}
+  \begin{pmatrix}
+    \ket*{\chi_{\lrsq{a_{1}, a_{2}}}^{\lr{N}}}
+    \\
+    \ket*{\chi_{\lrsq{a_{1}', a_{2}'}}^{\lr{N}}}
+  \end{pmatrix}
+  .
+\end{equation*}
+
 \todo[inline]{
   Discuss the susceptibility of TICS-with-excitation to small variations in the
   exponential fall-off parameter used when constructing the one-electron basis
