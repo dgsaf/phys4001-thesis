@@ -2955,7 +2955,7 @@ Both the magnitude, and to an extent - the form, of the cross sections vary
 quite substantially between different values of $N$, dismissing the possibility
 of bringing these cross sections to converge with brute force.
 
-While a few of these cross sections do infact demonstrate a level of agreement
+While a few of these cross sections do in fact demonstrate a level of agreement
 with the PECS calculations, they do not do so in a consistent manner.
 On the other hand, it is somewhat reassuring that the majority of the cross
 sections are within one order-of-magnitude of the PECS calculations, and so
@@ -2999,11 +2999,6 @@ calculations.
 
 \subsection{Mixed Target States}
 \label{sec:re-mixed}
-
-\todo[inline]{
-  Raise the possibility of strongly-mixed target states causing inaccurate
-  TICS-with-excitation calculations.
-}
 
 At this point, we put forward our suspicion regarding the discrepancies observed
 between the CCC and PECS calculations of the total cross section for
@@ -3076,7 +3071,7 @@ combinations of each configuration, in the form
   \end{pmatrix}
   .
 \end{equation*}
-The doubly-excited states of helium do infact have energies which are contained
+The doubly-excited states of helium do in fact have energies which are contained
 within the continuum of energies associated with ionised-without-excitation
 states of helium, and hence it is possible to have distinct target pseudostates
 with near equal pseudoenergies.
@@ -3086,8 +3081,9 @@ orbitals, which are parameterised by the exponential fall-off factor $\lambda$.
 A well-observed effect of this parameter is to continuously adjust the energies
 of the discretised continuum one-electron atomic-orbitals.
 It follows that as the value of $\lambda$ is adjusted, we would expect the
-configurations with continuum orbitals to continuously shift also, while the
-discrete configurations would remain constant.
+pseudoenergies of configurations with continuum orbitals to continuously shift
+also, while the pseudoenergies of discrete configurations would remain constant;
+in a sense, sweeping across the static discrete energy levels.
 Consequently, we should expect various pairs of ionisied-without-excitation and
 doubly-excited target pseudostates to overlap in energy as $\lambda$ is
 adjusted, and thus the mixing of these pairs of pseudostates.
@@ -3096,12 +3092,6 @@ dramatically with continuous changes in $\lambda$, and this is indeed
 demonstrated in \autoref{fig:cs_tics_ie_alpha} with
 $\mathrm{CCC}\lr{2, 35, \lambda}$ calculations presented for
 $\lambda = 0.40, \dotsc, 0.65$.
-
-\todo[inline]{
-  Discuss the susceptibility of TICS-with-excitation to small variations in the
-  exponential fall-off parameter used when constructing the one-electron basis
-  states.
-}
 
 \begin{figure}[h]
   \begin{center}
@@ -3125,11 +3115,29 @@ $\lambda = 0.40, \dotsc, 0.65$.
   the mixing of target states.
 }
 
-Where the pseudoenergies tend to a constant value over a range of $\lambda$
-values, they are approximating the energy levels of discrete helium states.
-On the other hand, where the pseudoenergies tend to vary over a range of
-$\lambda$ values, they correspond to pseudostates which are discretisations of
-the continuum helium states.
+We present the spectrums of helium pseudoenergies, constructed with the
+$\mathrm{CCC}\lr{2, 35, \lambda}$ calculations across the range of
+$\lambda = 0.40, \dotsc, 0.65$, for singlet helium pseudostates
+in \autoref{fig:he_state_singlet} and for triplet helium pseudostates
+in \autoref{fig:he_state_triplet}.
+We also present an alternative view of the spectrum of singlet helium
+pseudoenergies, in \autoref{fig:he_state_singlet_auto_ionising}, to more clearly
+present the pseudoenergies associated with auto-ionising helium states.
+
+The discrete pseudoenergies associated with singly-excited, and doubly-excited
+configurations can be seen, and are distinguished by their tendency to remain
+constant with changes in $\lambda$.
+Furthermore, the continuum pseudoenergies associated with
+ionised-without-excitation and ionised-with-excitation configurations can also
+be seen, being distinguished by their tendency to vary continuously with
+$\lambda$.
+The pseudoenergies associated with 1s configurations are distinguishable from
+those associated with 2s configurations, by their lower energy.
+
+Indeed, the behaviour predicted of the discrete and continuum spectrums of
+pseudoenergies is observed, as is the overlapping nature of the pseudoenergies
+associated with doubly-excited configurations and those associated with
+ionised-without-excitation configurations.
 
 \begin{figure}[h]
   \begin{center}
