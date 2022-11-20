@@ -65,7 +65,7 @@ key_scaled(str, k) = sprintf("%s ($\\times %i$)", str, k)
 title_plot(n) = sprintf("${}^{1}\\mathrm{S}_{0}$ TICS ($N = %i$)", n)
 
 # plot parameter
-scale = 5
+scale = 10
 
 # plots
 do for [i=1:n_plots] {
