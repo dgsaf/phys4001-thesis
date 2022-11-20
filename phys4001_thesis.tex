@@ -2688,7 +2688,7 @@ As a consequence, it is often computationally impractical to perform more than a
 few calculations of the form
 $\lrset{\mathrm{CCC}\lr{C, N, \lambda} : C = 1, 2, \dotsc}$.
 This is balanced by the fact that the TICS for these calculations tended to
-converge sufficiently by $C \approx 6$.
+converge sufficiently by $C = 6$.
 
 With this in mind, we make clear that we will be presenting two sets of CCC
 calculations:
@@ -2711,11 +2711,6 @@ analysis of the helium target pseudostates.
 \subsection{TICS-without-Excitation}
 \label{sec:re-tics-iw}
 
-\todo[inline]{
-  Establish agreement between CCC and PECS calculations for
-  TICS-without-excitation.
-}
-
 We present the $\mathrm{CCC}\lr{C, 35, 0.5}$ calculations of the
 total cross section for electon-impact ionisation-without-excitation of helium
 in \autoref{fig:cs_tics_iw_35}, and again confirm
@@ -2728,10 +2723,10 @@ duplicity.
 A point of interest, however, is that the CCC cross sections consistently
 have a smaller flux across the intermediate energy range than the PECS cross
 sections.
-As will be elaborated on with more evidence further on, this suggests that the
-total ionisation-without-excitation cross section may have an amount of flux
-siphoned away, namely into the total ionisation-with-excitation cross sections,
-in the CCC calculations.
+This suggests that the total ionisation-without-excitation cross section may
+have an amount of flux siphoned away, namely into the total
+ionisation-with-excitation cross sections, in the CCC calculations, as will be
+discussed with more evidence further on.
 
 % \begin{figure}[h]
 %   \begin{center}
@@ -2826,6 +2821,53 @@ in the CCC calculations.
   Discuss how convergence was demonstrated with an increasing number of core
   states, for a fixed number of one-electron basis states.
 }
+
+With the aim of rectifying the CCC calculations by seeking agreement with the
+PECS calculations \cite{PhysRevA.81.022716} for the total cross section for
+electron-impact ionisation-with-excitation of helium, we have restricted our
+consideration to the cross sections which leave the helium ion in a 2s state.
+This is sufficient to examine the effects of auto-ionisation on the
+ionisation-with-excitation cross sections in general.
+
+We present the $\mathrm{CCC}\lr{C, N, 0.5}$ calculations of the total cross
+section for electron-impact ionisation-with-excitation of helium (leaving the
+helium ion in a 2s state), taken for increasing values of the parameter $C$
+until either convergence or computational limits are found, for:
+$N = 20$ in \autoref{fig:cs_tics_ie_n_20},
+$N = 25$ in \autoref{fig:cs_tics_ie_n_25},
+$N = 30$ in \autoref{fig:cs_tics_ie_n_30},
+$N = 35$ in \autoref{fig:cs_tics_ie_n_35},
+$N = 40$ in \autoref{fig:cs_tics_ie_n_40},
+$N = 50$ in \autoref{fig:cs_tics_ie_n_50}.
+
+It can be seen that the cross sections do indeed demonstrate convergence, for
+each value of the parameter $N$, with increasing values of the parameter $C$,
+typically by $C = 6$; that is, that they converge in the sense of
+\begin{equation*}
+  \mathrm{CCC}\lr{N, \lambda}
+  =
+  \lim_{C \to N}
+  \mathrm{CCC}\lr{C, N, \lambda}
+  .
+\end{equation*}
+However, it can also be seen that the successive cross sections do not
+demonstrate convergence with regard to the parameter $N$; that is, in the sense
+of
+\begin{equation*}
+  \mathrm{CCC}\lr{\lambda}
+  =
+  \lim_{N \to \infty}
+  \mathrm{CCC}\lr{N, \lambda}
+  .
+\end{equation*}
+Both the magnitude, and to an extent - the form, of the cross sections vary
+quite substantially between different values of $N$, dismissing the possibility
+of bringing these cross sections to converge with brute force.
+
+While a few of these cross sections do infact demonstrate a level of agreement
+with the PECS calculations, they do not do so in a consistent manner.
+On the other hand, it is somewhat reassuring that the majority of the cross
+sections are within one order-of-magnitude of the PECS calculations.
 
 \begin{figure}[h]
   \begin{center}
