@@ -53,8 +53,9 @@ m = ns
 if (m > 1) {
   do for [i = 1:m] {
     set linetype i \
-    lc palette frac ((i - 1.0) / (m - 1.0)) \
-    ps 0.5
+      lc palette frac ((i - 1.0) / (m - 1.0)) \
+      ps 0.5 \
+      lw 2
   }
 } else {
   set linetype 1 lc palette frac 0.0 ps 0.5
@@ -90,8 +91,10 @@ set view 90, 0
 
 # style: title, key
 key_state(k) = sprintf("\\tiny %i", k)
-title_state(k) = \
-  sprintf("${}^{1}S_{0} \\to \\ket*{\\Phi_{%i}^{\\lr{%i, %i}}}$", k, c, n)
+title_state(k) = sprintf("$n = %i$", k)
+title_plot = sprintf("\
+$\\lrset{{}^{1}\\mathrm{S}_{0} \\to \\ket*{\\Phi_{n}^{\\lr{%i, %i}}}}$ \
+Partial Cross Sections (Orthographic View)", c, n)
 
 do for [k = 2:ns-1] {
   print k, ks[k]
@@ -103,7 +106,7 @@ do for [k = 2:ns-1] {
   set output str_tex
 
   set multiplot \
-    title "${}^{1}S_{0}$ Partial Cross Sections (Orthographic View)" \
+    title title_plot \
     layout 3,1 rowsfirst \
     margins 0.2, 0.8, 0.1, 0.9 \
     spacing 0, 0.075
