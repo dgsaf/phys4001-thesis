@@ -2558,16 +2558,16 @@ coefficient.
   an accurate, convergent TICS.
 }
 
-With the aim of calculating convergent TIECS for helium using the CCC method,
-we first establish how convergence is to be obtained.
+With the aim of calculating convergent TICS for helium using the CCC method,
+we first establish how convergence is to be achieved.
 The parameters which most uniquely define our CCC calculations are:
 \begin{itemize}
 \item[$N$]
-  the number of one-electron basis states used in the construction of the
-  target pseudostates; equivalently, the number of Laguerre basis states
+  the number of one-electron atomic orbitals used in the construction of the
+  target pseudostates; equivalently, the number of Laguerre basis states,
 \item[$C$]
   the number of core states; that is, the number of one-electron atomic orbitals
-  that may be used for the core orbitals in the Slater determinants used to
+  that may be used for the core orbitals of the configurations used to
   construct the target pseudostates,
 \item[$\lambda$]
   the exponential fall-off parameter of the Laguerre basis.
@@ -2580,22 +2580,21 @@ values for these parameters by $\mathrm{CCC}\lr{C, N, \lambda}$.
   number of core states for a fixed number of one-electron basis states).
 }
 
-With regard to the issue of finding convergence in a multi-parameter setting, we
-observed that, for fixed values of $N$ and $\lambda$, the calculations
-$\mathrm{CCC}\lr{C, N, \lambda}$ converged with regard to $C = 1, 2, \dotsc, N$.
-We see justification for this with the fact that the parameters $N$ and
-$\lambda$ define the one-electron atomic orbitals, with the nature of these
-orbitals being independent of the parameter $C$.
-These one-electron atomic orbitals are then used in anti-symmetrised
-combinations to construct the Slater determinants and thus the target
-pseudostates, with the number of pseudostates depending on $C$.
-Qualitively, the parameters $N$ and $\lambda$ define the overall scope of the
-space of target states, while the parameter $C$ tends to fill in the finer
-details.
-
-Hence, we sought to first obtain, for fixed values of the parameters $N$ and
-$\lambda$, calculations which had converged with regard to the parameter $C$, in
-the sense of
+We recall that the parameter $C \in \lrset{1, \dotsc, N}$ essentially acts to
+restrict the number of configurations available for the representation of target
+pseudostates as linear combinations of configurations.
+We also recall that the parameter $C$ acts only on the core orbitals, while the
+valence orbitals retain the use of all available one-electron atomic orbitals.
+The projectile electron will interact with both the core and valence electrons
+in the helium target during the scattering process, but we expect the valence
+electron to play a more significant role in these interactions.
+As a result, we expect that doubly-excited configurations with higher
+excitations of the core orbital will have diminishing influence in the
+scattering processes.
+Furthermore, we expect the accuracy of the calculations to increase
+diminishingly as the parameter $C$ increases.
+Hence, for fixed values of the parameters $N$ and $\lambda$, we expect that the
+calculations will converge with regard to parameter $C$, in the sense of
 \begin{equation*}
   \mathrm{CCC}\lr{N, \lambda}
   =
@@ -2606,7 +2605,7 @@ the sense of
 We then sought to obtain convergence with regard to parameter $N$, with the role
 of the parameter $\lambda$ initially assumed to be supplemental.
 However, as discussed further in \autoref{sec:re-mixed}, the effect of these
-parameters on the TIECS calculations proved to be more nuanced.
+parameters on the TICS calculations proved to be more nuanced.
 
 \todo[inline]{
   Discuss increase in computational cost with increasing number of core states.
@@ -2618,7 +2617,7 @@ $\mathcal{O}\lr{N_{T}} = C N$, with the parameter $C \in \lrset{1, \dotsc, N}$.
 As a consequence, it is often computationally impractical to perform more than a
 few calculations of the form
 $\lrset{\mathrm{CCC}\lr{C, N, \lambda} : C = 1, 2, \dotsc}$.
-This is balanced by the fact that the TIECS for these calculations tended to
+This is balanced by the fact that the TICS for these calculations tended to
 converge sufficiently by $C \approx 6$.
 
 \clearpage
